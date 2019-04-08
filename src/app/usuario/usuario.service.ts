@@ -5,8 +5,8 @@ import { UsuarioDetail } from './usuario-detail';
 
 import { Usuario } from './usuario';
 
-const API_URL = "http://73845af0.ngrok.io/s4_carpooling-api/api/";
-const usuarios = 'usuarios';
+const API_URL = "../../assets/";
+const usuarios = 'usuarios.json';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +41,7 @@ export class UsuarioService {
     * Returns the Observable object with the details of an user retrieved from the API
     * @returns The user details
     */
-    getUserDetail(username): Observable<UsuarioDetail> {
+    getUsuarioDetail(username): Observable<UsuarioDetail> {
         return this.http.get<UsuarioDetail>(API_URL + usuarios + '/' + username);
     }
 
@@ -51,7 +51,7 @@ export class UsuarioService {
         * @param user The updated user
         * @returns The updated user
         */
-    updateUser(usuario): Observable<UsuarioDetail> {
+    updateUsuario(usuario): Observable<UsuarioDetail> {
         return this.http.put<UsuarioDetail>(API_URL + usuarios + '/' + usuario.username, usuario);
     }
     
@@ -60,7 +60,7 @@ export class UsuarioService {
     * @param username The users's username
     * @returns True if the user was deleted, false otherwise
     */
-    deleteBook(username): Observable<UsuarioDetail> {
+    deleteUsuario(username): Observable<UsuarioDetail> {
         return this.http.delete<UsuarioDetail>(API_URL + usuarios + '/' + username);
     }
 
