@@ -1,0 +1,21 @@
+[{
+	"apellido":"Gomez",
+	"nombre":"Felipe",
+	"documento":210202,
+	"celular":265033632542,
+	"username":"f.gomez1",
+	"password":"isa",
+	"correo":"im.sarmiento@uniandes.ede.uco",	
+	"id":51
+},
+{
+	"apellido":"Sarmiento",
+	"nombre":"Isabela",
+	"documento":10120,
+	"celular":6288392,
+	"username":"isamasar",
+	"password":"isa2",
+	"correo":"isamasaro@uniandes.edu.co",	
+	"id":51}
+]
+
