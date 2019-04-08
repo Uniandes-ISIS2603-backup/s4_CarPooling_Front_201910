@@ -1,0 +1,23 @@
+<div class="container-fluid">
+	<div class="col">
+		<table class="table table-striped">
+			<thead class="table-info">
+				<tr>
+					<th>Id</th>
+          <th>Name</th>
+				</tr>
+			</thead>
+			<tbody>
+      <tr *ngFor = "let a of alquiler">
+					<td style="cursor: pointer;">
+						<a class="figure-caption">{{cliente.id}}</a>
+					</td>
+          <td>	<a class="figure-caption">{{cliente.nombre}}</a>
+          </td>
+        
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</div>

@@ -8,7 +8,7 @@ import { Usuario } from '../usuario';
 })
 export class UsuarioCreateComponent implements OnInit {
 
-  usuario = new Usuario(1,'','', 1, 1,'','','');;
+  usuario = new Usuario();
 
   constructor() { }
 
@@ -17,7 +17,7 @@ export class UsuarioCreateComponent implements OnInit {
 
   createUsuario(){
     this.usuario.id = Math.floor(Math.random() * 100) + 1;
-    console.log(this.cliente);
+    console.log(this.usuario);
   }
 
 }

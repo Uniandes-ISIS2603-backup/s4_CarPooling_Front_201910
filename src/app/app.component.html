@@ -1,7 +1,7 @@
-<app-usuario-create></app-usuario-create>
+<!-- Banner -->
 <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand"  routerLink="">
             <div class="form-inline">
                 <h2 class="mainTitle">s4_carpooling-Front</h2>
             </div>
@@ -12,12 +12,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="navbar-nav mr-auto mt-0">
-                
+<!-- Login y SignUp -->                
             </div>
             <div class="navbar-nav ml-auto flex-column">
                 <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
                     <div class="form-inline">
-                        <li class="right-space"><a id="signup-navbar-item" routerLink="/auth/sign-up"><span class="fa fa-user"></span>
+                        <li class="right-space"><a id="signup-navbar-item" routerLink="/usuario/create"><span class="fa fa-user"></span>
                                 Sign Up</a></li>
                         <li><a id="login-navbar-item" routerLink="/auth/login"><span class="fa fa-sign-in"></span>Login</a></li>
                     </div>
@@ -30,17 +30,26 @@
             </div>
         </div>
     </nav>
-
+<!-- Botones a los componentes -->
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link active" routerLink="/trayecto" routerLinkActive="active">Trayecto</a>
+            <a class="nav-link active" routerLink="/usuario/detail" routerLinkActive="active">Usuario</a>
+            <!-- Usar como pruebas, eliminar al terminar -->
+            <a class="nav-link active" routerLink="/alquiler" routerLinkActive="active">Prueba</a>
+        </li>
+    </ul>
     <div>
         <router-outlet></router-outlet>
         <br>
         <br>
     </div>
+<!-- Pie de pagina -->
     <footer class="footer bg-light" id="footer">
         <div class="container">
             <p class="navbar-text text-center">
-                <img src="../assets/uniandes.png" alt="logo" width="8%" /><span id="footer-text"></span>
-                <a routerLink="/home"> s4_carpooling-Front</a>
+                <img src="../assets/uniandes.png" alt="logo" width="4%" /><span id="footer-text"></span>
+                <a routerLink=""> s4_carpooling-Front</a>
             </p>
         </div>
     </footer>

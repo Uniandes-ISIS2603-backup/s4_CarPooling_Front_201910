@@ -14,6 +14,9 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
 import {UsuarioModule} from './usuario/usuario.module';
+import { AlquilerModule } from './alquiler/alquiler.module';
+
+
 
 @NgModule({
     declarations: [
@@ -26,7 +29,7 @@ import {UsuarioModule} from './usuario/usuario.module';
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,
-        FormsModule,
+        FormsModule, 
         ToastrModule.forRoot({
             timeOut: 10000,
             positionClass: 'toast-bottom-right',
@@ -38,7 +41,8 @@ import {UsuarioModule} from './usuario/usuario.module';
         /**
         * A partir de ahora, los imports de la clase
         */
-        UsuarioModule
+        UsuarioModule,
+        AlquilerModule
     ],
     bootstrap: [AppComponent],
     providers: [
