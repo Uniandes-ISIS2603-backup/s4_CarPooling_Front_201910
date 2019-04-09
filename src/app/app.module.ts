@@ -15,8 +15,8 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
 import {UsuarioModule} from './usuario/usuario.module';
 import { AlquilerModule } from './alquiler/alquiler.module';
-
-
+import{HomeModule} from './home/home.module';
+import {AdminModule} from './admin/admin.module';
 
 @NgModule({
     declarations: [
@@ -42,7 +42,9 @@ import { AlquilerModule } from './alquiler/alquiler.module';
         * A partir de ahora, los imports de la clase
         */
         UsuarioModule,
-        AlquilerModule
+        AlquilerModule,
+        HomeModule,
+        AdminModule
     ],
     bootstrap: [AppComponent],
     providers: [

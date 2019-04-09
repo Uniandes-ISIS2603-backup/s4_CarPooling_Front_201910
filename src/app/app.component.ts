@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
     ngOnInit(): void {
         this.title = "s4_carpooling-Front";
         this.authService.start();
+        
     }
 
        /**

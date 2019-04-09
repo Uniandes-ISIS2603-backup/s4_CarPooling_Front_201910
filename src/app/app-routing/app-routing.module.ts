@@ -8,7 +8,8 @@ import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component
 import {UsuarioCreateComponent} from '../usuario/usuario-create/usuario-create.component'
 import { UsuarioDetailComponent } from '../usuario/usuario-detail/usuario-detail.component';
 import { ListarAlquilerComponent } from '../alquiler/listar-alquiler/listar-alquiler.component';
-
+import { HomeComponent} from '../home/home/home.component';
+import { AdminComponent } from '../admin/admin.component';
 const routes: Routes = [
 
      {
@@ -50,9 +51,12 @@ const routes: Routes = [
         {path: 'alquiler',
         component: ListarAlquilerComponent},
     {
-        path: '**',
-        redirectTo: 'home',
-        pathMatch: 'full'
+        path: 'home',
+        component: HomeComponent
+    },
+    {
+        path: 'admin',
+        component: AdminComponent
     }
 ];
 

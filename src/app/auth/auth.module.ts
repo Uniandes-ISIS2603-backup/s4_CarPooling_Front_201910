@@ -19,6 +19,7 @@ import { AuthSignUpComponent } from './auth-sign-up/auth-sign-up.component';
         NgbModule
     ],
     declarations: [AuthLoginComponent, AuthSignUpComponent],
+    exports:[AuthLoginComponent,AuthSignUpComponent],
     providers: [AuthService],
     bootstrap: [AuthLoginComponent]
 })
