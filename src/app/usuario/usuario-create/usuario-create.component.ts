@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../usuario';
 import {ToastrService} from 'ngx-toastr';
-
+import {UsuarioService} from '../usuario.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-usuario-create',
@@ -13,7 +14,7 @@ export class UsuarioCreateComponent implements OnInit {
   /**
   * Base user for the creation of new users
   */
-  usuario = new Usuario();;
+  usuario = new Usuario();
   
     /**
     * Constructor for the component
@@ -21,6 +22,8 @@ export class UsuarioCreateComponent implements OnInit {
     */
   constructor(
     private toastrService: ToastrService,
+    private usuarioService: UsuarioService,
+    private router: Router
 
     ) { }
 
@@ -37,7 +40,13 @@ export class UsuarioCreateComponent implements OnInit {
 
   createUsuario(){
     this.usuario.id = Math.floor(Math.random() * 100) + 1;
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.usuario))
+    this.usuarioService.createUsuario(this.usuario)
+            .subscribe(usuario => {
+                this.usuario = usuario;
+                this.toastrService.success("El usuario fue creado con éxito", "Usuario Creado");
+
+            });
+        return this.usuario;
   }
   
   get currentUser() { return JSON.stringify(this.usuario); }

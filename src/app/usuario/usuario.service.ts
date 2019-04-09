@@ -5,8 +5,8 @@ import { UsuarioDetail } from './usuario-detail';
 
 import { Usuario } from './usuario';
 
-const API_URL = "../../assets/";
-const usuarios = 'usuarios.json';
+const API_URL = "http://e04f10ed.ngrok.io/s4_carpooling-api/api/";
+const usuarios = 'usuarios';
 
 @Injectable({
   providedIn: 'root'
