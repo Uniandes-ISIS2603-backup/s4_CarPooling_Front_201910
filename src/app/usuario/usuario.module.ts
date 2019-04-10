@@ -5,13 +5,16 @@ import { UsuarioCreateComponent } from './usuario-create/usuario-create.componen
 import { FormsModule } from '@angular/forms';
 import { UsuarioListaComponent } from './usuario-lista/usuario-lista.component';
 import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
+import { MenuComponent } from './menu/menu.component';
+import { AppRoutingModule } from '../app-routing/app-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
-  declarations: [UsuarioDetailComponent, UsuarioCreateComponent, UsuarioListaComponent, UsuarioEditComponent],
-  exports: [UsuarioDetailComponent, UsuarioCreateComponent,UsuarioListaComponent, UsuarioEditComponent ]
+  declarations: [UsuarioDetailComponent, UsuarioCreateComponent, UsuarioListaComponent, UsuarioEditComponent, MenuComponent],
+  exports: [UsuarioDetailComponent, UsuarioCreateComponent,UsuarioListaComponent, UsuarioEditComponent, MenuComponent ]
 })
 export class UsuarioModule { }

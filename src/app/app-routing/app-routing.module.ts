@@ -5,9 +5,12 @@ import {NgxPermissionsGuard} from 'ngx-permissions';
 
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
-import {UsuarioCreateComponent} from '../usuario/usuario-create/usuario-create.component'
+import { UsuarioCreateComponent} from '../usuario/usuario-create/usuario-create.component'
 import { UsuarioDetailComponent } from '../usuario/usuario-detail/usuario-detail.component';
+import { UsuarioEditComponent} from '../usuario/usuario-edit/usuario-edit.component'
+import { UsuarioListaComponent} from '../usuario/usuario-lista/usuario-lista.component'
 import { ListarAlquilerComponent } from '../alquiler/listar-alquiler/listar-alquiler.component';
+import { MenuComponent} from '../usuario/menu/menu.component';
 import { HomeComponent} from '../home/home/home.component';
 import { AdminComponent } from '../admin/admin.component';
 const routes: Routes = [
@@ -45,7 +48,15 @@ const routes: Routes = [
             {path: 'create',
             component:  UsuarioCreateComponent},
             {path: 'detail',
-            component:  UsuarioDetailComponent}
+            component:  UsuarioDetailComponent},
+            {path: 'menu',
+            component:  MenuComponent},
+            {path: 'edit',
+            component:  UsuarioEditComponent},
+            {
+                path: 'lista',
+                component:  UsuarioListaComponent            }
+        
         ]
     },
         {path: 'alquiler',

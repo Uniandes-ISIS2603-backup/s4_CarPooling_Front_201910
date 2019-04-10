@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {ToastrService} from 'ngx-toastr';
+import {UsuarioService} from '../usuario.service';
+import { UsuarioDetail } from '../usuario-detail';
+
 
 @Component({
   selector: 'app-usuario-edit',
@@ -7,7 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuarioEditComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+
+        private usuarioService: UsuarioService,
+        private toastrService: ToastrService,
+
+
+  	) { }
+
+  usuario : UsuarioDetail;
+
+  updateUsuario(){
+  this.usuarioService.updateUsuario(this.usuario)
+            .subscribe(() => {
+                this.toastrService.success("Se editó el usuario", 'Edición usuario');
+            });
+  }
 
   ngOnInit() {
   }
