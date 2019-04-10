@@ -13,6 +13,7 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
+import {PagoModule} from './pago/pago.module';
 import {UsuarioModule} from './usuario/usuario.module';
 import { AlquilerModule } from './alquiler/alquiler.module';
 import{HomeModule} from './home/home.module';
@@ -41,6 +42,7 @@ import {AdminModule} from './admin/admin.module';
         /**
         * A partir de ahora, los imports de la clase
         */
+        PagoModule,
         UsuarioModule,
         AlquilerModule,
         HomeModule,
