@@ -17,10 +17,16 @@ import {UsuarioModule} from './usuario/usuario.module';
 import { AlquilerModule } from './alquiler/alquiler.module';
 import{HomeModule} from './home/home.module';
 import {AdminModule} from './admin/admin.module';
+import { TrayectosComponent } from './trayectos/trayectos.component';
+import { ListarTrayectoComponent } from './trayecto/listar-trayecto/listar-trayecto.component';
+import { CrearClienteComponent } from './trayecto/crear-cliente/crear-cliente.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        TrayectosComponent,
+        ListarTrayectoComponent,
+        CrearClienteComponent
     ],
     imports: [
         BrowserModule,
