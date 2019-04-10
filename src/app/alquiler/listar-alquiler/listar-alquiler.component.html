@@ -1,23 +1,36 @@
-<div class="container-fluid">
-	<div class="col">
-		<table class="table table-striped">
-			<thead class="table-info">
-				<tr>
-					<th>Id</th>
-          <th>Name</th>
-				</tr>
-			</thead>
-			<tbody>
-      <tr *ngFor = "let a of alquiler">
-					<td style="cursor: pointer;">
-						<a class="figure-caption">{{cliente.id}}</a>
-					</td>
-          <td>	<a class="figure-caption">{{cliente.nombre}}</a>
-          </td>
-        
-				</tr>
-			</tbody>
-		</table>
-	</div>
-
+<div class="text-right">
+	<button type="button" class="btn btn-primary" routerLink="/home">Volver</button>
 </div>
+<table class="table">
+<thead class="table-info">
+	<tr>
+		<th scope="col">#</th>
+		<th scope="col">Nombre</th>
+		<th scope="col">Arrendatario</th>
+		<th scope="col">Dueño</th>
+		<th scope="col">Seguro</th>
+	</tr>
+</thead>
+<tbody>
+	<tr *ngFor="let i of alquiler">
+	<td >		
+		{{i.id}}
+	</td>
+	<td >
+		{{i.nombre}}
+	</td>
+	<td style="cursor: pointer">
+		<a class="figure-caption" [routerLink] ="['/usuario', { outlets: { 'detail': [i.arrendatario.id] } }]" >{{i.arrendatario.nombre}}</a>
+	</td>
+	<td style="cursor: pointer">
+		<a class="figure-caption" [routerLink] ="['/usuario', { outlets: { 'detail': [i.duenio.id] } }]" >{{i.duenio.nombre}}</a>
+	</td>
+	<td style="cursor: pointer">
+		<a class="figure-caption" [routerLink] ="['/seguro', { outlets: { 'detail': [i.seguro.id] } }]" >{{i.seguro.nombre}}</a>
+	</td>
+</tr>
+
+</tbody>
+</table>
+<div class="text-right">
+	<button type="button" class="btn btn-primary" routerLink="/home">Volver</button>

@@ -11,7 +11,7 @@ export class ListarAlquilerComponent implements OnInit {
 
   constructor(private service:AlquilerServiceService) { }
   getAlquiler():void{
-      this.service.getAlquiler().subscribe
+      this.service.getalquiler().subscribe
       (a => this.alquiler = a);
   }
   ngOnInit() {

@@ -9,7 +9,6 @@ import { UsuarioCreateComponent} from '../usuario/usuario-create/usuario-create.
 import { UsuarioDetailComponent } from '../usuario/usuario-detail/usuario-detail.component';
 import { UsuarioEditComponent} from '../usuario/usuario-edit/usuario-edit.component'
 import { UsuarioListaComponent} from '../usuario/usuario-lista/usuario-lista.component'
-import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import { PagoCreateComponent} from '../pago/pago-create/pago-create.component'
 import { InfoComponent } from '../pago/info/info.component';
 import { PagoEditComponent} from '../pago/pago-edit/pago-edit.component'
@@ -18,6 +17,7 @@ import { ListarAlquilerComponent } from '../alquiler/listar-alquiler/listar-alqu
 import { MenuComponent} from '../usuario/menu/menu.component';
 import { HomeComponent} from '../home/home/home.component';
 import { AdminComponent } from '../admin/admin.component';
+import { LoginComponent } from '../home/login/login.component';
 const routes: Routes = [
 
      {
@@ -81,6 +81,9 @@ const routes: Routes = [
     },
         {path: 'alquiler',
         component: ListarAlquilerComponent},
+        
+        {path: 'login',
+        component: LoginComponent},
     {
         path: 'home',
         component: HomeComponent
