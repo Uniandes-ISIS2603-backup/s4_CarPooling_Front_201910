@@ -19,7 +19,7 @@ export class PagoEditComponent implements OnInit {
 
   	) { }
 
-  pago : PagoDetail;
+  pago : Info;
 
   updatePago(){
   this.pagoService.updatePago(this.pago)

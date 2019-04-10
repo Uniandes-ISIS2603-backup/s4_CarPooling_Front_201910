@@ -52,7 +52,7 @@ export class PagoService {
         * @returns The updated payment
         */
     updatePago(pago): Observable<Info> {
-        return this.http.put<Info>(API_URL + pagos + '/' + usuario.id, pago);
+        return this.http.put<Info>(API_URL + pagos + '/' + pago.id, pago);
     }
     
     /**

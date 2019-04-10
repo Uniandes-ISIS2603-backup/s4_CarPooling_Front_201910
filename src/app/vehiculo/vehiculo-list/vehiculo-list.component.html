@@ -1,0 +1,36 @@
+<div class="text-right">
+	<button type="button" class="btn btn-primary" routerLink="/home">Volver</button>
+</div>
+<table class="table">
+<thead class="table-info">
+	<tr>
+		<th scope="col">#</th>
+		<th scope="col">Modelo</th>
+		<th scope="col">Color</th>
+		<th scope="col">Placa</th>
+		<th scope="col">Alquilado</th>
+	</tr>
+</thead>
+<tbody>
+	<tr *ngFor="let i of vehiculo">
+	<td >		
+		{{i.id}}
+	</td>
+	<td >
+		{{i.modelo}}
+	</td>
+	<td style="cursor: pointer">
+		<a class="figure-caption" [routerLink] ="['/vehiculo', { outlets: { 'detail': [i.color] } }]" >{{i.color}}</a>
+	</td>
+	<td style="cursor: pointer">
+		<a class="figure-caption" [routerLink] ="['/vehiculo', { outlets: { 'detail': [i.placa] } }]" >{{i.placa}}</a>
+	</td>
+	<td style="cursor: pointer">
+		<a class="figure-caption" [routerLink] ="['/vehiculo', { outlets: { 'detail': [i.alquilado] } }]" >{{i.alquilado}}</a>
+	</td>
+</tr>
+
+</tbody>
+</table>
+<div class="text-right">
+	<button type="button" class="btn btn-primary" routerLink="/home">Volver</button>
