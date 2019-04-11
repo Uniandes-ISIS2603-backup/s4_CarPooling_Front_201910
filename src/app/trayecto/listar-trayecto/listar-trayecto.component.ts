@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TrayectoService } from '../trayecto.service';
+import { Router } from '@angular/router';
+import {Trayecto} from '../trayecto';
 
 @Component({
   selector: 'app-listar-trayecto',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarTrayectoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private trayectoService: TrayectoService, private router: Router) { }
+
+  trayectos: Trayecto[];
+
+
+  getUsuarios(): void {
+        this.trayectoService.getTrayectos().subscribe(trayectos => this.trayectos = trayectos);
+    }
+
+
 
   ngOnInit() {
+  	this.getUsuarios();
   }
 
 }

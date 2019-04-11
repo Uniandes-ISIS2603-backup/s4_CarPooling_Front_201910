@@ -21,13 +21,17 @@ import {AdminModule} from './admin/admin.module';
 import { TrayectosComponent } from './trayectos/trayectos.component';
 import { ListarTrayectoComponent } from './trayecto/listar-trayecto/listar-trayecto.component';
 import { CrearClienteComponent } from './trayecto/crear-cliente/crear-cliente.component';
+import { TrayectoDetailComponent } from './trayecto/trayecto-detail/trayecto-detail.component';
+import { TrayectoCrearComponent } from './trayecto/trayecto-crear/trayecto-crear.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         TrayectosComponent,
         ListarTrayectoComponent,
-        CrearClienteComponent
+        CrearClienteComponent,
+        TrayectoDetailComponent,
+        TrayectoCrearComponent
     ],
     imports: [
         BrowserModule,

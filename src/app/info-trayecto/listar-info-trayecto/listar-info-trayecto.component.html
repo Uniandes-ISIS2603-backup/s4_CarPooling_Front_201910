@@ -1,0 +1,39 @@
+</div>
+<table class="table">
+  <thead class="table-info">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Costo</th>
+      <th scope="col">Duracion</th>
+      <th scope="col">Cupos</th>
+      <th scope="col">Hora Inicial</th>
+      <th scope="col">Hora Final</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of infos">
+		<td >
+			{{i.idDetalle}}
+		</td>
+		<td >
+			{{i.costo}}
+		</td>
+		<td >
+			{{i.duracion}}
+		</td>
+		<td >
+			{{i.cupos}}
+		</td>
+		<td >
+			{{i.horaInicial}}
+		</td>
+		<td >
+			{{i.horaFinal}}
+		</td>
+	</tr>
+
+  </tbody>
+</table>
+<div class="text-right">
+  	<button type="button" class="btn btn-primary" routerLink="/admin">Volver</button>
+</div>

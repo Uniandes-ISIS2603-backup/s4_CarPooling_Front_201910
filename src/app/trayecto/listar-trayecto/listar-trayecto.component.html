@@ -1,3 +1,33 @@
-<p>
+<table class="table">
+  <thead class="table-info">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">FechaInicio</th>
+      <th scope="col">FechaFin</th>
+      <th scope="col">Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of trayectos">
+		<td >
+			{{i.id}}
+		</td>
+		<td >
+			{{i.fechaInicio}}
+		</td>
+		<td >
+			{{i.fechaFinal}}
+		</td>
+		<td >
+			{{i.estado}}
+		</td>
+
+	</tr>
+
+  </tbody>
+</table>
+<div class="text-right">
+  	<button type="button" class="btn btn-primary" routerLink="/admin">Volver</button>
+</div><p>
   listar-trayecto works!
 </p>
