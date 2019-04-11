@@ -14,23 +14,16 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
 import {PagoModule} from './pago/pago.module';
 import {UsuarioModule} from './usuario/usuario.module';
+import {TrayectoModule} from './trayecto/trayecto.module';
+import {InfoTrayectoModule} from './info-trayecto/info-trayecto.module';
 import { AlquilerModule } from './alquiler/alquiler.module';
 import{HomeModule} from './home/home.module';
 import {AdminModule} from './admin/admin.module';
-import { TrayectosComponent } from './trayecto/trayectos/trayectos.component';
-import { ListarTrayectoComponent } from './trayecto/listar-trayecto/listar-trayecto.component';
-import { TrayectoDetailComponent } from './trayecto/trayecto-detail/trayecto-detail.component';
-import { TrayectoCrearComponent } from './trayecto/trayecto-crear/trayecto-crear.component';
-import { TrayectoEditComponent } from './trayecto/trayecto-edit/trayecto-edit.component';
+
 
 @NgModule({
     declarations: [
         AppComponent,
-        TrayectosComponent,
-        ListarTrayectoComponent,
-        TrayectoDetailComponent,
-        TrayectoCrearComponent,
-        TrayectoEditComponent
     ],
     imports: [
         BrowserModule,
@@ -55,7 +48,9 @@ import { TrayectoEditComponent } from './trayecto/trayecto-edit/trayecto-edit.co
         UsuarioModule,
         AlquilerModule,
         HomeModule,
-        AdminModule
+        AdminModule,
+        TrayectoModule,
+        InfoTrayectoModule
     ],
     bootstrap: [AppComponent],
     providers: [
