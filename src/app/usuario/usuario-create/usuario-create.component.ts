@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../usuario';
+import { UsuarioDetail } from '../usuario-detail';
+
 import {ToastrService} from 'ngx-toastr';
 import {UsuarioService} from '../usuario.service';
 import {Router} from '@angular/router';
@@ -39,7 +41,6 @@ export class UsuarioCreateComponent implements OnInit {
   }
 
   createUsuario(){
-    this.usuario.id = Math.floor(Math.random() * 100) + 1;
     this.usuarioService.createUsuario(this.usuario)
             .subscribe(usuario => {
                 this.usuario = usuario;
@@ -47,6 +48,10 @@ export class UsuarioCreateComponent implements OnInit {
 
             });
         return this.usuario;
+  }
+
+  darUsuarioActual(): UsuarioDetail {
+    return this.usuario;
   }
   
   get currentUser() { return JSON.stringify(this.usuario); }

@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <br>
+            <h2 class="text-center">Bienvenido a Cargo</h2>
+            <br>
+            <form name="pago" (ngSubmit)="f.form.valid && createPago()" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <label for="id"><b>Id</b></label>
+                    <input type="text" name="id" class="form-control" id="id" [(ngModel)]="pago.id"
+                        #id="ngModel" [ngClass]="{ 'is-invalid': f.submitted && id.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Falta el id</div>
+                    </div>
+                </div> 
+                <div class="form-group">
+                    <label for="valor"><b>Valor</b></label>
+                    <input type="text" name="valor" class="form-control" id="valor" [(ngModel)]="pago.valor"
+                        #valor="ngModel" [ngClass]="{ 'is-invalid': f.submitted && valor.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Falta el valor</div>
+                    </div>
+                </div>
+                <br>
+                <div class="row form-inline justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-primary" routerLink="home" >Create</button>
+                    <div class="divider"></div>
+                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+                </div>
+            </form>
+            <br>
+        </div>
+    </div>
+</div>

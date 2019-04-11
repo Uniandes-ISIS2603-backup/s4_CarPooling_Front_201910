@@ -1,19 +1,45 @@
-<div class="container-fluid">
-	<div class="col">
-		<table class="table table-striped">
-			<thead class="thead-dark">
-				<tr>
-					<th>User Name</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let i of usuarios">
-					<td >
-						{{i.nombre}}
-					</td>
+<div class="text-right">
+  	<button type="button" class="btn btn-primary" routerLink="/admin">Volver</button>
+</div>
+<table class="table">
+  <thead class="table-info">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Docuemnto</th>
+      <th scope="col">Celular</th>
+      <th scope="col">Username</th>
+      <th scope="col">Correo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of usuarios">
+		<td >
+			{{i.id}}
+		</td>
+		<td >
+			{{i.nombre}}
+		</td>
+		<td >
+			{{i.apellido}}
+		</td>
+		<td >
+			{{i.documento}}
+		</td>
+		<td >
+			{{i.celular}}
+		</td>
+		<td >
+			{{i.username}}
+		</td>
+		<td >
+			{{i.correo}}
+		</td>
+	</tr>
 
-				</tr>
-			</tbody>
-		</table>
-	</div>
+  </tbody>
+</table>
+<div class="text-right">
+  	<button type="button" class="btn btn-primary" routerLink="/admin">Volver</button>
 </div>

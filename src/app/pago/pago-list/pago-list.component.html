@@ -1,0 +1,25 @@
+<div class="text-right">
+  	<button type="button" class="btn btn-primary" routerLink="/admin">Volver</button>
+</div>
+<table class="table">
+  <thead class="table-info">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of pagos">
+		<td >
+			{{i.id}}
+		</td>
+		<td >
+			{{i.valor}}
+    </td>
+	</tr>
+
+  </tbody>
+</table>
+<div class="text-right">
+  	<button type="button" class="btn btn-primary" routerLink="/admin">Volver</button>
+</div>
