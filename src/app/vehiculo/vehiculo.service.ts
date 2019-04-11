@@ -23,7 +23,7 @@ export class VehiculoService {
      * Returns the Observable object containing the list of vehicles retrieved from the API
      * @returns The vehicle
      */
-    getaVehiculo() : Observable<Vehiculo[]> {
+    getVehiculo() : Observable<Vehiculo[]> {
          return this.http.get<Vehiculo[]>(API_URL + vehiculo);
      }
  
@@ -57,10 +57,10 @@ export class VehiculoService {
      
      /**
      * Deletes a vehicle
-     * @param id The vehicle's username
+     * @param id The vehicle's id
      * @returns True if the vehicle was deleted, false otherwise
      */
-     deleteVehiculo(username): Observable<Vehiculo> {
+     deleteVehiculo(id): Observable<Vehiculo> {
          return this.http.delete<Vehiculo>(API_URL + vehiculo + '/' + id);
      }
 }

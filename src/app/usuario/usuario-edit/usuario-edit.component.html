@@ -1,56 +1,77 @@
-
  <h2 class="title">Editar perfil</h2>
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" (ngSubmit)="f.form.valid && updateUsuario()" #f="ngForm" novalidate>
                         <fieldset class="fieldset">
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Nombre</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="uahdj">
+                                    <input type="text" class="form-control" value={{usuario.nombre}} id="nombre" [(ngModel)]="usuario.nombre" [ngModelOptions]="{standalone: true}" #nombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombre.invalid }" required>
+                                    <div class="invalid-feedback">
+                                        <div>Falta el nombre</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Apellido</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="Sarmiento">
+                                    <input type="text" class="form-control" value={{usuario.apellido}} id="apellido" [(ngModel)]="usuario.apellido" [ngModelOptions]="{standalone: true}" #apellido="ngModel" [ngClass]="{ 'is-invalid': f.submitted && apellido.invalid }"  value="Sarmiento" required>
+                                        <div class="invalid-feedback">
+                                            <div>Falta el apellido</div>
+                                        </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Documento</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="2222222">
+                                    <input type="text" class="form-control" value={{usuario.documento}} id="documento" [(ngModel)]="usuario.documento" [ngModelOptions]="{standalone: true}" #documento="ngModel" [ngClass]="{ 'is-invalid': f.submitted && documento.invalid }" required>
+                                        <div class="invalid-feedback">
+                                            <div>Falta el documento</div>
+                                        </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Celular</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="31111111">
+                                    <input type="text" class="form-control" value={{usuario.celular}} id="celular" [(ngModel)]="usuario.celular" [ngModelOptions]="{standalone: true}" #celular="ngModel" [ngClass]="{ 'is-invalid': f.submitted && celular.invalid }" required>
+                                    <div class="invalid-feedback">
+                                        <div>Falta el celular</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Nombre de usuario</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="IsaPro"> 
+                                    <input type="text" class="form-control" value={{usuario.username}} id="username" [(ngModel)]="usuario.username" [ngModelOptions]="{standalone: true}" #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.invalid }" required>
+                                    <div class="invalid-feedback">
+                                         <div>Falta el username</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Correo</label >
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="1234@gmail.com">
+                                    <input type="text" class="form-control" value={{usuario.correo}} id="correo" [(ngModel)]="usuario.correo" [ngModelOptions]="{standalone: true}" #correo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && correo.invalid }" required>
+                                    <div class="invalid-feedback">
+                                        <div>Falta el correo</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Contraseña</label >
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="Isabela">
+                                    <input type="text" class="form-control" value={{usuario.password}} id="password" [(ngModel)]="usuario.password" [ngModelOptions]="{standalone: true}" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required>
+                                    <div class="invalid-feedback">
+                                        <div>Falta la contrasena</div>
+                                    </div>
                                 </div>
                             </div>
                         </fieldset>
                         <div class="form-group">
                             <div class="btn-group" role="group" aria-label="Basic example">
   								<button type="button" class="btn btn-danger">Descartar cambios</button>
-  								<button type="button" class="btn btn-success">Aplicar cambios</button>
+                                <button type="submit" class="btn btn-primary">Aplicar cambios</button>
 							</div>
                         </div>
                     </form>
 Username: {{usernameActual}}
+Username1: {{usuario.username}}
 
