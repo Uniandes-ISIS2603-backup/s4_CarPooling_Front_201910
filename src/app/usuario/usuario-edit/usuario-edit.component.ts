@@ -12,14 +12,13 @@ import { UsuarioDetail } from '../usuario-detail';
 export class UsuarioEditComponent implements OnInit {
 
   constructor(
-
         private usuarioService: UsuarioService,
-        private toastrService: ToastrService,
-
-
+        private toastrService: ToastrService
   	) { }
 
   usuario : UsuarioDetail;
+
+  usernameActual: string;
 
   updateUsuario(){
   this.usuarioService.updateUsuario(this.usuario)
@@ -28,7 +27,16 @@ export class UsuarioEditComponent implements OnInit {
             });
   }
 
+  getCurretUsuario(){
+    this.usernameActual = this.usuarioService.darUsuarioActual();
+    this.usuarioService.getUsuarioDetail(this.usernameActual)
+            .subscribe(usuario => {
+                this.usuario = usuario;
+            });
+  }
+
   ngOnInit() {
+    this.getCurretUsuario();
   }
 
 }

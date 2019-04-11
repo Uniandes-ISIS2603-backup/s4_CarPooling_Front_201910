@@ -8,11 +8,11 @@ export class Vehiculo {
     alquilado:boolean;
 
 constructor(
-    id:number;
-    modelo:number;
-    color:string;
-    placa:string;
-    alquilado:boolean;
+    id:number,
+    modelo:number,
+    color:string,
+    placa:string,
+    alquilado:boolean,
   ) { }
 
 }

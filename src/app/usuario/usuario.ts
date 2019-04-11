@@ -38,5 +38,6 @@ export class Usuario {
     /**
     * The users's e-mail address
     */
-    correo: string;    
+    correo: string;  
+
 }

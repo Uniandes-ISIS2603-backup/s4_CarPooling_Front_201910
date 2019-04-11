@@ -53,11 +53,7 @@ export class PagoService {
         * @returns The updated payment
         */
     updatePago(pago): Observable<Info> {
-<<<<<<< Updated upstream
         return this.http.put<Info>(API_URL + pagos + '/' + pago.id, pago);
-=======
-        return this.http.put<Info>(API_URL + pagos + '/' + this.usuario.id, pago);
->>>>>>> Stashed changes
     }
     
     /**
