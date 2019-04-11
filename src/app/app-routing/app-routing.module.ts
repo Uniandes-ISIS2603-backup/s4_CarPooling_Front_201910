@@ -20,6 +20,12 @@ import { MenuComponent} from '../usuario/menu/menu.component';
 import { HomeComponent} from '../home/home/home.component';
 import { AdminComponent } from '../admin/admin.component';
 import { LoginComponent } from '../home/login/login.component';
+
+import { TrayectoCrearComponent} from '../trayecto/trayecto-crear/trayecto-crear.component';
+import { TrayectoDetailComponent } from '../trayecto/trayecto-detail/trayecto-detail.component';
+import { TrayectoEditComponent} from '../trayecto/trayecto-edit/trayecto-edit.component';
+import { ListarTrayectoComponent} from '../trayecto/listar-trayecto/listar-trayecto.component';
+import { ListarInfoTrayectoComponent} from '../info-trayecto/listar-info-trayecto/listar-info-trayecto.component';
 const routes: Routes = [
 
      {
@@ -111,7 +117,30 @@ const routes: Routes = [
     {
         path: 'admin',
         component: AdminComponent
-    }
+    },
+    {
+        path: 'trayecto',
+        children: [         
+            {path: 'create',
+            component:  TrayectoCrearComponent},
+            
+            {path: 'edit',
+            component:  TrayectoEditComponent},
+            {path: 'list',
+                component:  ListarTrayectoComponent            
+            }
+        
+        ]
+    },
+    {
+        path: 'infoTrayecto',
+        children: [         
+            {path: 'list',
+                component:  ListarInfoTrayectoComponent            
+            }
+        
+        ]
+    },
 ];
 
 @NgModule({

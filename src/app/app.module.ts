@@ -22,6 +22,7 @@ import { ListarTrayectoComponent } from './trayecto/listar-trayecto/listar-traye
 import { CrearClienteComponent } from './trayecto/crear-cliente/crear-cliente.component';
 import { TrayectoDetailComponent } from './trayecto/trayecto-detail/trayecto-detail.component';
 import { TrayectoCrearComponent } from './trayecto/trayecto-crear/trayecto-crear.component';
+import { TrayectoEditComponent } from './trayecto/trayecto-edit/trayecto-edit.component';
 
 @NgModule({
     declarations: [
@@ -30,7 +31,8 @@ import { TrayectoCrearComponent } from './trayecto/trayecto-crear/trayecto-crear
         ListarTrayectoComponent,
         CrearClienteComponent,
         TrayectoDetailComponent,
-        TrayectoCrearComponent
+        TrayectoCrearComponent,
+        TrayectoEditComponent
     ],
     imports: [
         BrowserModule,
