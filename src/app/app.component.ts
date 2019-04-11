@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
     constructor(private authService: AuthService) { }
 
     logout(): void {
-        this.authService.logout()
+    this.authService.logout()
     }
 
 }

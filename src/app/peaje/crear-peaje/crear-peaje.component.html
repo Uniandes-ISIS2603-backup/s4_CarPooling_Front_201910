@@ -1,3 +1,42 @@
-<p>
-  crear-peaje works!
-</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <br>
+            <h2 class="text-center">Creando Peaje</h2>
+            <br>
+            <form name="usuario" (ngSubmit)="f.form.valid && createUsuario()" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <label for="nombre"><b>Nombre</b></label>
+                    <input type="text" name="nombre" class="form-control" id="nombre" [(ngModel)]="peaje.nombre"
+                        #nombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombre.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Falta el nombre</div>
+                    </div>
+                </div> 
+                <div class="form-group">
+                    <label for="costo"><b>Costo</b></label>
+                    <input type="text" name="costo" class="form-control" id="costo">
+                    </div>
+                
+                <div class="form-group">
+                    <label for="latitud"><b>Latitud</b></label>
+                    <input type="text" name="latitud" class="form-control" id="latitud">
+                    </div>
+                
+                <div class="form-group">
+                    <label for="longitud"><b>Longitud</b></label>
+                    <input type="text" name="longitud" class="form-control" id="longitud">
+                    </div>
+                
+                
+                <br>
+                <div class="row form-inline justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-primary" (click)="createPeaje()" >Create</button>
+                    <div class="divider"></div>
+                    <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancel</button>
+                </div>
+            </form>
+            <br>
+        </div>
+    </div>
+</div>

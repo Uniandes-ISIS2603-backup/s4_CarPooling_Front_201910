@@ -21,11 +21,25 @@ import { HomeComponent} from '../home/home/home.component';
 import { AdminComponent } from '../admin/admin.component';
 import { LoginComponent } from '../home/login/login.component';
 
+
 import { TrayectoCrearComponent} from '../trayecto/trayecto-crear/trayecto-crear.component';
 import { TrayectoDetailComponent } from '../trayecto/trayecto-detail/trayecto-detail.component';
 import { TrayectoEditComponent} from '../trayecto/trayecto-edit/trayecto-edit.component';
 import { ListarTrayectoComponent} from '../trayecto/listar-trayecto/listar-trayecto.component';
 import { ListarInfoTrayectoComponent} from '../info-trayecto/listar-info-trayecto/listar-info-trayecto.component';
+import { EditarAlquilerComponent } from '../alquiler/editar-alquiler/editar-alquiler.component';
+import { CrearAlquilerComponent } from '../alquiler/crear-alquiler/crear-alquiler.component';
+import { EditarSeguroComponent } from '../seguro/editar-seguro/editar-seguro.component';
+import { ListarSeguroComponent } from '../seguro/listar-seguro/listar-seguro.component';
+import { CrearSeguroComponent } from '../seguro/crear-seguro/crear-seguro.component';
+import { EditarPeajeComponent } from '../peaje/editar-peaje/editar-peaje.component';
+import { ListarPeajeComponent } from '../peaje/listar-peaje/listar-peaje.component';
+import { CrearPeajeComponent } from '../peaje/crear-peaje/crear-peaje.component';
+import { AdminSeguroComponent } from '../seguro/admin/admin.component';
+import { AdminPeajeComponent } from '../peaje/admin/admin.component';
+
+
+
 const routes: Routes = [
 
      {
@@ -107,7 +121,35 @@ const routes: Routes = [
         ]
     },
         {path: 'alquiler',
-        component: ListarAlquilerComponent},
+        children:[
+            {path:'edit',
+            component: EditarAlquilerComponent},
+            {path:'listar',
+            component: ListarAlquilerComponent},
+            {path: 'crear',
+            component: CrearAlquilerComponent}
+        ]},
+        {path: 'seguro',
+        children:[
+            {path:'edit',
+            component: EditarSeguroComponent},
+            {path:'listar',
+            component: ListarSeguroComponent},
+            {path: 'crear',
+            component: CrearSeguroComponent},
+            {path:'admin',
+            component: AdminSeguroComponent}
+        ]},
+        {path: 'peaje',
+        children:[ 
+            {path:'edit',
+            component: EditarPeajeComponent},
+            {path:'listar',
+            component: ListarPeajeComponent},
+            {path: 'crear',
+            component: CrearPeajeComponent},
+            {path:'admin',
+            component: AdminPeajeComponent}]},
         
         {path: 'login',
         component: LoginComponent},

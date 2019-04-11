@@ -8,9 +8,13 @@ import {ListarAlquilerComponent} from './listar-alquiler/listar-alquiler.compone
 import {AlquilerServiceService} from './alquiler-service.service';
 import { CrearAlquilerComponent } from './crear-alquiler/crear-alquiler.component';
 import { EditarAlquilerComponent } from './editar-alquiler/editar-alquiler.component'
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxPermissionsModule } from 'ngx-permissions';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   imports: [
-    CommonModule,AppRoutingModule,FormsModule
+    CommonModule,AppRoutingModule,FormsModule,BrowserModule,HttpClientModule,NgxPermissionsModule,NgbModule
   ],
   declarations: [ListarAlquilerComponent, CrearAlquilerComponent, EditarAlquilerComponent],
   providers:[AlquilerServiceService],

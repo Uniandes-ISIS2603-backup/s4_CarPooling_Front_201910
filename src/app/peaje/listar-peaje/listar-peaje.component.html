@@ -1,3 +1,36 @@
-<p>
-  listar-peaje works!
-</p>
+<div class="text-right">
+    <button type="button" class="btn btn-primary" routerLink="/admin">Volver</button>
+  </div>
+  <table class="table">
+  <thead class="table-info">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Costo</th>
+      <th scope="col">Latidud</th>
+      <th scope="col">Longitud</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of peaje">
+    <td >		
+      {{i.id}}
+    </td>
+    <td >
+      {{i.nombre}}
+    </td>
+    <td >
+     {{i.costo}}
+    </td>
+    <td >
+      {{i.lat}}
+    </td>
+    <td >
+      {{i.lon}}
+    </td>
+  </tr>
+  
+  </tbody>
+  </table>
+  <div class="text-right">
+    <button type="button" class="btn btn-primary" routerLink="/admin">Volver</button>

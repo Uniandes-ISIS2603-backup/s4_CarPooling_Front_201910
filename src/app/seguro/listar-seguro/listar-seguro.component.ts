@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Seguro } from '../seguro';
+import { SeguroServiceService } from '../seguro-service.service';
 
 @Component({
   selector: 'app-listar-seguro',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./listar-seguro.component.css']
 })
 export class ListarSeguroComponent implements OnInit {
+  seguro: Seguro[];
 
-  constructor() { }
-
+  constructor(private service:SeguroServiceService) { }
+  getSeguros():void{
+      this.service.getSeguro().subscribe
+      (a => this.seguro = a);
+  }
   ngOnInit() {
+    this.getSeguros();
   }
 
 }

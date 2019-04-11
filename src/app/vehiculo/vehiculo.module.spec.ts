@@ -1,7 +1,7 @@
-import { VehiculoModule } from './alquiler.module';
+import { VehiculoModule } from './vehiculo.module';
 
 describe('VehiculoModule', () => {
-  let alquilerModule: VehiculoModule;
+  let vehiculoModule: VehiculoModule;
 
   beforeEach(() => {
     vehiculoModule = new VehiculoModule();

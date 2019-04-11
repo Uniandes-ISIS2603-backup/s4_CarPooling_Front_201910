@@ -1,3 +1,42 @@
-<p>
-  crear-alquiler works!
-</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <br>
+            <h2 class="text-center">Creando Alquiler</h2>
+            <br>
+            <form name="usuario" (ngSubmit)="f.form.valid && createAlquiler()" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <label for="nombre"><b>Nombre</b></label>
+                    <input type="text" name="nombre" class="form-control" id="nombre" [(ngModel)]="alquiler.nombre"
+                        #nombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombre.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Falta el nombre</div>
+                    </div>
+                </div> 
+                <div class="form-group">
+                    <label for="arrendatario"><b>Arrendatario</b></label>
+                    <input type="text"  class="form-control">
+                    </div>
+                
+                <div class="form-group">
+                    <label for="duenio"><b>Dueño</b></label>
+                    <input type="text"  class="form-control">
+                    </div>
+                
+                <div class="form-group">
+                    <label for="vehiculo"><b>Vehiculo</b></label>
+                    <input type="text" class="form-control">
+                    </div>
+                
+                
+                <br>
+                <div class="row form-inline justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <div class="divider"></div>
+                    <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancel</button>
+                </div>
+            </form>
+            <br>
+        </div>
+    </div>
+</div>
