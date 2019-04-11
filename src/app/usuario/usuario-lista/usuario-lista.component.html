@@ -18,8 +18,8 @@
 		<td >
 			{{i.id}}
 		</td>
-		<td >
-			{{i.nombre}}
+		<td style="cursor: pointer;">
+			<a class="figure-caption" [routerLink] ="['/usuario', { outlets: { 'detail': [i.username] } }]" >{{i.nombre}}</a>
 		</td>
 		<td >
 			{{i.apellido}}
@@ -40,6 +40,7 @@
 
   </tbody>
 </table>
+<router-outlet name="detail"></router-outlet>
 <div class="text-right">
   	<button type="button" class="btn btn-primary" routerLink="/admin">Volver</button>
 </div>

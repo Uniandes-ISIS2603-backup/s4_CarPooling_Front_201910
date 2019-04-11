@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, OnDestroy, ViewChild, ViewContainerRef} from '@angular/core';
+import {ActivatedRoute, Router, NavigationEnd,Params} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
+import {UsuarioService} from '../usuario.service';
+import {Usuario} from '../usuario';
+import {UsuarioDetail} from '../usuario-detail';
 
 @Component({
   selector: 'app-usuario-detail',
@@ -7,9 +12,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuarioDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+        private usuarioService: UsuarioService,
+        private route: ActivatedRoute,
+        private router: Router,
+  ) { }
 
-  ngOnInit() {
+ /**
+  * The user whose details are shown
+  */
+  usuarioDetail: UsuarioDetail;
+
+  username: string;
+
+  loader: any;
+  /**
+  * The method which retrieves the books of an editorial
+  */
+  getUsuarioDetail(): void {
+    this.usuarioService.getUsuarioDetail(this.usuarioDetail.username)
+      .subscribe(o => {
+        this.usuarioDetail = o
+      });
   }
+
+  onLoad(params) {
+    this.username = params['username'];
+    console.log(" en detail " + this.username);
+    this.usuarioDetail = new UsuarioDetail();
+    this.getUsuarioDetail();
+  }
+  ngOnInit() {
+    this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
+  }
+
+  ngOnDestroy() {
+    this.loader.unsubscribe();
+  }
+
 
 }

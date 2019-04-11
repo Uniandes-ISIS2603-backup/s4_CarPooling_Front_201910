@@ -78,10 +78,6 @@ const routes: Routes = [
                 component:  UsuarioCreateComponent
             },
             {
-                path: 'detail',
-                component:  UsuarioDetailComponent
-            },
-            {
                 path: 'menu',
                 component:  MenuComponent,
                 children :
@@ -100,6 +96,11 @@ const routes: Routes = [
             {
                 path: 'lista',
                 component:  UsuarioListaComponent,
+            },
+            {
+                path: ':username',
+                component: UsuarioDetailComponent,
+                outlet: 'detail'
             }
 
         

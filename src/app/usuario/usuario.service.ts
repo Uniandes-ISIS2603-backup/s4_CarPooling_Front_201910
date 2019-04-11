@@ -65,9 +65,9 @@ export class UsuarioService {
     * Deletes a user
     * @param username The users's username
     * @returns True if the user was deleted, false otherwise
-    */
+    *
     deleteUsuario(username): Observable<UsuarioDetail> {
         return this.http.delete<UsuarioDetail>(API_URL + usuarios + '/' + username);
-    }
+    }*/
 
 }
