@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ToastrService} from 'ngx-toastr';
 import {UsuarioService} from '../usuario.service';
 import { UsuarioDetail } from '../usuario-detail';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,9 @@ export class UsuarioEditComponent implements OnInit {
 
   constructor(
         private usuarioService: UsuarioService,
-        private toastrService: ToastrService
+        private toastrService: ToastrService,
+        private router: Router
+
   	) { }
 
   usuario : UsuarioDetail;
@@ -24,6 +27,8 @@ export class UsuarioEditComponent implements OnInit {
   this.usuarioService.updateUsuario(this.usuario)
             .subscribe(() => {
                 this.toastrService.success("Se editó el usuario", 'Edición usuario');
+                this.router.navigate(['/usuario/menu', { outlets: { 'content': 'info' } }]);
+
             });
   }
 

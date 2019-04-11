@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioCreateComponent } from '../usuario-create/usuario-create.component'
 import { Usuario } from '../usuario';
 import { UsuarioDetail } from '../usuario-detail';
+import { UsuarioService } from '../usuario.service';
 
 
 @Component({
@@ -12,12 +13,23 @@ import { UsuarioDetail } from '../usuario-detail';
 export class MenuComponent implements OnInit {
 
   constructor(
+        private usuarioService: UsuarioService,
   	) { }
 
-  usuarioActual : UsuarioDetail;
+  usuario : UsuarioDetail;
 
-  
+  usernameActual: string;
+
+  getCurretUsuario(){
+    this.usernameActual = this.usuarioService.darUsuarioActual();
+    this.usuarioService.getUsuarioDetail(this.usernameActual)
+            .subscribe(usuario => {
+                this.usuario = usuario;
+            });
+  }
+
   ngOnInit() {
+    this.getCurretUsuario();
   }
 
 }

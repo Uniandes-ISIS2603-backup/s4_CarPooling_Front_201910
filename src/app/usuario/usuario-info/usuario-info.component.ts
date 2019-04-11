@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UsuarioService} from '../usuario.service';
+
 
 @Component({
   selector: 'app-usuario-info',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuarioInfoComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+        private usuarioService: UsuarioService,
+  	) { }
 
-  ngOnInit() {
+  usuario : UsuarioDetail;
+
+  usernameActual: string;
+
+  getCurretUsuario(){
+    this.usernameActual = this.usuarioService.darUsuarioActual();
+    this.usuarioService.getUsuarioDetail(this.usernameActual)
+            .subscribe(usuario => {
+                this.usuario = usuario;
+            });
   }
 
+  ngOnInit() {
+    this.getCurretUsuario();
+  }
 }
