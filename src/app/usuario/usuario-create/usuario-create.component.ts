@@ -17,8 +17,8 @@ export class UsuarioCreateComponent implements OnInit {
   * Base user for the creation of new users
   */
   usuario = new Usuario();
-  
-    /**
+
+  /**
     * Constructor for the component
     * @param toastrService The toastr to show messages to the user
     */
@@ -27,7 +27,8 @@ export class UsuarioCreateComponent implements OnInit {
     private usuarioService: UsuarioService,
     private router: Router
 
-    ) { }
+    ) { 
+}
 
   ngOnInit() {
   }
@@ -38,23 +39,20 @@ export class UsuarioCreateComponent implements OnInit {
   */
   cancelCreation(): void {
       this.toastrService.warning('El usuario no fue creado', 'Registro usuario'); 
-  }
+      this.router.navigate(['home']);
 
+  }
+//cambio
   createUsuario(){
     this.usuarioService.createUsuario(this.usuario)
             .subscribe(usuario => {
                 this.usuario = usuario;
                 this.toastrService.success("El usuario fue creado con éxito", "Usuario Creado");
-                //redireccionar 
-
+                this.router.navigate(['home']);
             });
         return this.usuario;
   }
 
-  darUsuarioActual(): UsuarioDetail {
-    return this.usuario;
-  }
-  
   get currentUser() { return JSON.stringify(this.usuario); }
  
 

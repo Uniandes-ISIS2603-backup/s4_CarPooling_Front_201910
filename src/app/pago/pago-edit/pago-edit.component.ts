@@ -20,11 +20,7 @@ export class PagoEditComponent implements OnInit {
 
   	) { }
 
-<<<<<<< Updated upstream
   pago : Info;
-=======
-  pago : Pago;
->>>>>>> Stashed changes
 
   updatePago(){
   this.pagoService.updatePago(this.pago)

@@ -81,21 +81,19 @@ const routes: Routes = [
                 children :
                 [   
                     {  
-                    path: 'info',
-                    component: UsuarioInfoComponent,
-                    outlet: 'content'
-                    }
+                        path: 'info',
+                        component: UsuarioInfoComponent,
+                        outlet: 'content'
+                    },
+                    {
+                        path: 'edit',
+                        component:  UsuarioEditComponent,
+                        outlet: 'content'}
                 ]
-
-
-            }
-
-            ,
-            {path: 'edit',
-            component:  UsuarioEditComponent},
+            },
             {
                 path: 'lista',
-                component:  UsuarioListaComponent            
+                component:  UsuarioListaComponent,
             }
 
         

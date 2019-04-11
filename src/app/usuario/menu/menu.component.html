@@ -1,9 +1,11 @@
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<div class="container">
-    <div class="view-account">
-        <section class="module">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col" >
+            <div class="view-account">
+            <section class="module">
             <div class="module-inner">
-                <div class="side-bar">
+
+            <div class="side-bar">
                     <div class="user-info">
                         <img class="img-profile img-circle img-responsive center-block" src="http://chittagongit.com//images/generic-user-icon/generic-user-icon-13.jpg" alt="">
                         <ul class="meta list list-unstyled">
@@ -11,18 +13,22 @@
                             </li>
                         </ul>
                     </div>
-            		<nav class="side-menu">
-        				<ul class="nav">
-        					<li class="active"><a routerLink="/usuario/menu/info"><span class="fa fa-user"></span> Información Principal</a></li>
-        					<li><a href="#">Vehiculos</a></li>
-        					<li><a href="#">Calificaciones</a></li>
-        					<li><a href="#">Notificaciones</a></li>
-        					<li><a href="#"> Buscar usuario</a></li>
-        				</ul>
-        			</nav>
-                </div>
-            
+                    <nav class="side-menu">
+                        <ul class="nav">
+                            <li class="active"><a [routerLink]= "['/usuario/menu', { outlets: { 'content': 'info' } }]"><span class="fa fa-user"></span> Información Principal</a>
+                            </li>
+                            <li><a href="#">Vehiculos</a></li>
+                            <li><a href="#">Calificaciones</a></li>
+                            <li><a href="#">Notificaciones</a></li>
+                            <li><a href="#"> Buscar usuario</a></li>
+                        </ul>
+                    </nav>
             </div>
+        </div>
+        <div class="col" >
+            <router-outlet name="content"></router-outlet>
+        </div>
         </section>
+        </div>
     </div>
 </div>
