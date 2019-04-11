@@ -6,6 +6,7 @@ import { ListarInfoTrayectoComponent } from './listar-info-trayecto/listar-info-
   imports: [
     CommonModule
   ],
-  declarations: [ListarInfoTrayectoComponent]
+  declarations: [ListarInfoTrayectoComponent], 
+  exports: [ListarInfoTrayectoComponent]
 })
 export class InfoTrayectoModule { }
