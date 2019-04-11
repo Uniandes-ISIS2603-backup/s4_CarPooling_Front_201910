@@ -9,6 +9,8 @@ import { UsuarioCreateComponent} from '../usuario/usuario-create/usuario-create.
 import { UsuarioDetailComponent } from '../usuario/usuario-detail/usuario-detail.component';
 import { UsuarioEditComponent} from '../usuario/usuario-edit/usuario-edit.component'
 import { UsuarioListaComponent} from '../usuario/usuario-lista/usuario-lista.component'
+import { UsuarioInfoComponent} from '../usuario/usuario-info/usuario-info.component'
+
 import { PagoCreateComponent} from '../pago/pago-create/pago-create.component'
 import { InfoComponent } from '../pago/info/info.component';
 import { PagoEditComponent} from '../pago/pago-edit/pago-edit.component'
@@ -65,17 +67,37 @@ const routes: Routes = [
     {
         path: 'usuario',
         children: [         
-            {path: 'create',
-            component:  UsuarioCreateComponent},
-            {path: 'detail',
-            component:  UsuarioDetailComponent},
-            {path: 'menu',
-            component:  MenuComponent},
+            {
+                path: 'create',
+                component:  UsuarioCreateComponent
+            },
+            {
+                path: 'detail',
+                component:  UsuarioDetailComponent
+            },
+            {
+                path: 'menu',
+                component:  MenuComponent,
+                children :
+                [   
+                    {  
+                    path: 'info',
+                    component: UsuarioInfoComponent,
+                    outlet: 'content'
+                    }
+                ]
+
+
+            }
+
+            ,
             {path: 'edit',
             component:  UsuarioEditComponent},
             {
                 path: 'lista',
-                component:  UsuarioListaComponent            }
+                component:  UsuarioListaComponent            
+            }
+
         
         ]
     },

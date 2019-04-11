@@ -45,6 +45,7 @@ export class UsuarioCreateComponent implements OnInit {
             .subscribe(usuario => {
                 this.usuario = usuario;
                 this.toastrService.success("El usuario fue creado con éxito", "Usuario Creado");
+                //redireccionar 
 
             });
         return this.usuario;

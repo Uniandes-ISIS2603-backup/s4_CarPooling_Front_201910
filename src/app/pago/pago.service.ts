@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Info } from './info';
-
+import { Usuario } from '../usuario/usuario'
 import { Pago } from './pago';
 
 const API_URL = "http://e04f10ed.ngrok.io/s4_carpooling-api/api/";
@@ -46,13 +46,18 @@ export class PagoService {
     }
 
 
+    usuario: Usuario;
     /**
         * Updates a new payment
         * @param pago The updated payment
         * @returns The updated payment
         */
     updatePago(pago): Observable<Info> {
+<<<<<<< Updated upstream
         return this.http.put<Info>(API_URL + pagos + '/' + pago.id, pago);
+=======
+        return this.http.put<Info>(API_URL + pagos + '/' + this.usuario.id, pago);
+>>>>>>> Stashed changes
     }
     
     /**
