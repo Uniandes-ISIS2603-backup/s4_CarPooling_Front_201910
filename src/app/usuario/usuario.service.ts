@@ -34,9 +34,8 @@ export class UsuarioService {
     * @returns The user with its new id if it was created, false if it wasn't
     */
     createUsuario(usuario): Observable<UsuarioDetail> {     
-        this.http.post<UsuarioDetail>(API_URL + usuarios, usuario);
         localStorage.setItem('usuarioActual', usuario.username);
-        return usuario;
+        return this.http.post<UsuarioDetail>(API_URL + usuarios, usuario);
     }
 
     darUsuarioActual(): string{
