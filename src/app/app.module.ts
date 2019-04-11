@@ -17,9 +17,8 @@ import {UsuarioModule} from './usuario/usuario.module';
 import { AlquilerModule } from './alquiler/alquiler.module';
 import{HomeModule} from './home/home.module';
 import {AdminModule} from './admin/admin.module';
-import { TrayectosComponent } from './trayectos/trayectos.component';
+import { TrayectosComponent } from './trayecto/trayectos/trayectos.component';
 import { ListarTrayectoComponent } from './trayecto/listar-trayecto/listar-trayecto.component';
-import { CrearClienteComponent } from './trayecto/crear-cliente/crear-cliente.component';
 import { TrayectoDetailComponent } from './trayecto/trayecto-detail/trayecto-detail.component';
 import { TrayectoCrearComponent } from './trayecto/trayecto-crear/trayecto-crear.component';
 import { TrayectoEditComponent } from './trayecto/trayecto-edit/trayecto-edit.component';
@@ -29,7 +28,6 @@ import { TrayectoEditComponent } from './trayecto/trayecto-edit/trayecto-edit.co
         AppComponent,
         TrayectosComponent,
         ListarTrayectoComponent,
-        CrearClienteComponent,
         TrayectoDetailComponent,
         TrayectoCrearComponent,
         TrayectoEditComponent
