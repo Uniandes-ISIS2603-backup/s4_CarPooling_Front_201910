@@ -1,0 +1,74 @@
+<h2 class="title">Editar Info Trayecto</h2>
+                    <form class="form-horizontal" (ngSubmit)="f.form.valid && updateInfoTrayecto()" #f="ngForm" novalidate>
+                        <fieldset class="fieldset">
+                            <div class="form-group">
+                                <label class="col-md-2 col-sm-3 col-xs-12 control-label">Id</label>
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <input type="text" class="form-control" value={{info.idDetalle}} id="idDetalle" [(ngModel)]="info.idDetalle" [ngModelOptions]="{standalone: true}" #idDetalle="ngModel" [ngClass]="{ 'is-invalid': f.submitted && idDetalle.invalid }" required>
+                                    <div class="invalid-feedback">
+                                        <div>Falta el id</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 col-sm-3 col-xs-12 control-label">Costo</label>
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <input type="text" class="form-control" value={{info.costo}} id="costo" [(ngModel)]="info.costo" [ngModelOptions]="{standalone: true}" #costo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && costo.invalid }"  value="Sarmiento" required>
+                                        <div class="invalid-feedback">
+                                            <div>Falta el costo</div>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 col-sm-3 col-xs-12 control-label">Duracion</label>
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <input type="text" class="form-control" value={{info.duracion}} id="duracion" [(ngModel)]="info.duracion" [ngModelOptions]="{standalone: true}" #duracion="ngModel" [ngClass]="{ 'is-invalid': f.submitted && duracion.invalid }" required>
+                                        <div class="invalid-feedback">
+                                            <div>Falta la duracion</div>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 col-sm-3 col-xs-12 control-label">Cupos</label>
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <input type="text" class="form-control" value={{info.cupos}} id="cupos" [(ngModel)]="info.cupos" [ngModelOptions]="{standalone: true}" #cupos="ngModel" [ngClass]="{ 'is-invalid': f.submitted && cupos.invalid }" required>
+                                    <div class="invalid-feedback">
+                                        <div>Faltan los cupos</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 col-sm-3 col-xs-12 control-label">idDetalle de info</label>
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <input type="text" class="form-control" value={{info.username}} id="username" [(ngModel)]="info.username" [ngModelOptions]="{standalone: true}" #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.invalid }" required>
+                                    <div class="invalid-feedback">
+                                         <div>Falta el username</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 col-sm-3 col-xs-12 control-label">Hora Inicial</label >
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <input type="text" class="form-control" value={{info.}} id="horaInicial" [(ngModel)]="info.horaInicial" [ngModelOptions]="{standalone: true}" #horaInicial="ngModel" [ngClass]="{ 'is-invalid': f.submitted && horaInicial.invalid }" required>
+                                    <div class="invalid-feedback">
+                                        <div>Falta la Hora Inicial</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 col-sm-3 col-xs-12 control-label">Hora Final</label >
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <input type="text" class="form-control" value={{info.horaFinal}} id="horaFinal" [(ngModel)]="info.horaFinal" [ngModelOptions]="{standalone: true}" #horaFinal="ngModel" [ngClass]="{ 'is-invalid': f.submitted && horaFinal.invalid }" required>
+                                    <div class="invalid-feedback">
+                                        <div>Falta la Hora Final</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="form-group">
+                            <div class="btn-group" role="group" aria-label="Basic example">
+  								<button type="button" class="btn btn-danger">Descartar cambios</button>
+                                <button type="submit" class="btn btn-primary">Aplicar cambios</button>
+							</div>
+                        </div>
+                    </form>

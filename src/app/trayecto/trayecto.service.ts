@@ -60,7 +60,7 @@ export class TrayectoService {
     * @param username The users's username
     * @returns True if the user was deleted, false otherwise
     */
-    deleteUsuario(idTrayecto): Observable<TrayectoDetail> {
+    deleteTrayecto(idTrayecto): Observable<TrayectoDetail> {
         return this.http.delete<TrayectoDetail>(API_URL + trayectos + '/' + idTrayecto);
     }
 

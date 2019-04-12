@@ -27,4 +27,8 @@ export class InfoTrayectoService {
         return this.http.get<InfoTrayecto>(API_URL + infoTrayectos + '/' + idDetalle);
     }
 
+    updateInfoTrayecto(info): Observable<InfoTrayecto> {
+        return this.http.put<InfoTrayecto>(API_URL + infoTrayectos + '/' + info.idDetalle, info);
+    }
+
 }
