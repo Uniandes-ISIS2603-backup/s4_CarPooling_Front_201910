@@ -1,0 +1,66 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <br>
+            <h2 class="text-center">Bienvenido a Info Trayecto</h2>
+            <br>
+            <form name="Info Trayecto" (ngSubmit)="f.form.valid && createInfoTrayecto()" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <label for="idDetalle"><b>id</b></label>
+                    <input type="text" name="idDetalle" class="form-control" id="idDetalle" [(ngModel)]="info.idDetalle"
+                        #nombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && idDetalle.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Falta el id</div>
+                    </div>
+                </div> 
+                <div class="form-group">
+                    <label for="costo"><b>Costo</b></label>
+                    <input type="text" name="costo" class="form-control" id="costo" [(ngModel)]="info.costo"
+                        #apellido="ngModel" [ngClass]="{ 'is-invalid': f.submitted && costo.invalid }"  required>
+                    <div class="invalid-feedback">
+                        <div>Falta el costo</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="duracion"><b>Duracion</b></label>
+                    <input type="text" name="duracion" class="form-control" id="duracion" [(ngModel)]="info.duracion"
+                        #documento="ngModel" [ngClass]="{ 'is-invalid': f.submitted && duracion.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Falta la duracion</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cupos"><b>Cupos</b></label>
+                    <input type="text" name="cupos" class="form-control" id="cupos" [(ngModel)]="info.cupos"
+                        #celular="ngModel" [ngClass]="{ 'is-invalid': f.submitted && cupos.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Faltan los cupos</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="horaInicial"><b>La Hora Inicial</b></label>
+                    <input type="text" name="horaInicial" class="form-control" id="horaInicial" [(ngModel)]="info.horaInicial"
+                        #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && horaInicial.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Falta la hora inicial</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="horaFinal"><b>La Hora Final</b></label>
+                    <input type="text" name="horaFinal" class="form-control" id="horaFinal" [(ngModel)]="info.horaFinal"
+                        #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && horaFinal.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Falta la hora final</div>
+                    </div>
+                </div>
+                <br>
+                <div class="row form-inline justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <div class="divider"></div>
+                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+                </div>
+            </form>
+            <br>
+        </div>
+    </div>
+</div>

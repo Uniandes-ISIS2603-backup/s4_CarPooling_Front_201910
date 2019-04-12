@@ -23,7 +23,13 @@ export class TrayectoCrearComponent implements OnInit {
   ngOnInit() {
   }
 
-  createUsuario(){
+  cancelCreation(): void {
+      this.toastrService.warning('El Trayecto no fue creado', 'Registro Trayecto'); 
+      this.router.navigate(['home']);
+
+  }
+
+  createTrayecto(){
     this.trayectoService.createTrayecto(this.trayecto)
             .subscribe(trayecto => {
                 this.trayecto = trayecto;
@@ -33,7 +39,7 @@ export class TrayectoCrearComponent implements OnInit {
         return this.trayecto;
   }
 
-  darUsuarioActual(): TrayectoDetail {
+  darTrayectoActual(): TrayectoDetail {
     return this.trayecto;
   }
   
