@@ -7,6 +7,7 @@ import {TrayectoCrearComponent} from './trayecto-crear/trayecto-crear.component'
 import {TrayectoDetailComponent} from './trayecto-detail/trayecto-detail.component';
 import {TrayectoEditComponent} from './trayecto-edit/trayecto-edit.component';
 import {TrayectosComponent} from './trayectos/trayectos.component';
+import { MenuComponent } from './menu/menu.component';
 
 
 @NgModule({
@@ -15,7 +16,7 @@ import {TrayectosComponent} from './trayectos/trayectos.component';
     FormsModule,
     AppRoutingModule,
   ],
-  declarations: [ListarTrayectoComponent, TrayectoCrearComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent],
+  declarations: [ListarTrayectoComponent, TrayectoCrearComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent, MenuComponent],
   exports: [ListarTrayectoComponent, TrayectoCrearComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent]
 })
 export class TrayectoModule { }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ToastrService} from 'ngx-toastr';
 import {InfoTrayectoService} from '../info-trayecto.service';
 import {Router} from '@angular/router';
-import {InfoTrayecto} from '../info-trayecto;';
+import {InfoTrayecto} from '../info-trayecto';
 
 
 @Component({
@@ -19,7 +19,7 @@ export class EditInfoTrayectoComponent implements OnInit {
   info : InfoTrayecto;
 
 updateUsuario(){
-  this.trayectoService.updateTrayecto(this.info)
+  this.trayectoService.updateInfoTrayecto(this.info)
             .subscribe(() => {
                 this.toastrService.success("Se editó el Info Trayecto", 'Edición Info Trayecto');
             });

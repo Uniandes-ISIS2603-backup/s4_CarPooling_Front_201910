@@ -27,6 +27,7 @@ import { TrayectoDetailComponent } from '../trayecto/trayecto-detail/trayecto-de
 import { TrayectoEditComponent} from '../trayecto/trayecto-edit/trayecto-edit.component';
 import { ListarTrayectoComponent} from '../trayecto/listar-trayecto/listar-trayecto.component';
 import { ListarInfoTrayectoComponent} from '../info-trayecto/listar-info-trayecto/listar-info-trayecto.component';
+import { EditInfoTrayectoComponent} from '../info-trayecto/edit-info-trayecto/edit-info-trayecto.component';
 import { EditarAlquilerComponent } from '../alquiler/editar-alquiler/editar-alquiler.component';
 import { CrearAlquilerComponent } from '../alquiler/crear-alquiler/crear-alquiler.component';
 import { EditarSeguroComponent } from '../seguro/editar-seguro/editar-seguro.component';
@@ -180,7 +181,8 @@ const routes: Routes = [
         children: [         
             {path: 'list',
                 component:  ListarInfoTrayectoComponent            
-            }
+            },{path: 'edit',
+            component:  EditInfoTrayectoComponent}
         
         ]
     },
