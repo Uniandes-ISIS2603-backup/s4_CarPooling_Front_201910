@@ -114,8 +114,7 @@ const routes: Routes = [
             },
             {
                 path: ':username',
-                component: UsuarioDetailComponent,
-                outlet: 'detail'
+                component: UsuarioDetailComponent
             }
 
         

@@ -25,30 +25,23 @@ export class UsuarioDetailComponent implements OnInit {
 
   username: string;
 
-  loader: any;
   /**
   * The method which retrieves the books of an editorial
   */
   getUsuarioDetail(): void {
-    this.usuarioService.getUsuarioDetail(this.usuarioDetail.username)
+    this.usuarioService.getUsuarioDetail(this.username)
       .subscribe(o => {
         this.usuarioDetail = o
       });
   }
 
-  onLoad(params) {
-    this.username = params['username'];
-    console.log(" en detail " + this.username);
+
+  ngOnInit() {
+    this.username = this.route.snapshot.paramMap.get('username');
     this.usuarioDetail = new UsuarioDetail();
     this.getUsuarioDetail();
   }
-  ngOnInit() {
-    this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
-  }
 
-  ngOnDestroy() {
-    this.loader.unsubscribe();
-  }
 
 
 }

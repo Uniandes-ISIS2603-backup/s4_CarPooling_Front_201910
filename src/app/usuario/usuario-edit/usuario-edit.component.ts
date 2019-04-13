@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ToastrService} from 'ngx-toastr';
 import {UsuarioService} from '../usuario.service';
 import { UsuarioDetail } from '../usuario-detail';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({

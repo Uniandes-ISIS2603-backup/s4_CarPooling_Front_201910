@@ -19,7 +19,7 @@
 			{{i.id}}
 		</td>
 		<td style="cursor: pointer;">
-			<a class="figure-caption" [routerLink] ="['/usuario', { outlets: { 'detail': [i.username] } }]" >{{i.nombre}}</a>
+			<a class="figure-caption" routerLink ="/usuario/{{i.username}}" >{{i.nombre}}</a>
 		</td>
 		<td >
 			{{i.apellido}}

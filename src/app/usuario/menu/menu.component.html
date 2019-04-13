@@ -2,33 +2,32 @@
     <div class="row">
         <div class="col" >
             <div class="view-account">
-            <section class="module">
-            <div class="module-inner">
-
-            <div class="side-bar">
-                    <div class="user-info">
-                        <img class="img-profile img-circle img-responsive center-block" src="http://chittagongit.com//images/generic-user-icon/generic-user-icon-13.jpg" alt="">
-                        <ul class="meta list list-unstyled">
-                            <li class="name">{{usuario.nombre}} {{usuario.apellido}}  
-                            </li>
-                        </ul>
+                <section class="module">
+                    <div class="module-inner">
+                        <div class="side-bar">
+                            <div class="user-info">
+                                <img class="img-profile img-circle img-responsive center-block" src="http://chittagongit.com//images/generic-user-icon/generic-user-icon-13.jpg" alt="">
+                                <ul class="meta list list-unstyled">
+                                    <li class="name">{{usuario.nombre}} {{usuario.apellido}}  
+                                    </li>
+                                </ul>
+                            </div>
+                            <nav class="side-menu">
+                                <ul class="nav">
+                                    <li class="active"><a [routerLink]= "['/usuario/menu', { outlets: { 'content': 'info' } }]"><span class="fa fa-user"></span> Información Principal</a></li>
+                                    <li><a href="#">Vehiculos</a></li>
+                                    <li><a href="#">Calificaciones</a></li>
+                                    <li><a href="#">Notificaciones</a></li>
+                                    <li><a href="#"> Buscar usuario</a></li>
+                                 </ul>
+                            </nav>
+                        </div>
                     </div>
-                    <nav class="side-menu">
-                        <ul class="nav">
-                            <li class="active"><a [routerLink]= "['/usuario/menu', { outlets: { 'content': 'info' } }]"><span class="fa fa-user"></span> Información Principal</a>
-                            </li>
-                            <li><a href="#">Vehiculos</a></li>
-                            <li><a href="#">Calificaciones</a></li>
-                            <li><a href="#">Notificaciones</a></li>
-                            <li><a href="#"> Buscar usuario</a></li>
-                        </ul>
-                    </nav>
+                    <div class="col" >
+                        <router-outlet name="content"></router-outlet>
+                    </div>
+                </section>
             </div>
-        </div>
-        <div class="col" >
-            <router-outlet name="content"></router-outlet>
-        </div>
-        </section>
         </div>
     </div>
 </div>
