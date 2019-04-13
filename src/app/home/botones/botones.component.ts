@@ -9,12 +9,9 @@ import { Variable } from '@angular/compiler/src/render3/r3_ast';
 export class BotonesComponent implements OnInit {
 
   constructor() { }
-  w:Window;
   ngOnInit() {
-     this.w = window.open("");
   }
   eliminar() { 
-    this.w.close();
 } 
 
 
