@@ -15,14 +15,14 @@ export class ListarTrayectoComponent implements OnInit {
   trayectos: Trayecto[];
 
 
-  getUsuarios(): void {
+  getTrayectos(): void {
         this.trayectoService.getTrayectos().subscribe(trayectos => this.trayectos = trayectos);
     }
 
 
 
   ngOnInit() {
-  	this.getUsuarios();
+  	this.getTrayectos();
   }
 
 }

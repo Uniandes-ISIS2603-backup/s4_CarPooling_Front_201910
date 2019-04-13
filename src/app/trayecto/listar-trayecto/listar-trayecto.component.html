@@ -4,7 +4,6 @@
       <th scope="col">#</th>
       <th scope="col">FechaInicio</th>
       <th scope="col">FechaFin</th>
-      <th scope="col">Estado</th>
     </tr>
   </thead>
   <tbody>
@@ -13,13 +12,10 @@
 			{{i.id}}
 		</td>
 		<td >
-			{{i.fechaInicio}}
+			{{i.fechaInicial}}
 		</td>
 		<td >
 			{{i.fechaFinal}}
-		</td>
-		<td >
-			{{i.estado}}
 		</td>
 
 	</tr>
@@ -28,6 +24,4 @@
 </table>
 <div class="text-right">
   	<button type="button" class="btn btn-primary" routerLink="/admin">Volver</button>
-</div><p>
-  listar-trayecto works!
-</p>
+</div>

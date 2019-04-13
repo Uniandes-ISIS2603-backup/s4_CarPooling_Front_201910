@@ -13,7 +13,7 @@
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Fecha Inicial</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value={{trayecto.fechaInicio}} id="fechaInicio" [(ngModel)]="trayecto.fechaInicio" [ngModelOptions]="{standalone: true}" #fechaInicio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fechaInicio.invalid }"  required>
+                                    <input type="text" class="form-control" value={{trayecto.fechaInicial}} id="fechaInicial" [(ngModel)]="trayecto.fechaInicial" [ngModelOptions]="{standalone: true}" #fechaInicial="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fechaInicial.invalid }"  required>
                                         <div class="invalid-feedback">
                                             <div>Falta la fecha inicial</div>
                                         </div>

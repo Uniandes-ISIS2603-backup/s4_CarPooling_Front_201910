@@ -24,7 +24,7 @@ export class TrayectoService {
     * @returns The editorial
     */
  	getTrayectos() : Observable<Trayecto[]> {
-        return this.http.get<Trayecto[]>(API_URL + trayectos);
+        return this.http.get<Trayecto[]>(API_URL + '/' + trayectos);
     }
 
 

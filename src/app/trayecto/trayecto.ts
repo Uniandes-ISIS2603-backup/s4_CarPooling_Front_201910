@@ -2,10 +2,8 @@ export class Trayecto {
 
 	id: number;
 
-	fechaInicio: Date;
+	fechaInicial: Date;
 
 	fechaFinal: Date;
-
-	estado: number;
 
 }
