@@ -9,7 +9,6 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPermissionsModule } from 'ngx-permissions';
-import {EditInfoTrayectoComponent} from './edit-info-trayecto/edit-info-trayecto.component';
 
 
 
