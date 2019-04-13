@@ -13,4 +13,20 @@ const calificacion = 'calificaciones';
 })
 export class CalificacionService {
 
+  /**
+    * Constructor of the service
+    * @param http The HttpClient - This is necessary in order to perform requests
+    */
+	constructor(private http: HttpClient) { }
+
+  /**
+    * Returns the Observable object containing the list of users retrieved from the API
+    * @returns The editorial
+    */
+ 	getCalificaciones() : Observable<Calificacion[]> {
+    return this.http.get<Calificacion[]>(API_URL + calificacion);
+}
+
+
+
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Calificacion } from '../calificacion';
-
+import { CalificacionService } from '../calificacion.service';
 import {Router} from '@angular/router';
 
 import {ToastrService} from 'ngx-toastr';
