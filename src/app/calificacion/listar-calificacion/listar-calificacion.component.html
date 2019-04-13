@@ -1,0 +1,37 @@
+<div class="text-right">
+	<button type="button" class="btn btn-primary" routerLink="/usuario/menu">Volver</button>
+</div>
+<table class="table">
+<thead class="table-info">
+	<tr>
+		<th scope="col">#</th>
+		<th scope="col">Puntaje</th>
+		<th scope="col">Comentario</th>
+		<th scope="col">Trayecto</th>
+		<th scope="col">Calificador</th>
+		<th scope="col">Calificado</th>
+	</tr>
+</thead>
+<tbody>
+	<tr *ngFor="let i of calificacion">
+	<td >		
+		{{i.id}}
+	</td>
+	<td >
+		{{i.nombre}}
+	</td>
+	<td>
+		{{i.trayecto.id}}
+	</td>
+	<td>
+		{{i.calificador.nombre}}
+	</td>
+	<td>
+		{{i.calificado.nombre}}
+	</td>
+</tr>
+
+</tbody>
+</table>
+<div class="text-right">
+	<button type="button" class="btn btn-primary" routerLink="/usuario/menu">Volver</button>
