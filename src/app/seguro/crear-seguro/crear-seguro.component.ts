@@ -30,7 +30,7 @@ cancelCreation(): void {
  this.toastrService.warning('El Seguro no fue creado', 'Registro seguro'); 
 }
 
-createUsuario(){
+createSeguro(){
 this.seguroService.createSeguro(this.seguro)
        .subscribe(a => {
            this.seguro = a;

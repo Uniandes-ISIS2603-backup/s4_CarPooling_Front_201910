@@ -3,6 +3,7 @@ import { Alquiler } from '../alquiler';
 import { ToastrService } from 'ngx-toastr';
 import { AlquilerServiceService } from '../alquiler-service.service';
 import { Router } from '@angular/router';
+import { AlquilerRelacion } from '../alquiler-relacion';
 
 @Component({
   selector: 'app-crear-alquiler',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 export class CrearAlquilerComponent implements OnInit {
 
     alquiler = new Alquiler();
+    alquiler2 = new AlquilerRelacion();
     cancel = new EventEmitter();
     update = new EventEmitter();
     id:number;
@@ -32,11 +34,16 @@ cancelCreation(): void {
 }
 
 createAlquiler(){
- this.alquilerService.createalquiler(this.alquiler)
-         .subscribe(alquiler => {
-             this.alquiler = alquiler;
+this.alquiler2.id=this.alquiler.id;
+this.alquiler2.nombre=this.alquiler.nombre;
+ this.alquilerService.createalquiler(this.alquiler2)
+         .subscribe(a => {
+             this.alquiler2 = a;
+             this.alquilerService.getalquilerDetail(a.id).subscribe(b =>{
+              this.alquilerService.createAlquilerRelacion(this.alquiler,a.id);
+             });
              this.toastrService.success("El alquiler fue creado con éxito", "alquiler Creado");
-             this.alquilerService.createAlquilerRelacion(alquiler);
+             
          });
          this.update.emit();
      return this.alquiler;
@@ -46,7 +53,7 @@ createAlquiler(){
 addRelacion(alquiler:Alquiler){
   this.alquilerService.createalquiler(alquiler)
           .subscribe(a => {
-              this.alquiler = a;
+              this.alquiler2 = a;
               this.toastrService.success("El alquiler fue creado con éxito para al", "alquiler Creado");
           });
           this.update.emit();

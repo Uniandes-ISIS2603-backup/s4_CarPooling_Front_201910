@@ -2,6 +2,7 @@ import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angu
 import {ToastrService} from 'ngx-toastr';
 import {AlquilerServiceService} from '../alquiler-service.service'
 import { Alquiler } from '../alquiler';
+import { AlquilerRelacion } from '../alquiler-relacion';
 @Component({
   selector: 'app-editar-alquiler',
   templateUrl: './editar-alquiler.component.html',
@@ -14,7 +15,7 @@ export class EditarAlquilerComponent implements OnInit, OnChanges{
     private toastrService: ToastrService,
     ) { }
 
-    alquiler : Alquiler;
+    alquiler : AlquilerRelacion;
     cancel = new EventEmitter();
     update = new EventEmitter();
 

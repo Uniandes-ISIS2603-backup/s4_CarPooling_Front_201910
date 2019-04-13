@@ -2,11 +2,11 @@
                     <form name="alquiler" (ngSubmit)="f.form.valid && updatealquiler()" #f="ngForm" novalidate class="form-horizontal">
                         <fieldset class="fieldset">
                             <div class="form-group">
-                                <label for="nombre" class="col-md-2 col-sm-3 col-xs-12 control-label">Nombre</label>
+                                <label for="tipo" class="col-md-2 col-sm-3 col-xs-12 control-label">Tipo</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" name="nombre" id="nombre" class="form-control" 
-                                    value="Seguro" [(ngModel)]="seguro.name" #alquilerNombre="ngModel" 
-                                    [ngClass]="{ 'is-invalid': f.submitted && nombre.invalid }" required>
+                                    <input type="text" name="tipo" id="tipo" class="form-control" 
+                                    value="Seguro" [(ngModel)]="seguro.tipo" #alquilerNombre="ngModel" 
+                                    [ngClass]="{ 'is-invalid': f.submitted && tipo.invalid }" required>
                                     <div class="invalid-feedback">
                                             <div>El nombre del seguro es invalido</div>
                                         </div>
@@ -19,7 +19,7 @@
                         <div class="form-group">
                             <div class="btn-group" role="group" aria-label="Basic example">
   								<button type="button" class="btn btn-danger" (click)="cancelEdition()">Descartar cambios</button>
-  								<button type="button" class="btn btn-success" (click)="updateSeguro()">Aplicar cambios</button>
+  								<button type="submit" class="btn btn-success">Aplicar cambios</button>
 							</div>
                         </div>
                     </form>

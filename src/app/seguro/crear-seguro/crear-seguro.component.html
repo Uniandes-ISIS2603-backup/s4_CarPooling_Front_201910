@@ -4,20 +4,20 @@
             <br>
             <h2 class="text-center">Creando Seguro</h2>
             <br>
-            <form name="usuario" (ngSubmit)="f.form.valid && createUsuario()" #f="ngForm" novalidate>
+            <form name="usuario" (ngSubmit)="f.form.valid && createSeguro()" #f="ngForm" novalidate>
                 <div class="form-group">
-                    <label for="nombre"><b>Nombre</b></label>
-                    <input type="text" name="nombre" class="form-control" id="nombre" [(ngModel)]="seguro.nombre"
-                        #nombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombre.invalid }" required>
+                    <label for="tipo"><b>Tipo</b></label>
+                    <input type="text" name="tipo" class="form-control" id="tipo" [(ngModel)]="seguro.tipo"
+                        #nombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted }" required>
                     <div class="invalid-feedback">
-                        <div>Falta el nombre</div>
+                        <div>Falta el tipo</div>
                     </div>
                 </div> 
                 
                 
                 <br>
                 <div class="row form-inline justify-content-center align-self-center">
-                    <button type="submit" class="btn btn-primary" (click)="createAlquiler()" >Create</button>
+                    <button type="submit" class="btn btn-primary" >Create</button>
                     <div class="divider"></div>
                     <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancel</button>
                 </div>

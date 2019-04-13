@@ -5,8 +5,9 @@ import { Observable } from 'rxjs';
 import { RouterModule, Routes } from '@angular/router';
 import{UsuarioService} from '../usuario/usuario.service';
 import { SeguroServiceService } from '../seguro/seguro-service.service';
+import { AlquilerRelacion } from './alquiler-relacion';
 
-const API_URL = "http://e04f10ed.ngrok.io/s4_carpooling-api/api/";
+const API_URL = "http://localhost:8080/s4_carpooling-api/api/";
 const alquileres = 'alquileres';
 @Injectable({ 
   providedIn: 'root'
@@ -23,7 +24,8 @@ export class AlquilerServiceService {
    service:UsuarioService = new UsuarioService(this.http);
    service2:SeguroServiceService = new SeguroServiceService(this.http);
    respuesta:Observable<Alquiler>;
-   alquiler2:Alquiler;
+   alquiler2=new Alquiler();
+   url:string;
     getalquiler() : Observable<Alquiler[]> {
          return this.http.get<Alquiler[]>(API_URL + alquileres);
      }
@@ -44,32 +46,30 @@ export class AlquilerServiceService {
     }
  
  
-     createalquiler(alqui): Observable<Alquiler> {
-        console.log("alquiler---->", alqui);
-        alqui.duenio=null;
-        alqui.arrendatario=null;
-        alqui.seguro=null;
-        return this.http.post<Alquiler>(API_URL + alquileres,alqui);
+     createalquiler(alqui:AlquilerRelacion): Observable<AlquilerRelacion> {
+        return this.http.post<AlquilerRelacion>(API_URL + alquileres,alqui);
         
      }
-     createAlquilerRelacion(alqui):Observable<Alquiler>{
+     createAlquilerRelacion(alqui:Alquiler,idAlqui):void{
+        this.alquiler2.id = alqui.id;
         this.service.getUsuarioDetail(alqui.duenio).subscribe(a => {
-           
-            this.alquiler2.duenio = a; 
-            console.log("alquiler---->", a);
+           this.alquiler2.id = a.id;
+            this.alquiler2.duenio = a.id; 
+            
                 this.service.getUsuarioDetail(alqui.arrendatario).subscribe(ab => {
-                    this.alquiler2.arrendatario = ab;
-                
-                console.log("alquiler---->",ab);
-                    alqui.seguro = this.service2.getSeguroDetail(alqui.seguro).subscribe(abc => {
-                        this.alquiler2.seguro = abc;
-                        console.log("alquiler---->", abc);
-                        
+                    this.alquiler2.arrendatario = ab.id;               
+                    
+                     this.service2.getSeguroDetail(alqui.seguro).subscribe(abc => {
+                        this.alquiler2.seguro = abc.id;
+                        this.url=API_URL + alquileres+'/'+idAlqui+'/'+this.alquiler2.duenio+'/'+this.alquiler2.arrendatario+'/'+this.alquiler2.seguro;
+                        console.log("Mensaje Adentro----=-------->",this.url);
+                        this.http.post(this.url,alqui);
                 });
             });
             
-            return this.http.post<Alquiler>(API_URL + alquileres+'/'+this.alquiler2.id+'/'+this.alquiler2.duenio+'/'+this.alquiler2.arrendatario+'/'+this.alquiler2.seguro+'/',alqui);});
-        return null;
+          });
+          
+        
      }
      
      getalquilerDetail(id): Observable<Alquiler> {
@@ -77,8 +77,8 @@ export class AlquilerServiceService {
      }
  
  
-     updatealquiler(alquiler): Observable<Alquiler> {
-         return this.http.put<Alquiler>(API_URL + alquileres + '/' + alquiler.id, alquiler);
+     updatealquiler(alquiler): Observable<AlquilerRelacion> {
+         return this.http.put<AlquilerRelacion>(API_URL + alquileres + '/' + alquiler.id, alquiler);
      }
      
     
