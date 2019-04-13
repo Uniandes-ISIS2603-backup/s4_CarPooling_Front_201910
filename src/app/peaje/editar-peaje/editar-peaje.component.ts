@@ -15,11 +15,12 @@ export class EditarPeajeComponent implements OnInit {
     private toastrService: ToastrService,
     ) { }
 
-    peaje : Peaje;
+    peaje = new Peaje() ;
     cancel = new EventEmitter();
     update = new EventEmitter();
 
   updatealquiler(){
+    console.log(this.peaje)
   this.peajeService.updatePeaje(this.peaje)
             .subscribe(() => {
                 this.toastrService.success("Se editó el peaje", 'Edición peaje');
