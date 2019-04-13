@@ -15,6 +15,9 @@ import { PagoCreateComponent} from '../pago/pago-create/pago-create.component'
 import { InfoComponent } from '../pago/info/info.component';
 import { PagoEditComponent} from '../pago/pago-edit/pago-edit.component'
 import { PagoListComponent} from '../pago/pago-list/pago-list.component'
+import { VehiculoCreateComponent } from '../vehiculo/vehiculo-create/vehiculo-create.component';
+import { VehiculoListComponent } from '../vehiculo/vehiculo-list/vehiculo-list.component';
+import { VehiculoEditComponent } from '../vehiculo/vehiculo-edit/vehiculo-edit.component';
 import { ListarAlquilerComponent } from '../alquiler/listar-alquiler/listar-alquiler.component';
 import { MenuComponent} from '../usuario/menu/menu.component';
 import { HomeComponent} from '../home/home/home.component';
