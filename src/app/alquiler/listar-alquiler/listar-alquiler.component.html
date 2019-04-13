@@ -20,13 +20,13 @@
 		{{i.nombre}}
 	</td>
 	<td style="cursor: pointer">
-		<a class="figure-caption" [routerLink] ="['/usuario', { outlets: { 'detail': [i.arrendatario.id] } }]" >{{i.arrendatario.nombre}}</a>
+		<a class="figure-caption" [routerLink] ="['/usuario', { outlets: { 'detail': [i.arrendatario.id] } }]" >{{i.arrendatario.username}}</a>
 	</td>
 	<td style="cursor: pointer">
-		<a class="figure-caption" [routerLink] ="['/usuario', { outlets: { 'detail': [i.duenio.id] } }]" >{{i.duenio.nombre}}</a>
+		<a class="figure-caption" [routerLink] ="['/usuario', { outlets: { 'detail': [i.duenio.id] } }]" >{{i.duenio.username}}</a>
 	</td>
 	<td style="cursor: pointer">
-		<a class="figure-caption" [routerLink] ="['/seguro', { outlets: { 'detail': [i.seguro.id] } }]" >{{i.seguro.nombre}}</a>
+		<a class="figure-caption" [routerLink] ="['/seguro', { outlets: { 'detail': [i.seguro.id] } }]" >{{i.seguro.tipo}}</a>
 	</td>
 </tr>
 

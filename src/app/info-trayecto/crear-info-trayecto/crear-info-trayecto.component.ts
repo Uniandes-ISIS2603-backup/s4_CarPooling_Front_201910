@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InfoTrayecto} from '../info-trayecto';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
 import {ToastrService} from 'ngx-toastr';
 import {InfoTrayectoService} from '../info-trayecto.service';

@@ -14,7 +14,7 @@ export class CrearAlquilerComponent implements OnInit {
     alquiler = new Alquiler();
     cancel = new EventEmitter();
     update = new EventEmitter();
-  
+    id:number;
  
 constructor(
  private toastrService: ToastrService,
@@ -36,13 +36,23 @@ createAlquiler(){
          .subscribe(alquiler => {
              this.alquiler = alquiler;
              this.toastrService.success("El alquiler fue creado con éxito", "alquiler Creado");
-
+             this.alquilerService.createAlquilerRelacion(alquiler);
          });
          this.update.emit();
      return this.alquiler;
      
 }
 
+addRelacion(alquiler:Alquiler){
+  this.alquilerService.createalquiler(alquiler)
+          .subscribe(a => {
+              this.alquiler = a;
+              this.toastrService.success("El alquiler fue creado con éxito para al", "alquiler Creado");
+          });
+          this.update.emit();
+  return this.alquiler;
+ }
+ 
 darAlquilerActual(): Alquiler {
  return this.alquiler;
 }
