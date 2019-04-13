@@ -15,18 +15,29 @@
                 </div> 
                 <div class="form-group">
                     <label for="arrendatario"><b>Arrendatario</b></label>
-                    <input type="text"  class="form-control">
+                    <input type="text" name="arrendatario" class="form-control" id="arrendatario" [(ngModel)]="alquiler.arrendatario"
+                        #nombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombre.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Falta el Arrendatario</div>
                     </div>
                 
                 <div class="form-group">
                     <label for="duenio"><b>Dueño</b></label>
-                    <input type="text"  class="form-control">
+                    <input type="text" name="duenio" class="form-control" id="nombre" [(ngModel)]="alquiler.duenio"
+                    #nombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombre.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el dueño</div>
+                </div>
                     </div>
                 
                 <div class="form-group">
-                    <label for="vehiculo"><b>Vehiculo</b></label>
-                    <input type="text" class="form-control">
+                    <label for="seguro"><b>Seguro</b></label>
+                    <input type="text" name="seguro" class="form-control" id="seguro" [(ngModel)]="alquiler.seguro"
+                        #nombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombre.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Falta el seguro</div>
                     </div>
+                </div>
                 
                 
                 <br>
@@ -35,8 +46,8 @@
                     <div class="divider"></div>
                     <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancel</button>
                 </div>
-            </form>
+            
             <br>
-        </div>
-    </div>
+        
+    
 </div>
