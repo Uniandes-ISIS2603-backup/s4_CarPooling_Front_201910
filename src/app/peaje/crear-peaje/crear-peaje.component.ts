@@ -31,10 +31,15 @@ cancelCreation(): void {
  this.toastrService.warning('El peaje no fue creado', 'Registro peaje'); 
 }
 
+/* Conexión con el servicio
+ * 
+ */
 createPeaje(){
-this.peajeService.createPeaje(this.peaje)
-       .subscribe(alquiler => {
-           this.peaje = alquiler;
+  console.log(this.peaje)
+  this.peajeService.createPeaje(this.peaje)
+       .subscribe(peaje => {
+           this.peaje = peaje;
+           
            this.toastrService.success("El peaje fue creado con éxito", "peaje Creado");
 
        });
