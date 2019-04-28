@@ -5,7 +5,7 @@ import { UsuarioDetail } from './usuario-detail';
 
 import { Usuario } from './usuario';
 
-const API_URL = "http://e04f10ed.ngrok.io/s4_carpooling-api/api/";
+const API_URL = "http://52a0903d.ngrok.io/s4_carpooling-api/api/";
 const usuarios = 'usuarios';
 
 @Injectable({
@@ -38,6 +38,9 @@ export class UsuarioService {
         return this.http.post<UsuarioDetail>(API_URL + usuarios, usuario);
     }
 
+    /**
+     * Retorna el nombre de usuaurio del usuario loggeado actualmente
+     */
     darUsuarioActual(): string{
     return localStorage.getItem('usuarioActual');
     }

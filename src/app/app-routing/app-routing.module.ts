@@ -180,14 +180,27 @@ const routes: Routes = [
     },
     {
         path: 'infoTrayecto',
-        children: [         
-            {path: 'list',
+        children: 
+        [         
+            {
+                path: 'list',
                 component:  ListarInfoTrayectoComponent            
-            },{path: 'edit',
-            component:  EditInfoTrayectoComponent}
-        
+            },
+            {path: 'edit',
+            component:  EditInfoTrayectoComponent
+            }
         ]
     },
+    {
+        path: 'vehiculo',
+        children: 
+        [
+            {
+                path: 'create',
+                component: VehiculoCreateComponent
+            }            
+        ]
+    }
 ];
 
 @NgModule({
