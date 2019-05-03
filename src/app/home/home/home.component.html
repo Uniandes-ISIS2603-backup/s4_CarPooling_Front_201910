@@ -1,15 +1,105 @@
-<!-- Botones a los componentes -->
+<div class="row">
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+        <a href="#">Trayectos</a>
+        <a href="#">Alquiler</a>
+      </div>
+      <div id="main">
+          <span style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776; Menu </span>
+        </div>
+   
+  <div class="col-6 offset-3">
+      <br>
+      <h2 class="text-center">Buscar Trayecto</h2>
+      <br>
+      <form name="search" (ngSubmit)="search()" #f="ngForm" id ="search">
+          <div class="form-group">
+              <label for="fechaInicial"><b>Fecha Inicial</b></label>
+              <input type="date" name="username" class="form-control" id="inicio" [(ngModel)]="buscar.inicio">
+          </div>
 
-<ul class="nav nav-pills">
-  <li class="nav justify-content-center">
-  	  <a class="nav-link active" routerLink="/usuario/menu" routerLinkActive="active">Usuario</a>
-      <a class="nav-link active" routerLink="/trayecto" routerLinkActive="active">Trayecto</a>
-      <a class="nav-link active" routerLink="/alquiler/crear" routerLinkActive="active">Crear Alquiler</a>
-      <a class="nav-link active" routerLink="/alquiler/edit" routerLinkActive="active">Update Alquiler</a>
-  	  <a class="nav-link active" routerLink="/trayecto/list" routerLinkActive="active">Trayectos</a>
-      <a class="nav-link active" routerLink="/trayecto/create" routerLinkActive="active">Crear Trayecto</a>
+          <div class="form-group">
+              <label for="fechaFinal"><b>Fecha Final</b></label>
+              <input type="date" name="fechaFinal" class="form-control" id="final" [(ngModel)]="buscar.final">
+          </div>
 
-      <!-- Usar como pruebas, eliminar al terminar -->
-      
-  </li>
-</ul>
+        
+          <div class="form-group">
+            <label for="origen"><b>Origen</b></label>
+            <select class="form-control" name="origen" form="search" size="5" *ngFor = "let ciudad of ciudades">
+              <option value = {{ciudad.id}} >{{ciudad.nombre}}</option>
+            </select>
+          </div>
+  
+          <div class="form-group">
+            <label for="destino"><b>Destino</b></label>
+            <select class="form-control" name="destino" form="search" size="5" *ngFor = "let ciudad of ciudades">
+                <option value = {{ciudad.id}} >{{ciudad.nombre}}</option>
+            </select>
+          </div>
+              
+          <div class="form-group">
+            <label for="costo"><b>Costo</b></label>
+            <input type="search" name="costo" class="form-control" id="costo" [(ngModel)]="buscar.costo">
+          </div>
+    <details>     
+        <div class="form-group">
+            <label for="conductor"><b>Conductor</b></label>
+            <select class="form-control" name="conductor" form="search" size="5" *ngFor = "let user of usuarios">
+                <option value = {{user.id}} >{{user.nombre}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+          <label for="pasajero"><b>Pasajero</b></label>
+          <select class="form-control" name="pasajero" form="search" size="5" *ngFor = "let user of usuarios">
+              <option type="checkbox" value = {{user.id}} >{{user.nombre}}</option>
+          </select>
+         </div>
+        
+         <div class="form-group">
+          <label for="estado"><b>Estado</b></label>
+          <select class="form-control" name="estado" form="search" size="5">
+            <option value = "0">Futuro</option>
+            <option value = "1">Actual</option>
+            <option value = "2">Pasado</option>
+            <option value = "3">No Realizado</option>
+          </select>
+      </div>
+
+
+        <div class="form-group">
+          <label for="duracion"><b>Duracion</b></label>
+          <input type="search" name="duracion" class="form-control" id="duracion" [(ngModel)]="buscar.duracion">
+       </div>
+
+        
+        <div class="form-group">
+          <label for="paradas"><b>Paradas</b></label>
+            <select class="form-control" name="paradas" id="paradas" [(ngModel)]="buscar.paradas" form="search" size="5" *ngFor = "let ciudad of ciudades">
+                <option value = {{ciudad.id}} >{{ciudad.nombre}}</option>
+            </select>
+        </div>
+
+      <div class="form-group">
+        <label for="peajes"><b>Peajes</b></label>
+        <select class="form-control" name="peajes" form="search" size="5" *ngFor = "let peaje of peajes">
+            <option value = {{peaje.id}} >{{peaje.nombre}}</option>
+        </select>
+       </div>
+
+      <div class="form-group">
+        <label for="vehiculo"><b>Vehiculo</b></label>
+        <select class="form-control" name="vehiculo" form="search" size="5" *ngFor = "let vehiculo of vehiculos">
+            <option value = {{vehiculo.id}} >{{vehiculo.nombre}}</option>
+        </select>
+      </div>
+    </details> 
+          <div class="justify-content-center align-self-center">
+              <button type="submit" class="btn btn-primary" routerLink="/home">Buscar</button>
+          </div>
+        </form>
+   </div>
+    </div>
+
+
