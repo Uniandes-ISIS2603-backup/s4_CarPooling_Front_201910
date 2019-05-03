@@ -12,6 +12,7 @@ const usuarios = 'usuarios';
   providedIn: 'root'
 })
 export class UsuarioService {
+ 
 
 	/**
     * Constructor of the service
@@ -36,6 +37,14 @@ export class UsuarioService {
     createUsuario(usuario): Observable<UsuarioDetail> {     
         localStorage.setItem('usuarioActual', usuario.username);
         return this.http.post<UsuarioDetail>(API_URL + usuarios, usuario);
+    }
+    /**
+    * Login a new user
+    * @param user The new user
+    * @returns The user with its new id if it was created, false if it wasn't
+    */
+    loginUsuario(usuario: Usuario): Observable<UsuarioDetail> {
+        return this.http.get<UsuarioDetail>(API_URL + usuarios + '/' + usuario.username);
     }
 
     /**

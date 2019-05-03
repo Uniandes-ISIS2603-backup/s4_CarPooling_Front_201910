@@ -41,11 +41,18 @@ import { ListarPeajeComponent } from '../peaje/listar-peaje/listar-peaje.compone
 import { CrearPeajeComponent } from '../peaje/crear-peaje/crear-peaje.component';
 import { AdminSeguroComponent } from '../seguro/admin/admin.component';
 import { AdminPeajeComponent } from '../peaje/admin/admin.component';
+import { UsuarioLoginComponent } from '../usuario/usuario-login/usuario-login.component';
+import { InicioComponent } from '../inicio/inicio/inicio.component';
 
 
 
 const routes: Routes = [
 
+    {
+        // Path de login y sign up
+       path: 'inicio',
+       component: InicioComponent
+     },
      {
          // Path de login y sign up
         path: 'auth',
@@ -94,6 +101,10 @@ const routes: Routes = [
             {
                 path: 'create',
                 component:  UsuarioCreateComponent
+            },
+            {
+                path: 'login',
+                component:  UsuarioLoginComponent
             },
             {
                 path: 'menu',
@@ -200,6 +211,11 @@ const routes: Routes = [
                 component: VehiculoCreateComponent
             }            
         ]
+    },
+    {
+        path: "**",
+        redirectTo: 'inicio'
+
     }
 ];
 

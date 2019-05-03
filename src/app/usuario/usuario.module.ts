@@ -8,6 +8,7 @@ import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
 import { MenuComponent } from './menu/menu.component';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { UsuarioInfoComponent } from './usuario-info/usuario-info.component';
+import { UsuarioLoginComponent } from './usuario-login/usuario-login.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import { UsuarioInfoComponent } from './usuario-info/usuario-info.component';
     FormsModule,
     AppRoutingModule
   ],
-  declarations: [UsuarioDetailComponent, UsuarioCreateComponent, UsuarioListaComponent, UsuarioEditComponent, MenuComponent, UsuarioInfoComponent],
-  exports: [UsuarioDetailComponent, UsuarioCreateComponent,UsuarioListaComponent, UsuarioEditComponent, MenuComponent,UsuarioInfoComponent ]
+  declarations: [UsuarioDetailComponent, UsuarioCreateComponent, UsuarioListaComponent, UsuarioEditComponent, MenuComponent, UsuarioInfoComponent, UsuarioLoginComponent],
+  exports: [UsuarioDetailComponent, UsuarioCreateComponent,UsuarioListaComponent, UsuarioEditComponent, MenuComponent,UsuarioInfoComponent,UsuarioLoginComponent ]
 })
 export class UsuarioModule { }

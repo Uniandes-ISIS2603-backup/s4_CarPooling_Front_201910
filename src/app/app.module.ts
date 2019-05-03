@@ -22,6 +22,7 @@ import {AdminModule} from './admin/admin.module';
 import { SeguroModule } from './seguro/seguro.module';
 import { PeajeModule } from './peaje/peaje.module';
 import { VehiculoModule } from './vehiculo/vehiculo.module';
+import { InicioModule } from './inicio/inicio.module';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { VehiculoModule } from './vehiculo/vehiculo.module';
         AdminModule,
         TrayectoModule,
         InfoTrayectoModule,
-        VehiculoModule
+        VehiculoModule,
+        InicioModule
     ],
     bootstrap: [AppComponent],
     providers: [
