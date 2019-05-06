@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from '../../usuario/usuario.service';
+import { Router } from '@angular/router';
+import { UsuarioDetail } from '../../usuario/usuario-detail';
+import { Busqueda } from '../busqueda';
 
 
 @Component({
@@ -14,8 +18,8 @@ export class HomeComponent implements OnInit {
   ) {}
 
   usuario : UsuarioDetail;
-
   usernameActual: string;
+  buscar= new Busqueda();
 
   ngOnInit() {
     this.getCurretUsuario();
