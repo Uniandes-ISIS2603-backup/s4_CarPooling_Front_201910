@@ -10,6 +10,8 @@ import { UsuarioDetailComponent } from '../usuario/usuario-detail/usuario-detail
 import { UsuarioEditComponent} from '../usuario/usuario-edit/usuario-edit.component'
 import { UsuarioListaComponent} from '../usuario/usuario-lista/usuario-lista.component'
 import { UsuarioInfoComponent} from '../usuario/usuario-info/usuario-info.component'
+import { UsuarioVehiculosComponent} from '../usuario/usuario-vehiculos/usuario-vehiculos.component'
+
 
 import { PagoCreateComponent} from '../pago/pago-create/pago-create.component'
 import { InfoComponent } from '../pago/info/info.component';
@@ -119,7 +121,18 @@ const routes: Routes = [
                     {
                         path: 'edit',
                         component:  UsuarioEditComponent,
-                        outlet: 'content'}
+                        outlet: 'content'
+                    },
+                    {
+                        path: 'vehiculos',
+                        component:  UsuarioVehiculosComponent,
+                        outlet: 'content'
+                    },
+                    {
+                        path: '**',
+                        redirectTo: 'info'
+                    }
+
                 ]
             },
             {
