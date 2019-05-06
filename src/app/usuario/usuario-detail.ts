@@ -2,6 +2,8 @@ import {Usuario} from "./usuario";
 import {Vehiculo} from "../vehiculo/vehiculo"
 import {Alquiler} from "../alquiler/alquiler"
 import {Trayecto} from "../trayecto/trayecto"
+import { Calificacion } from "../calificacion/calificacion";
+import { Notificacion } from "../notificacion/notificacion";
 
 export class UsuarioDetail extends Usuario {
 
@@ -29,6 +31,21 @@ export class UsuarioDetail extends Usuario {
 	* Trayectos de los que el usuario es dueño
 	*/
 	trayectoActualPasajero: Trayecto[];
+
+	/**
+	* Las calificaciones del usuario
+	*/
+	calificaciones: Calificacion[];
+
+	/**
+	* Las notificaciones enviadas por el usuario
+	*/
+	notificacionesEnviadas: Notificacion[];
+	
+	/**
+	* Las notificaciones recibidas por el usuario
+	*/
+	notificacionesRecibidas: Notificacion[];
 
 
 }
