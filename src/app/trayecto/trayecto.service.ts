@@ -5,7 +5,7 @@ import { TrayectoDetailComponent } from './trayecto-detail/trayecto-detail.compo
 import { TrayectoDetail} from './trayecto-detail';
 import { Trayecto } from './trayecto';
 
-const API_URL = "http://e04f10ed.ngrok.io/s4_carpooling-api/api/";
+const API_URL = "http://52a0903d.ngrok.io/s4_carpooling-api/api/";
 const trayectos = 'trayectos';
 
 @Injectable({

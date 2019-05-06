@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {InfoTrayecto} from './info-trayecto';
 import { Observable } from 'rxjs';
 
-const API_URL = "http://e04f10ed.ngrok.io/s4_carpooling-api/api/";
+const API_URL = "http://52a0903d.ngrok.io/s4_carpooling-api/api/";
 const infoTrayectos = 'infoTrayecto';
 
 @Injectable({

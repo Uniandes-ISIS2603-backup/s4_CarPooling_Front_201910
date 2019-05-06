@@ -11,7 +11,8 @@ export class UsuarioInfoComponent implements OnInit {
 
   constructor(
         private usuarioService: UsuarioService,
-  	) { }
+  	) { 
+    }
 
   usuario : UsuarioDetail;
 

@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Busqueda } from '../busqueda';
-import { Ciudad } from '../ciudad';
-import { Usuario } from 'src/app/usuario/usuario';
-import { Vehiculo } from 'src/app/vehiculo/vehiculo';
-import { Peaje } from '../peaje';
+
 
 @Component({
   selector: 'app-home',
@@ -12,14 +8,17 @@ import { Peaje } from '../peaje';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
-  buscar = new Busqueda();
-  ciudades: Ciudad[];
-  usuarios: Usuario[];
-  peajes: Peaje[];
-  vehiculos: Vehiculo[];
+  constructor(
+    private usuarioService: UsuarioService,
+    private router: Router
+  ) {}
+
+  usuario : UsuarioDetail;
+
+  usernameActual: string;
 
   ngOnInit() {
+    this.getCurretUsuario();
   }
   submit(){
   
@@ -29,8 +28,21 @@ export class HomeComponent implements OnInit {
     document.getElementById("main").style.marginLeft = "250px";
   }
   
-   closeNav() {
+  closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("main").style.marginLeft= "0";
+  }
+
+  darUsuarioActual(): string {
+    return this.usuarioService.darUsuarioActual();
+  }
+
+  getCurretUsuario(){
+    this.usernameActual = this.usuarioService.darUsuarioActual();
+    this.usuarioService.getUsuarioDetail(this.usernameActual)
+            .subscribe(usuario => {
+                this.usuario = usuario;
+                console.log(this.usuario);
+            });
   }
 }

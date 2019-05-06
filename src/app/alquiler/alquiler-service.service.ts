@@ -7,7 +7,7 @@ import{UsuarioService} from '../usuario/usuario.service';
 import { SeguroServiceService } from '../seguro/seguro-service.service';
 import { AlquilerRelacion } from './alquiler-relacion';
 
-const API_URL = "http://localhost:8080/s4_carpooling-api/api/";
+const API_URL = "http://52a0903d.ngrok.io/s4_carpooling-api/api/";
 const alquileres = 'alquileres';
 @Injectable({ 
   providedIn: 'root'

@@ -10,6 +10,8 @@ import { UsuarioDetailComponent } from '../usuario/usuario-detail/usuario-detail
 import { UsuarioEditComponent} from '../usuario/usuario-edit/usuario-edit.component'
 import { UsuarioListaComponent} from '../usuario/usuario-lista/usuario-lista.component'
 import { UsuarioInfoComponent} from '../usuario/usuario-info/usuario-info.component'
+import { UsuarioVehiculosComponent} from '../usuario/usuario-vehiculos/usuario-vehiculos.component'
+
 
 import { PagoCreateComponent} from '../pago/pago-create/pago-create.component'
 import { InfoComponent } from '../pago/info/info.component';
@@ -43,6 +45,9 @@ import { AdminSeguroComponent } from '../seguro/admin/admin.component';
 import { AdminPeajeComponent } from '../peaje/admin/admin.component';
 import { UsuarioLoginComponent } from '../usuario/usuario-login/usuario-login.component';
 import { InicioComponent } from '../inicio/inicio/inicio.component';
+import { UsuarioCalificacionesComponent } from '../usuario/usuario-calificaciones/usuario-calificaciones.component';
+import { UsuarioNotificacionesComponent } from '../usuario/usuario-notificaciones/usuario-notificaciones.component';
+import { UsuarioBuscarComponent } from '../usuario/usuario-buscar/usuario-buscar.component';
 
 
 
@@ -119,7 +124,33 @@ const routes: Routes = [
                     {
                         path: 'edit',
                         component:  UsuarioEditComponent,
-                        outlet: 'content'}
+                        outlet: 'content'
+                    },
+                    {
+                        path: 'vehiculos',
+                        component:  UsuarioVehiculosComponent,
+                        outlet: 'content'
+                    },
+                    {
+                        path: 'calificaciones',
+                        component:  UsuarioCalificacionesComponent,
+                        outlet: 'content'
+                    },
+                    {
+                        path: 'notificaciones',
+                        component:  UsuarioNotificacionesComponent,
+                        outlet: 'content'
+                    },
+                    {
+                        path: 'buscarUsuario',
+                        component:  UsuarioBuscarComponent,
+                        outlet: 'content'
+                    },
+                    {
+                        path: '**',
+                        redirectTo: 'info'
+                    }
+
                 ]
             },
             {
