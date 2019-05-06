@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TrayectoService } from '../trayecto.service';
 import { Router } from '@angular/router';
 import {Trayecto} from '../trayecto';
+import { HomeServiceService } from '../../home/home-service.service';
 
 @Component({
   selector: 'app-listar-trayecto',
@@ -10,7 +11,7 @@ import {Trayecto} from '../trayecto';
 })
 export class ListarTrayectoComponent implements OnInit {
 
-  constructor(private trayectoService: TrayectoService, private router: Router) { }
+  constructor(private trayectoService: TrayectoService, private router: Router, private home:HomeServiceService) { }
 
   trayectos: Trayecto[];
 
@@ -22,7 +23,8 @@ export class ListarTrayectoComponent implements OnInit {
 
 
   ngOnInit() {
-  	this.getTrayectos();
+    //this.getTrayectos();
+    this.trayectos=this.home.getActual();
   }
 
 }

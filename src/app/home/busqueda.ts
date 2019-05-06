@@ -9,7 +9,8 @@ export class Busqueda {
     conductor:any;
     pasajero:any;
     paradas:any;
-    peajes;any;
+    peajes:any;
     vehiculos:any;
-    
+  cupos: number;
+
 }
