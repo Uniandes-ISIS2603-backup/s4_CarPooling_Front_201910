@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Busqueda } from '../busqueda';
+import { Ciudad } from '../ciudad';
+import { Usuario } from 'src/app/usuario/usuario';
+import { Vehiculo } from 'src/app/vehiculo/vehiculo';
+import { Peaje } from '../peaje';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +13,16 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   constructor() { }
+  buscar = new Busqueda();
+  ciudades: Ciudad[];
+  usuarios: Usuario[];
+  peajes: Peaje[];
+  vehiculos: Vehiculo[];
 
   ngOnInit() {
+  }
+  submit(){
+  
   }
    openNav() {
     document.getElementById("mySidenav").style.width = "250px";
