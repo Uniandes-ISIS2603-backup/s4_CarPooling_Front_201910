@@ -45,6 +45,9 @@ import { AdminSeguroComponent } from '../seguro/admin/admin.component';
 import { AdminPeajeComponent } from '../peaje/admin/admin.component';
 import { UsuarioLoginComponent } from '../usuario/usuario-login/usuario-login.component';
 import { InicioComponent } from '../inicio/inicio/inicio.component';
+import { UsuarioCalificacionesComponent } from '../usuario/usuario-calificaciones/usuario-calificaciones.component';
+import { UsuarioNotificacionesComponent } from '../usuario/usuario-notificaciones/usuario-notificaciones.component';
+import { UsuarioBuscarComponent } from '../usuario/usuario-buscar/usuario-buscar.component';
 
 
 
@@ -126,6 +129,21 @@ const routes: Routes = [
                     {
                         path: 'vehiculos',
                         component:  UsuarioVehiculosComponent,
+                        outlet: 'content'
+                    },
+                    {
+                        path: 'calificaciones',
+                        component:  UsuarioCalificacionesComponent,
+                        outlet: 'content'
+                    },
+                    {
+                        path: 'notificaciones',
+                        component:  UsuarioNotificacionesComponent,
+                        outlet: 'content'
+                    },
+                    {
+                        path: 'buscarUsuario',
+                        component:  UsuarioBuscarComponent,
                         outlet: 'content'
                     },
                     {

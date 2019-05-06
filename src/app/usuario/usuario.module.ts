@@ -10,6 +10,9 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { UsuarioInfoComponent } from './usuario-info/usuario-info.component';
 import { UsuarioLoginComponent } from './usuario-login/usuario-login.component';
 import { UsuarioVehiculosComponent } from './usuario-vehiculos/usuario-vehiculos.component';
+import { UsuarioCalificacionesComponent } from './usuario-calificaciones/usuario-calificaciones.component';
+import { UsuarioNotificacionesComponent } from './usuario-notificaciones/usuario-notificaciones.component';
+import { UsuarioBuscarComponent } from './usuario-buscar/usuario-buscar.component';
 
 @NgModule({
   imports: [
@@ -17,7 +20,7 @@ import { UsuarioVehiculosComponent } from './usuario-vehiculos/usuario-vehiculos
     FormsModule,
     AppRoutingModule
   ],
-  declarations: [UsuarioDetailComponent, UsuarioCreateComponent, UsuarioListaComponent, UsuarioEditComponent, MenuComponent, UsuarioInfoComponent, UsuarioLoginComponent, UsuarioVehiculosComponent],
-  exports: [UsuarioDetailComponent, UsuarioCreateComponent,UsuarioListaComponent, UsuarioEditComponent, MenuComponent,UsuarioInfoComponent,UsuarioLoginComponent, UsuarioVehiculosComponent ]
+  declarations: [UsuarioDetailComponent, UsuarioCreateComponent, UsuarioListaComponent, UsuarioEditComponent, MenuComponent, UsuarioInfoComponent, UsuarioLoginComponent, UsuarioVehiculosComponent, UsuarioCalificacionesComponent, UsuarioNotificacionesComponent, UsuarioBuscarComponent],
+  exports: [UsuarioDetailComponent, UsuarioCreateComponent,UsuarioListaComponent, UsuarioEditComponent, MenuComponent,UsuarioInfoComponent,UsuarioLoginComponent, UsuarioVehiculosComponent,  UsuarioCalificacionesComponent, UsuarioNotificacionesComponent, UsuarioBuscarComponent ]
 })
 export class UsuarioModule { }
