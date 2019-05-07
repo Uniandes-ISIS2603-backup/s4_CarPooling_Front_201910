@@ -8,7 +8,7 @@
                             <div class="user-info">
                                 <img class="img-profile img-circle img-responsive center-block" src="http://chittagongit.com//images/generic-user-icon/generic-user-icon-13.jpg" alt="">
                                 <ul class="meta list list-unstyled">
-                                    <li class="name">{{usuario.nombre}} {{usuario.apellido}}  
+                                    <li class="name" *ngIf="usuario">{{usuario.nombre}} {{usuario.apellido}}  
                                     </li>
                                 </ul>
                             </div>
@@ -23,11 +23,12 @@
                             </nav>
                         </div>
                     </div>
-                    <div class="col" >
-                        <router-outlet name="content"></router-outlet>
-                    </div>
+                    
                 </section>
             </div>
+        </div>
+        <div class="col" >
+            <router-outlet name="content"></router-outlet>
         </div>
     </div>
 </div>

@@ -1,3 +1,49 @@
-<p>
-  usuario-notificaciones works!
-</p>
+<div class="container-fluid">   
+  <div class="row">
+    <div class="col" >
+      <h2>Notifiaciones recibidas</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Mensaje</th>
+            <th scope="col">Emisor</th>
+            <th scope="col">Receptor</th>
+            <th scope="col">Trayecto</th>
+           </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let notificacion of misNotificacionesRecibidas">
+                  <td>{{notificacion.id}}</td>
+                  <td>{{notificacion.mensaje}}</td>
+                  <td>{{notificacion.emisor}}</td>
+                  <td>{{notificacion.receptor}}</td>
+                  <td>{{notificacion.trayecto}}</td>
+              </tr>
+        </tbody>
+      </table>
+      <h2>Notificaciones enviadas</h2>
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Mensaje</th>
+              <th scope="col">Emisor</th>
+              <th scope="col">Receptor</th>
+              <th scope="col">Trayecto</th>
+             </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor = "let notificacion of misNotificacionesEnviadas">
+                    <td>{{vehiculo.id}}</td>
+                    <td>{{vehiculo.mensaje}}</td>
+                    <td>{{vehiculo.emisor}}</td>
+                    <td>{{vehiculo.receptor}}</td>
+                    <td>{{vehiculo.trayecto}}</td>
+                </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+
