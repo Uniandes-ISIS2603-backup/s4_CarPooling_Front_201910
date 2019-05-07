@@ -1,3 +1,4 @@
+
 <div class="row">
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
@@ -7,12 +8,19 @@
       <div id="main">
           <span style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776; Menu </span>
         </div>
+
+
+        <div class="col-7" *ngIf="usuario!=null">
+            Bienvenido {{usuario.nombre}}
+            <button class="button button5" routerLink="/usuario/menu">Usuario</button>
+        
+         </div>
    
   <div class="col-6 offset-3">
       <br>
       <h2 class="text-center">Buscar Trayecto</h2>
       <br>
-      <form name="search" (ngSubmit)="search()" #f="ngForm" id ="search">
+      <form name="search" (ngSubmit)="submit()" #f="ngForm" id ="search" *ngIf="buscar!=null">
           <div class="form-group">
               <label for="fechaInicial"><b>Fecha Inicial</b></label>
               <input type="date" name="username" class="form-control" id="inicio" [(ngModel)]="buscar.inicio">
@@ -24,17 +32,17 @@
           </div>
 
         
-          <div class="form-group">
+          <div class="form-group" *ngIf="ciudades!=null">
             <label for="origen"><b>Origen</b></label>
-            <select class="form-control" name="origen" form="search" size="5" *ngFor = "let ciudad of ciudades">
-              <option value = {{ciudad.id}} >{{ciudad.nombre}}</option>
+            <select class="form-control" name="origen" form="search"   [(ngModel)]="buscar.origen" >
+              <option *ngFor = "let ciudad of ciudades" value = {{ciudad.nombre}} >{{ciudad.nombre}}</option>
             </select>
           </div>
   
-          <div class="form-group">
+          <div class="form-group" *ngIf="ciudades!=null">
             <label for="destino"><b>Destino</b></label>
-            <select class="form-control" name="destino" form="search" size="5" *ngFor = "let ciudad of ciudades">
-                <option value = {{ciudad.id}} >{{ciudad.nombre}}</option>
+            <select class="form-control" name="destino" form="search"   [(ngModel)]="buscar.destino" >
+                <option *ngFor = "let ciudad of ciudades" value = {{ciudad.nombre}} >{{ciudad.nombre}}</option>
             </select>
           </div>
               
@@ -43,23 +51,23 @@
             <input type="search" name="costo" class="form-control" id="costo" [(ngModel)]="buscar.costo">
           </div>
     <details>     
-        <div class="form-group">
+        <div class="form-group" *ngIf="usuarios!=null">
             <label for="conductor"><b>Conductor</b></label>
-            <select class="form-control" name="conductor" form="search" size="5" *ngFor = "let user of usuarios">
-                <option value = {{user.id}} >{{user.nombre}}</option>
+            <select class="form-control" name="conductor" form="search"   [(ngModel)]="buscar.conductor" >
+                <option *ngFor = "let user of usuarios" value = {{user.id}} >{{user.username}}</option>
             </select>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" *ngIf="usuarios!=null">
           <label for="pasajero"><b>Pasajero</b></label>
-          <select class="form-control" name="pasajero" form="search" size="5" *ngFor = "let user of usuarios">
-              <option type="checkbox" value = {{user.id}} >{{user.nombre}}</option>
+          <select class="form-control" name="pasajero" form="search"   [(ngModel)]="buscar.pasajero" >
+              <option type="checkbox" *ngFor = "let user of usuarios" value = {{user.id}} >{{user.username}}</option>
           </select>
          </div>
         
          <div class="form-group">
           <label for="estado"><b>Estado</b></label>
-          <select class="form-control" name="estado" form="search" size="5">
+          <select class="form-control" name="estado" form="search"  [(ngModel)]="buscar.estado" [(ngModel)]="buscar.estado">
             <option value = "0">Futuro</option>
             <option value = "1">Actual</option>
             <option value = "2">Pasado</option>
@@ -74,24 +82,24 @@
        </div>
 
         
-        <div class="form-group">
+        <div class="form-group" *ngIf="ciudades!=null">
           <label for="paradas"><b>Paradas</b></label>
-            <select class="form-control" name="paradas" id="paradas" [(ngModel)]="buscar.paradas" form="search" size="5" *ngFor = "let ciudad of ciudades">
-                <option value = {{ciudad.id}} >{{ciudad.nombre}}</option>
+            <select class="form-control" name="paradas" id="paradas" [(ngModel)]="buscar.paradas" form="search"   [(ngModel)]="buscar.paradas" >
+                <option *ngFor = "let ciudad of ciudades" value = {{ciudad.nombre}} >{{ciudad.nombre}}</option>
             </select>
         </div>
 
-      <div class="form-group">
+      <div class="form-group"  *ngIf="peajes!=null">
         <label for="peajes"><b>Peajes</b></label>
-        <select class="form-control" name="peajes" form="search" size="5" *ngFor = "let peaje of peajes">
-            <option value = {{peaje.id}} >{{peaje.nombre}}</option>
+        <select class="form-control" name="peajes" form="search"  [(ngModel)]="buscar.peajes">
+            <option  *ngFor = "let peaje of peajes" value = {{peaje.id}} >{{peaje.nombre}}</option>
         </select>
        </div>
 
-      <div class="form-group">
+      <div class="form-group" *ngIf="vehiculos!=null">
         <label for="vehiculo"><b>Vehiculo</b></label>
-        <select class="form-control" name="vehiculo" form="search" size="5" *ngFor = "let vehiculo of vehiculos">
-            <option value = {{vehiculo.id}} >{{vehiculo.nombre}}</option>
+        <select class="form-control" name="vehiculo" form="search"  [(ngModel)]="buscar.vehiculo" >
+            <option  *ngFor = "let vehiculo of vehiculos" value = {{vehiculo.id}} >{{vehiculo.placa}}</option>
         </select>
       </div>
     </details> 
@@ -100,11 +108,7 @@
           </div>
         </form>
    </div>
-   <div class="col-7">
-      Bienvenido {{usuario.nombre}}
-      <button class="button button5" routerLink="/usuario/menu">Usuario</button>
 
-   </div>
 </div>
 
 
