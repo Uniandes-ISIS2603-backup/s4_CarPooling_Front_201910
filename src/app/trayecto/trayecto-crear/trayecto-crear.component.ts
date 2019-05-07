@@ -5,22 +5,26 @@ import {TrayectoDetail} from '../trayecto-detail';
 import {ToastrService} from 'ngx-toastr';
 import {TrayectoService} from '../trayecto.service';
 import {Router} from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-trayecto-crear',
   templateUrl: './trayecto-crear.component.html',
-  styleUrls: ['./trayecto-crear.component.css']
+  styleUrls: ['./trayecto-crear.component.css'],
+  providers: [DatePipe]
 })
 export class TrayectoCrearComponent implements OnInit {
 
 
 	trayecto = new Trayecto;
 
-  constructor(private toastrService: ToastrService,
+  constructor(private dp: DatePipe,
+    private toastrService: ToastrService,
     private trayectoService: TrayectoService,
     private router: Router) { }
 
   ngOnInit() {
+    this.trayecto = new Trayecto();
   }
 
   cancelCreation(): void {
@@ -30,6 +34,12 @@ export class TrayectoCrearComponent implements OnInit {
   }
 
   createTrayecto(){
+    let dateB: Date = new Date(this.trayecto.fechaFinal.year, this.trayecto.fechaFinal.month - 1, this.trayecto.fechaFinal.day);
+this.trayecto.fechaFinal = this.dp.transform(dateB, 'yyyy-MM-dd');
+
+let dateB1: Date = new Date(this.trayecto.fechaInicial.year, this.trayecto.fechaInicial.month - 1, this.trayecto.fechaInicial.day);
+this.trayecto.fechaFinal = this.dp.transform(dateB1, 'yyyy-MM-dd');
+
     this.trayectoService.createTrayecto(this.trayecto)
             .subscribe(trayecto => {
                 this.trayecto = trayecto;

@@ -8,10 +8,10 @@ export class Trayecto {
 
 	estado: number;
 
-	fechaInicial: Date;
+	fechaInicial: any;
 	
 
-	fechaFinal: Date;
+	fechaFinal: any;
     
     conductor: Usuario;
 
