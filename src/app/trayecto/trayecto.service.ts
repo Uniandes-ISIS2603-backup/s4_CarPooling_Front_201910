@@ -5,7 +5,7 @@ import { TrayectoDetailComponent } from './trayecto-detail/trayecto-detail.compo
 import { TrayectoDetail} from './trayecto-detail';
 import { Trayecto } from './trayecto';
 
-const API_URL = "http://52a0903d.ngrok.io/s4_carpooling-api/api/";
+const API_URL = "http://52a0903d.ngrok.io/s4_carpooling-api/api";
 const trayectos = 'trayectos';
 
 @Injectable({
@@ -34,7 +34,7 @@ export class TrayectoService {
     * @returns The user with its new id if it was created, false if it wasn't
     */
     createTrayecto(trayecto): Observable<Trayecto> {
-        return this.http.post<TrayectoDetail>(API_URL + trayectos, Trayecto);
+        return this.http.post<TrayectoDetail>(API_URL + trayectos, trayecto);
     }
 
     /**
