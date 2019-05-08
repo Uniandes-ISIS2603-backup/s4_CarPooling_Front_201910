@@ -8,6 +8,7 @@ import { TrayectoDetailComponent} from './trayecto-detail/trayecto-detail.compon
 import { TrayectoEditComponent} from './trayecto-edit/trayecto-edit.component';
 import { TrayectosComponent } from './trayectos/trayectos.component';
 import { MenuComponent } from './menu/menu.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { MenuComponent } from './menu/menu.component';
     CommonModule,
     FormsModule,
     AppRoutingModule,
+    NgbModule
   ],
   declarations: [ListarTrayectoComponent, TrayectoCrearComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent, MenuComponent],
   exports: [ListarTrayectoComponent, TrayectoCrearComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent]
