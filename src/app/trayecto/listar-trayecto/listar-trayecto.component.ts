@@ -26,5 +26,8 @@ export class ListarTrayectoComponent implements OnInit {
     //this.getTrayectos();
     this.trayectos=this.home.getActual();
   }
-
+  onClick(trayecto)
+  {
+    console.log("suscribirse funciona "+trayecto.id)
+  }
 }

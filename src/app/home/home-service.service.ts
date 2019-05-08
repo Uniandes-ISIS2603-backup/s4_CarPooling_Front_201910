@@ -9,7 +9,7 @@ export class HomeServiceService {
   constructor() { }
   trayecto:Trayecto[];
 
-  updateActual(actual){
+  updateActual(actual){ 
     this.trayecto=actual;
   }
   getActual():Trayecto[]{
