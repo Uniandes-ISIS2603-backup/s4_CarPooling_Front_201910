@@ -1,3 +1,33 @@
-<p>
-  usuario-buscar works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-12">
+          <br>
+          <h2 class="text-center">Buscar usuario</h2>
+          <br>
+          <form name="BuscarUsuario" (ngSubmit)="f.form.valid && listarUsuarios()" #f="ngForm" novalidate>
+            <div class="form-group">
+              <label for="nombre"><b>Nombre</b></label>
+              <input type="text" name="nombre" class="form-control" id="nombre" [(ngModel)]="nombre"
+                   [ngClass]="{ 'is-invalid': f.submitted && nombre.invalid }" required>
+              <div class="invalid-feedback">
+                  <div>Falta el nombre</div>
+              </div>
+            </div> 
+            <div class="form-group">
+              <label for="apellido"><b>Apellido</b></label>
+              <input type="text" name="apellido" class="form-control" id="apellido" [(ngModel)]="apellido"
+                   [ngClass]="{ 'is-invalid': f.submitted && apellido.invalid }" required>
+              <div class="invalid-feedback">
+                  <div>Falta el apellido</div>
+              </div>
+            </div> 
+            <br>
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+                <div class="divider"></div>
+            </div>
+          </form>
+          <br>
+      </div>
+  </div>
+</div>

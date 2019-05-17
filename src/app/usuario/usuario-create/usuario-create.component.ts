@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../usuario';
-import { UsuarioDetail } from '../usuario-detail';
-
-import {ToastrService} from 'ngx-toastr';
-import {UsuarioService} from '../usuario.service';
-import {Router} from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { UsuarioService } from '../usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuario-create',

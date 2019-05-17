@@ -9,8 +9,8 @@ export class Notificacion {
     emisor:Usuario;
 
     receptor:Usuario;
-    
-    trayecto:Trayecto;
+
+    trayecto: Trayecto;
 
 
 
