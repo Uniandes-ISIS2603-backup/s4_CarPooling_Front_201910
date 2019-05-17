@@ -49,6 +49,7 @@ import { UsuarioCalificacionesComponent } from '../usuario/usuario-calificacione
 import { UsuarioNotificacionesComponent } from '../usuario/usuario-notificaciones/usuario-notificaciones.component';
 import { UsuarioBuscarComponent } from '../usuario/usuario-buscar/usuario-buscar.component';
 import { MainScreenComponent } from '../trayecto-layout/main-screen/main-screen.component';
+import { UsuarioBuscarListaComponent } from '../usuario/usuario-buscar-lista/usuario-buscar-lista.component';
 
 
 
@@ -156,6 +157,11 @@ const routes: Routes = [
                         outlet: 'content'
                     },
                     {
+                        path: 'buscarUsuarioLista',
+                        component:  UsuarioBuscarListaComponent,
+                        outlet: 'content'
+                    },
+                    {
                         path: '**',
                         redirectTo: 'info'
                     }
@@ -254,7 +260,7 @@ const routes: Routes = [
     },
     {
         path: "**",
-        redirectTo: 'inicio'
+        redirectTo: 'home'
 
     }
 ];

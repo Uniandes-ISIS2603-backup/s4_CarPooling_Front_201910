@@ -4,30 +4,28 @@
           <br>
           <h2 class="text-center">Buscar usuario</h2>
           <br>
-          <form name="BuscarUsuario" (ngSubmit)="f.form.valid && listarUsuarios()" #f="ngForm" novalidate>
-            <div class="form-group">
+          <form name="BuscarUsuarioNombreApellido" (ngSubmit)="f.form.valid && buscarUsuarios()" #f="ngForm" novalidate>
+            <div class="form-group" *ngIf="usuarios!=null">
               <label for="nombre"><b>Nombre</b></label>
-              <input type="text" name="nombre" class="form-control" id="nombre" [(ngModel)]="nombre"
-                   [ngClass]="{ 'is-invalid': f.submitted && nombre.invalid }" required>
-              <div class="invalid-feedback">
-                  <div>Falta el nombre</div>
-              </div>
+              <input type="text" name="nombre" class="form-control" id="nombre" [(ngModel)]="nombre">
             </div> 
-            <div class="form-group">
+            <div class="form-group" *ngIf="usuarios!=null">
               <label for="apellido"><b>Apellido</b></label>
-              <input type="text" name="apellido" class="form-control" id="apellido" [(ngModel)]="apellido"
-                   [ngClass]="{ 'is-invalid': f.submitted && apellido.invalid }" required>
-              <div class="invalid-feedback">
-                  <div>Falta el apellido</div>
-              </div>
+              <input type="text" name="apellido" class="form-control" id="apellido" [(ngModel)]="apellido">
             </div> 
-            <br>
+            <div class="form-group" *ngIf="usuarios!=null">
+              <label for="username"><b>Nombre de usuario</b></label>
+                <select class="form-control" name="username" form="search"   [(ngModel)]="username" >
+                   <option type="checkbox" *ngFor = "let user of usuarios" value = {{user.username}} >{{user.username}}</option>
+                </select>
+            </div>
             <div class="row form-inline justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary">Buscar</button>
-                <div class="divider"></div>
+              <button type="submit" class="btn btn-primary" >Buscar</button>
+              <div class="divider"></div>
             </div>
           </form>
           <br>
       </div>
   </div>
 </div>
+

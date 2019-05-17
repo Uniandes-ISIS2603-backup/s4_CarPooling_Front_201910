@@ -13,6 +13,11 @@ const usuarios = 'usuarios';
 })
 export class UsuarioService {
  
+    /**
+     * Variable para almacenar los usuarios encontrados segun la busqueda del usuario
+     */
+    usuariosBuscados:Usuario[];
+
 
 	/**
     * Constructor of the service
@@ -71,6 +76,14 @@ export class UsuarioService {
         */
     updateUsuario(usuario): Observable<UsuarioDetail> {
         return this.http.put<UsuarioDetail>(API_URL + usuarios + '/' + usuario.username, usuario);
+    }
+
+    updateUsuariosBuscados(actual){ 
+        this.usuariosBuscados=actual;
+    }
+
+    getUsuariosBuscados(): Usuario[]{
+        return this.usuariosBuscados;
     }
     
     /**

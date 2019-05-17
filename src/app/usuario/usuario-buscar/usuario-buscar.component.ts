@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../usuario.service';
 import { Usuario } from '../usuario';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,6 +13,7 @@ export class UsuarioBuscarComponent implements OnInit {
 
   constructor(
     private usuarioService: UsuarioService,
+    private router: Router
   ) { }
 
   /*
@@ -25,6 +27,11 @@ export class UsuarioBuscarComponent implements OnInit {
   apellido : String;
 
   /*
+   * username buscado por el usuario 
+   */
+  username : String;
+
+  /*
   * Lista completa de usuarios
   */
   usuarios : Usuario[];
@@ -32,28 +39,47 @@ export class UsuarioBuscarComponent implements OnInit {
   /*
   * Lista de usuarios que cumplen con las condiciones de búsqueda deseadas
   */
-  usuariosBuscados: Usuario[];
+  usuariosBuscados = new Array<Usuario>();
+
 
   /**
    * Listar los usuarios que cumplen la condición deseada
    */
-  listarUsuarios(){
+
+  buscarUsuarios(){
+    console.log("AQUI :3")
     this.usuarioService.getUsuarios()
             .subscribe(usuarios => {
               this.usuarios = usuarios;
-              var j = 0;
+
               for(var i = 0; i<this.usuarios.length; i++ )
               {
-                if(this.usuarios[i].nombre === this.nombre && this.usuarios[i].apellido === this.apellido)
-                {
-                   this.usuariosBuscados[j] = this.usuarios[i];
-                   j++;
+                var usuario = this.usuarios[i];
+                
+
+                if(this.nombre==null || usuario.nombre==this.nombre)
+                { 
+                  if(this.apellido==null || usuario.apellido==this.apellido)
+                  {
+                    if(this.username==null || usuario.username==this.username)
+                    {
+                      this.usuariosBuscados.push(usuario);
+                    }
+                  }
                 }
+        
               }
-            });       
+              console.log(this.usuariosBuscados);
+              this.usuarioService.updateUsuariosBuscados(this.usuariosBuscados);
+              this.router.navigate(['/usuario/menu', { outlets: { 'content': 'buscarUsuarioLista' } }]);
+              return this.usuariosBuscados;
+            });    
+            
+            //[routerLink]= "['/usuario/menu', { outlets: { 'content': 'buscarUsuarioLista' } }]"
   }
 
   ngOnInit() {
+    this.usuarioService.getUsuarios().subscribe(user=>{this.usuarios=user});
   }
 
 }
