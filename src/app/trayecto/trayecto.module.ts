@@ -11,6 +11,7 @@ import { MenuComponent } from './menu/menu.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { TrayectoFuturoComponent } from './trayecto-futuro/trayecto-futuro.component';
 import { TrayectosFuturosComponent } from './trayectos-futuros/trayectos-futuros.component';
+import { UsuarioService } from '../usuario/usuario.service';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { TrayectosFuturosComponent } from './trayectos-futuros/trayectos-futuros
     AppRoutingModule,
     NgbModule
   ],
-  declarations: [ListarTrayectoComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent, MenuComponent, TrayectoFuturoComponent, TrayectosFuturosComponent],
+  declarations: [ListarTrayectoComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent, MenuComponent, TrayectoFuturoComponent],
   exports: [ListarTrayectoComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent]
 })
 export class TrayectoModule { }
