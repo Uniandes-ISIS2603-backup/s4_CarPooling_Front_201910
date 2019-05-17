@@ -50,7 +50,7 @@
       <div class="form-group" *ngIf="usuarios!=null">
           <label for="conductor"><b>Conductor</b></label>
           <select class="form-control" name="conductor" form="search"   [(ngModel)]="buscar.conductor" >
-              <option *ngFor = "let user of usuarios" value = {{user.id}} >{{user.username}}</option>
+              <option *ngFor = "let user of usuarios" value = {{user.username}} >{{user.username}}</option>
           </select>
       </div>
 
@@ -107,7 +107,7 @@
 
  <div class="col-sm-1" *ngIf="usuario!=null">
     
-    <div class=""  >
+    <div class="" *ngIf="usuario!=null">
       <button routerLink="/usuario/menu" class="btn btn-light" type="button">
         <img class="img-profile img-circle img-responsive center-block" src="http://chittagongit.com//images/generic-user-icon/generic-user-icon-13.jpg" alt="50" width="50">
         <ul class="meta list list-unstyled">
@@ -115,6 +115,10 @@
             </li>
         </ul>
       </button>
+    </div>
+    <div class="" *ngIf="usuario==null">
+       <button type="button" class="btn" routerLink="/usuario/login">Iniciar sesión</button>
+  <button type="button" class="btn" routerLink="/usuario/create">Registrarse</button>
     </div>
 
  </div>

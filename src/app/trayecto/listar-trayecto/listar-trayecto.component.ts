@@ -39,12 +39,14 @@ export class ListarTrayectoComponent implements OnInit {
     if(trayecto.conductor!=null){this.notificacion.receptor= trayecto.conductor;}
     this.notificacion.emisor=this.usuario;
     this.notificacion.trayecto=trayecto;
-    this.notificacion.mensaje="El usuario: "+this.usernameActual+"quiere suscribirse al trayecto con id: "+trayecto.id;
+    this.notificacion.mensaje="El usuario: "+this.usernameActual+" quiere suscribirse al trayecto con id: "+trayecto.id;
     if(this.notificacion.emisor!=this.notificacion.receptor)
     {
-      this.notificacionService.createNotificacion(this.notificacion);
-      this.toastrService.success("El conductor fue notificado", "Notificacion Enviada");
+      this.notificacionService.createNotificacion(this.notificacion).subscribe(a=> {
+        this.toastrService.success("El conductor fue notificado", "Notificacion Enviada");
                 this.router.navigate(['home']);
+      });
+      
     }
     else{
       this.toastrService.success("El conductor no puede reservar un cupo como pasajero", "Notificacion No Enviada");

@@ -51,13 +51,14 @@ export class HomeComponent implements OnInit {
   submit(){
     this.trayectoService.getTrayectos().subscribe(actual => {
       actual.forEach(trayecto => {
-        if(this.buscar.conductor==null || trayecto.conductor.id==this.buscar.conductor)
+        console.log(this.buscar.conductor);
+        if(this.buscar.conductor==null || (trayecto.conductor!=null && trayecto.conductor.username==this.buscar.conductor))
         {
-          if(this.buscar.costo==null || trayecto.info.costo==this.buscar.costo)
+          if(this.buscar.costo==null || (trayecto.info!=null && trayecto.info.costo==this.buscar.costo))
           {
-            if(this.buscar.destino==null || trayecto.ciudad.nombre==this.buscar.destino)
+            if(this.buscar.destino==null || (trayecto.ciudad!=null && trayecto.ciudad.nombre==this.buscar.destino))
             {
-              if(this.buscar.duracion==null||trayecto.info.duracion==this.buscar.duracion)
+              if(this.buscar.duracion==null|| (trayecto.conductor!=null&&trayecto.info.duracion==this.buscar.duracion))
               {
                   if(this.buscar.estado==null || trayecto.estado==this.buscar.estado)
                   {
@@ -65,7 +66,7 @@ export class HomeComponent implements OnInit {
                     {
                       if(this.buscar.inicio==null || trayecto.fechaInicial==this.buscar.inicio)
                       {
-                        if(this.buscar.origen==null || trayecto.ciudadOrigen.nombre==this.buscar.origen)
+                        if(this.buscar.origen==null || trayecto.ciudadOrigen!=null || trayecto.ciudadOrigen.nombre==this.buscar.origen)
                         {
                           if(this.buscar.paradas==null)//Pendiente
                           {
@@ -75,7 +76,7 @@ export class HomeComponent implements OnInit {
                               {
                                 if(this.buscar.vehiculos == null)//pendiente
                                 {
-                                  if(this.buscar.cupos==null ||trayecto.info.cupos==this.buscar.cupos)
+                                  if(this.buscar.cupos==null  || (trayecto.info!=null && trayecto.info.cupos==this.buscar.cupos))
                                   {
                                     this.retorno.push(trayecto);
                                     this.homeService.updateActual(this.retorno);
