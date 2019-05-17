@@ -5,13 +5,18 @@
         <a routerLink="/home">Trayectos</a>
         <a routerLink="/pestaña-trayecto">Información Trayectos</a>
       </div>
-      <div id="main" class="col-sm-2">
+      <div id="main">
           <span style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776; Menu </span>
         </div>
 
 
-       
-  <div class="col-sm-8">
+        <div class="col-7" *ngIf="usuario!=null">
+            Bienvenido {{usuario.nombre}}
+            <button class="button button5" routerLink="/usuario/menu">Usuario</button>
+        
+         </div>
+   
+  <div class="col-6 offset-3">
       <br>
       <h2 class="text-center">Buscar Trayecto</h2>
       <br>
@@ -102,11 +107,6 @@
               <button type="submit" class="btn btn-primary" routerLink="/home">Buscar</button>
           </div>
         </form>
-   </div>
-   <div class="col-sm-2" *ngIf="usuario!=null">
-      Bienvenido {{usuario.nombre}}
-      <button class="button button5" routerLink="/usuario/menu">Usuario</button>
-  
    </div>
 
 </div>
