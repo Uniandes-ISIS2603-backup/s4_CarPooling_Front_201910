@@ -112,20 +112,20 @@
       </form>
  </div>
 
- <div class="col-sm-1" *ngIf="usuario!=null">
+ <div class="col-sm-1" >
     
-    <div class="" *ngIf="usuario!=null">
-      <button routerLink="/usuario/menu" class="btn btn-light" type="button">
-        <img class="img-profile img-circle img-responsive center-block" src="http://chittagongit.com//images/generic-user-icon/generic-user-icon-13.jpg" alt="50" width="50">
-        <ul class="meta list list-unstyled">
-            <li class="name" *ngIf="usuario">{{usuario.nombre}} {{usuario.apellido}}  
-            </li>
-        </ul>
-      </button>
-    </div>
-    <div class="" *ngIf="usuario==null">
-       <button type="button" class="btn" routerLink="/usuario/login">Iniciar sesión</button>
-  <button type="button" class="btn" routerLink="/usuario/create">Registrarse</button>
+  <div class="" *ngIf="usernameActual!='vacio'">
+    <button routerLink="/usuario/menu" class="btn btn-light" type="button">
+      <img class="img-profile img-circle img-responsive center-block" src="http://chittagongit.com//images/generic-user-icon/generic-user-icon-13.jpg" alt="50" width="50">
+      <ul class="meta list list-unstyled">
+          <li class="name" *ngIf="usuario">{{usuario.nombre}} {{usuario.apellido}}  
+          </li>
+      </ul>
+    </button>
+  </div>
+    <div class=""   *ngIf="usernameActual ==='vacio'">
+       <button type="button" class=".btn-default." routerLink="/usuario/login">Iniciar sesión</button>
+  <button type="button" class="btn-default" routerLink="/usuario/create">Registrarse</button>
     </div>
 
  </div>

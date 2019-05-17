@@ -115,12 +115,17 @@ export class HomeComponent implements OnInit {
   }
 
   getCurretUsuario(){
+  
     this.usernameActual = this.usuarioService.darUsuarioActual();
+    console.log(this.usernameActual);
+    if(this.usernameActual != "vacio"){
     this.usuarioService.getUsuarioDetail(this.usernameActual)
             .subscribe(usuario => {
                 this.usuario = usuario;
-                console.log(this.usuario);
+                console.log("inut");
+                
             });
+    }
   } 
 
 }

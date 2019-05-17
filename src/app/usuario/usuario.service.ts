@@ -48,7 +48,7 @@ export class UsuarioService {
      * Logout
      */
     logOut(){
-     localStorage.setItem('usuarioActual', null);
+     localStorage.setItem('usuarioActual', "vacio");
     }
     /**
     * Login a new user
