@@ -48,7 +48,8 @@ export class ListarTrayectoComponent implements OnInit {
       });
     }
     else{
-      this.toastrService.success("El conductor no puede reservar", "Notificacion No Enviada");
+      this.toastrService.warning("El conductor no puede reservar", "Notificacion No Enviada");
+      
     }
    console.log(this.notificacion);
 
@@ -57,6 +58,7 @@ export class ListarTrayectoComponent implements OnInit {
   volver()
   {
     this.home.updateActual(new Array());
+
     this.router.navigate(['home']);
   }
   darUsuarioActual(): string {

@@ -37,7 +37,7 @@ export class UsuarioLoginComponent implements OnInit {
    * Cancela el login
   */
   cancelLogin(): void {
-      this.toastrService.warning('El usuario no fue creado', 'Registro usuario'); 
+      this.toastrService.warning('El usuario no pudo abrir sesion', 'Sesion No Iniciada'); 
       this.router.navigate(['home']);
 
   }
@@ -50,7 +50,7 @@ export class UsuarioLoginComponent implements OnInit {
             .subscribe(lista => {
               this.lista = lista;
               var encontro = 0;
-              this.toastrService.success("usuario" + this.usuario2.username, "Usuario Creado");
+              
               for(var i = 0; i<this.lista.length; i++ )
               {
                 if(this.lista[i].username === this.usuario2.username)
@@ -59,7 +59,7 @@ export class UsuarioLoginComponent implements OnInit {
                    {
                       this.usuario2 = this.lista[i];
                       localStorage.setItem('usuarioActual', this.usuario2.username);
-                      this.toastrService.success("El usuario fue creado con éxito", "Usuario Creado");
+                      this.toastrService.success("El usuario ha iniciado la sesion", "Sesion Iniciada");
                       this.router.navigate(['home']);
                       encontro = 1;
                    }

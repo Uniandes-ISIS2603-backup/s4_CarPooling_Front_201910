@@ -3,6 +3,7 @@ import { UsuarioCreateComponent } from '../usuario-create/usuario-create.compone
 import { Usuario } from '../usuario';
 import { UsuarioDetail } from '../usuario-detail';
 import { UsuarioService } from '../usuario.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -14,6 +15,7 @@ export class MenuComponent implements OnInit {
 
   constructor(
         private usuarioService: UsuarioService,
+        private toastrService: ToastrService
   	) { }
 
   usuario : UsuarioDetail;
@@ -33,7 +35,9 @@ export class MenuComponent implements OnInit {
   }
 
   logOut(){
+    
     this.usuarioService.logOut();
+    this.toastrService.success("Su secion se cerro exitosamente", "Sesion Cerrada");
 
   }
 
