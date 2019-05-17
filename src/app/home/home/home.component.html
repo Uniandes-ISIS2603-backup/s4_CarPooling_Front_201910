@@ -17,16 +17,20 @@
     <h2 class="text-center">Buscar Trayecto</h2>
     <br>
     <form name="search" (ngSubmit)="submit()" #f="ngForm" id ="search" *ngIf="buscar!=null">
-        <div class="form-group">
+      <div class="row" >
+        <div class="col-sm-6">
+      <div class="form-group">
             <label for="fechaInicial"><b>Fecha Inicial</b></label>
             <input type="date" name="username" class="form-control" id="inicio" [(ngModel)]="buscar.inicio">
         </div>
-
+        </div>
+        <div class="col-sm-6">
         <div class="form-group">
             <label for="fechaFinal"><b>Fecha Final</b></label>
             <input type="date" name="fechaFinal" class="form-control" id="final" [(ngModel)]="buscar.final">
         </div>
-
+      </div>
+      </div>
       
         <div class="form-group" *ngIf="ciudades!=null">
           <label for="origen"><b>Origen</b></label>
@@ -42,11 +46,12 @@
           </select>
         </div>
             
-        <div class="form-group">
+       
+  <details>     
+      <div class="form-group">
           <label for="costo"><b>Costo</b></label>
           <input type="search" name="costo" class="form-control" id="costo" [(ngModel)]="buscar.costo">
         </div>
-  <details>     
       <div class="form-group" *ngIf="usuarios!=null">
           <label for="conductor"><b>Conductor</b></label>
           <select class="form-control" name="conductor" form="search"   [(ngModel)]="buscar.conductor" >
@@ -99,9 +104,11 @@
       </select>
     </div>
   </details> 
-        <div class="justify-content-center align-self-center">
+    
+        <div class="d-flex justify-content-center">
             <button type="submit" class="btn btn-primary" routerLink="/home">Buscar</button>
         </div>
+      
       </form>
  </div>
 
