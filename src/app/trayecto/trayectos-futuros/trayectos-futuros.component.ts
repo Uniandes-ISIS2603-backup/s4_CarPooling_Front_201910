@@ -22,14 +22,14 @@ export class TrayectosFuturosComponent implements OnInit {
   trayectos: Trayecto[];
 
   ngOnInit() {
-    
+    console.log(this.trayectos);
     this.getCurretUsuario();
-    this.usuarioService.getUsuarios().subscribe(user=>{this.usuarios=user});
+    this.usuarioService.getUsuarios().subscribe(user=>{this.usuarios=user; this.asignarTrayecto()});
 
     console.log(this.usuario);
     console.log(this.usuarios);
-    this.trayectos = this.usuario.trayectoActualConductor;
-    console.log(this.trayectos);
+    //this.trayectos = this.usuario.trayectoActualConductor;
+    this.asignarTrayecto();
 
   }
 
@@ -42,13 +42,25 @@ export class TrayectosFuturosComponent implements OnInit {
     return this.usuarioService.darUsuarioActual();
   }
 
+  asignarTrayecto(): void {
+    if(this.usuario != null){
+    this.trayectos = this.usuario.trayectoActualConductor;
+    console.log(this.trayectos);
+  }
+  }
+
   getCurretUsuario(){
     this.usernameActual = this.usuarioService.darUsuarioActual();
     this.usuarioService.getUsuarioDetail(this.usernameActual)
             .subscribe(usuario => {
                 this.usuario = usuario;
                 console.log(this.usuario);
-            });
+            });     
+            this.asignarTrayecto();
   } 
+
+  while(){
+    this.asignarTrayecto();
+  }
 
 }
