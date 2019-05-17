@@ -5,8 +5,11 @@ export class Notificacion {
 
 	id:number;
     mensaje:string;
+
     emisor:Usuario;
+
     receptor:Usuario;
+    
     trayecto:Trayecto;
 
 

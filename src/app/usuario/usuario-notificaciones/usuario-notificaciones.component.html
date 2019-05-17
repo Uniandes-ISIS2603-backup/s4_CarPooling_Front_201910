@@ -35,11 +35,11 @@
           </thead>
           <tbody>
               <tr *ngFor = "let notificacion of misNotificacionesEnviadas">
-                    <td>{{vehiculo.id}}</td>
-                    <td>{{vehiculo.mensaje}}</td>
-                    <td>{{vehiculo.emisor}}</td>
-                    <td>{{vehiculo.receptor}}</td>
-                    <td>{{vehiculo.trayecto}}</td>
+                    <td>{{notificacion.id}}</td>
+                    <td>{{notificacion.mensaje}}</td>
+                    <td>{{notificacion.emisor.nombre}}</td>
+                    <td>{{notificacion.receptor.nombre}}</td>
+                    <td> Trayecto #{{notificacion.trayecto.id}}</td>
                 </tr>
           </tbody>
         </table>
