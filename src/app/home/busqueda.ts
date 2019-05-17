@@ -1,3 +1,5 @@
+import { Usuario } from "../usuario/usuario";
+
 export class Busqueda {
     inicio:Date;
     final:Date;

@@ -1,113 +1,128 @@
 
 <div class="row">
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
-        <a routerLink="/home">Trayectos</a>
-        <a routerLink="/pestaña-trayecto">Información Trayectos</a>
-      </div>
-      <div id="main">
-          <span style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776; Menu </span>
-        </div>
-
-
-        <div class="col-7" *ngIf="usuario!=null">
-            Bienvenido {{usuario.nombre}}
-            <button class="button button5" routerLink="/usuario/menu">Usuario</button>
-        
-         </div>
-   
-  <div class="col-6 offset-3">
-      <br>
-      <h2 class="text-center">Buscar Trayecto</h2>
-      <br>
-      <form name="search" (ngSubmit)="submit()" #f="ngForm" id ="search" *ngIf="buscar!=null">
-          <div class="form-group">
-              <label for="fechaInicial"><b>Fecha Inicial</b></label>
-              <input type="date" name="username" class="form-control" id="inicio" [(ngModel)]="buscar.inicio">
-          </div>
-
-          <div class="form-group">
-              <label for="fechaFinal"><b>Fecha Final</b></label>
-              <input type="date" name="fechaFinal" class="form-control" id="final" [(ngModel)]="buscar.final">
-          </div>
-
-        
-          <div class="form-group" *ngIf="ciudades!=null">
-            <label for="origen"><b>Origen</b></label>
-            <select class="form-control" name="origen" form="search"   [(ngModel)]="buscar.origen" >
-              <option *ngFor = "let ciudad of ciudades" value = {{ciudad.nombre}} >{{ciudad.nombre}}</option>
-            </select>
-          </div>
-  
-          <div class="form-group" *ngIf="ciudades!=null">
-            <label for="destino"><b>Destino</b></label>
-            <select class="form-control" name="destino" form="search"   [(ngModel)]="buscar.destino" >
-                <option *ngFor = "let ciudad of ciudades" value = {{ciudad.nombre}} >{{ciudad.nombre}}</option>
-            </select>
-          </div>
-              
-          <div class="form-group">
-            <label for="costo"><b>Costo</b></label>
-            <input type="search" name="costo" class="form-control" id="costo" [(ngModel)]="buscar.costo">
-          </div>
-    <details>     
-        <div class="form-group" *ngIf="usuarios!=null">
-            <label for="conductor"><b>Conductor</b></label>
-            <select class="form-control" name="conductor" form="search"   [(ngModel)]="buscar.conductor" >
-                <option *ngFor = "let user of usuarios" value = {{user.id}} >{{user.username}}</option>
-            </select>
-        </div>
-
-        <div class="form-group" *ngIf="usuarios!=null">
-          <label for="pasajero"><b>Pasajero</b></label>
-          <select class="form-control" name="pasajero" form="search"   [(ngModel)]="buscar.pasajero" >
-              <option type="checkbox" *ngFor = "let user of usuarios" value = {{user.id}} >{{user.username}}</option>
-          </select>
-         </div>
-        
-         <div class="form-group">
-          <label for="estado"><b>Estado</b></label>
-          <select class="form-control" name="estado" form="search"  [(ngModel)]="buscar.estado" [(ngModel)]="buscar.estado">
-            <option value = "0">Futuro</option>
-            <option value = "1">Actual</option>
-            <option value = "2">Pasado</option>
-            <option value = "3">No Realizado</option>
-          </select>
+  <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+      <a routerLink="/home">Trayectos</a>
+      <a routerLink="/pestaña-trayecto">Información Trayectos</a>
+    </div>
+    <div id="main" class="col-sm-2">
+        <span style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776; Menu </span>
       </div>
 
+
+      
+ 
+<div class="col-sm-9">
+    <br>
+    <h2 class="text-center">Buscar Trayecto</h2>
+    <br>
+    <form name="search" (ngSubmit)="submit()" #f="ngForm" id ="search" *ngIf="buscar!=null">
+        <div class="form-group">
+            <label for="fechaInicial"><b>Fecha Inicial</b></label>
+            <input type="date" name="username" class="form-control" id="inicio" [(ngModel)]="buscar.inicio">
+        </div>
 
         <div class="form-group">
-          <label for="duracion"><b>Duracion</b></label>
-          <input type="search" name="duracion" class="form-control" id="duracion" [(ngModel)]="buscar.duracion">
-       </div>
-
-        
-        <div class="form-group" *ngIf="ciudades!=null">
-          <label for="paradas"><b>Paradas</b></label>
-            <select class="form-control" name="paradas" id="paradas" [(ngModel)]="buscar.paradas" form="search"   [(ngModel)]="buscar.paradas" >
-                <option *ngFor = "let ciudad of ciudades" value = {{ciudad.nombre}} >{{ciudad.nombre}}</option>
-            </select>
+            <label for="fechaFinal"><b>Fecha Final</b></label>
+            <input type="date" name="fechaFinal" class="form-control" id="final" [(ngModel)]="buscar.final">
         </div>
 
-      <div class="form-group"  *ngIf="peajes!=null">
-        <label for="peajes"><b>Peajes</b></label>
-        <select class="form-control" name="peajes" form="search"  [(ngModel)]="buscar.peajes">
-            <option  *ngFor = "let peaje of peajes" value = {{peaje.id}} >{{peaje.nombre}}</option>
+      
+        <div class="form-group" *ngIf="ciudades!=null">
+          <label for="origen"><b>Origen</b></label>
+          <select class="form-control" name="origen" form="search"   [(ngModel)]="buscar.origen" >
+            <option *ngFor = "let ciudad of ciudades" value = {{ciudad.nombre}} >{{ciudad.nombre}}</option>
+          </select>
+        </div>
+
+        <div class="form-group" *ngIf="ciudades!=null">
+          <label for="destino"><b>Destino</b></label>
+          <select class="form-control" name="destino" form="search"   [(ngModel)]="buscar.destino" >
+              <option *ngFor = "let ciudad of ciudades" value = {{ciudad.nombre}} >{{ciudad.nombre}}</option>
+          </select>
+        </div>
+            
+        <div class="form-group">
+          <label for="costo"><b>Costo</b></label>
+          <input type="search" name="costo" class="form-control" id="costo" [(ngModel)]="buscar.costo">
+        </div>
+  <details>     
+      <div class="form-group" *ngIf="usuarios!=null">
+          <label for="conductor"><b>Conductor</b></label>
+          <select class="form-control" name="conductor" form="search"   [(ngModel)]="buscar.conductor" >
+              <option *ngFor = "let user of usuarios" value = {{user.username}} >{{user.username}}</option>
+          </select>
+      </div>
+
+      <div class="form-group" *ngIf="usuarios!=null">
+        <label for="pasajero"><b>Pasajero</b></label>
+        <select class="form-control" name="pasajero" form="search"   [(ngModel)]="buscar.pasajero" >
+            <option type="checkbox" *ngFor = "let user of usuarios" value = {{user.id}} >{{user.username}}</option>
         </select>
        </div>
-
-      <div class="form-group" *ngIf="vehiculos!=null">
-        <label for="vehiculo"><b>Vehiculo</b></label>
-        <select class="form-control" name="vehiculo" form="search"  [(ngModel)]="buscar.vehiculo" >
-            <option  *ngFor = "let vehiculo of vehiculos" value = {{vehiculo.id}} >{{vehiculo.placa}}</option>
+      
+       <div class="form-group">
+        <label for="estado"><b>Estado</b></label>
+        <select class="form-control" name="estado" form="search"  [(ngModel)]="buscar.estado" [(ngModel)]="buscar.estado">
+          <option value = "0">Futuro</option>
+          <option value = "1">Actual</option>
+          <option value = "2">Pasado</option>
+          <option value = "3">No Realizado</option>
         </select>
+    </div>
+
+
+      <div class="form-group">
+        <label for="duracion"><b>Duracion</b></label>
+        <input type="search" name="duracion" class="form-control" id="duracion" [(ngModel)]="buscar.duracion">
+     </div>
+
+      
+      <div class="form-group" *ngIf="ciudades!=null">
+        <label for="paradas"><b>Paradas</b></label>
+          <select class="form-control" name="paradas" id="paradas" [(ngModel)]="buscar.paradas" form="search"   [(ngModel)]="buscar.paradas" >
+              <option *ngFor = "let ciudad of ciudades" value = {{ciudad.nombre}} >{{ciudad.nombre}}</option>
+          </select>
       </div>
-    </details> 
-          <div class="justify-content-center align-self-center">
-              <button type="submit" class="btn btn-primary" routerLink="/home">Buscar</button>
-          </div>
-        </form>
-   </div>
+
+    <div class="form-group"  *ngIf="peajes!=null">
+      <label for="peajes"><b>Peajes</b></label>
+      <select class="form-control" name="peajes" form="search"  [(ngModel)]="buscar.peajes">
+          <option  *ngFor = "let peaje of peajes" value = {{peaje.id}} >{{peaje.nombre}}</option>
+      </select>
+     </div>
+
+    <div class="form-group" *ngIf="vehiculos!=null">
+      <label for="vehiculo"><b>Vehiculo</b></label>
+      <select class="form-control" name="vehiculo" form="search"  [(ngModel)]="buscar.vehiculo" >
+          <option  *ngFor = "let vehiculo of vehiculos" value = {{vehiculo.id}} >{{vehiculo.placa}}</option>
+      </select>
+    </div>
+  </details> 
+        <div class="justify-content-center align-self-center">
+            <button type="submit" class="btn btn-primary" routerLink="/home">Buscar</button>
+        </div>
+      </form>
+ </div>
+
+ <div class="col-sm-1" *ngIf="usuario!=null">
+    
+    <div class="" *ngIf="usuario!=null">
+      <button routerLink="/usuario/menu" class="btn btn-light" type="button">
+        <img class="img-profile img-circle img-responsive center-block" src="http://chittagongit.com//images/generic-user-icon/generic-user-icon-13.jpg" alt="50" width="50">
+        <ul class="meta list list-unstyled">
+            <li class="name" *ngIf="usuario">{{usuario.nombre}} {{usuario.apellido}}  
+            </li>
+        </ul>
+      </button>
+    </div>
+    <div class="" *ngIf="usuario==null">
+       <button type="button" class="btn" routerLink="/usuario/login">Iniciar sesión</button>
+  <button type="button" class="btn" routerLink="/usuario/create">Registrarse</button>
+    </div>
+
+ </div>
+
 
 </div>
 
