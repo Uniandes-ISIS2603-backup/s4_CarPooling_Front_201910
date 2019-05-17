@@ -5,6 +5,7 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { TrayectoCrearComponent } from '../trayecto/trayecto-crear/trayecto-crear.component';
+import { TrayectosFuturosComponent } from '../trayecto/trayectos-futuros/trayectos-futuros.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { TrayectoCrearComponent } from '../trayecto/trayecto-crear/trayecto-crea
     NgbModule,
     FormsModule
   ],
-  declarations: [MainScreenComponent, TrayectoCrearComponent], 
+  declarations: [MainScreenComponent, TrayectoCrearComponent, TrayectosFuturosComponent], 
   exports: [MainScreenComponent]
 })
 export class TrayectoLayoutModule { }
