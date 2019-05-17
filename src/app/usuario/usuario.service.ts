@@ -43,6 +43,13 @@ export class UsuarioService {
         localStorage.setItem('usuarioActual', usuario.username);
         return this.http.post<UsuarioDetail>(API_URL + usuarios, usuario);
     }
+
+    /**
+     * Logout
+     */
+    logOut(){
+     localStorage.setItem('usuarioActual', null);
+    }
     /**
     * Login a new user
     * @param user The new user

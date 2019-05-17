@@ -32,4 +32,9 @@ export class MenuComponent implements OnInit {
     this.getCurretUsuario();
   }
 
+  logOut(){
+    this.usuarioService.logOut();
+
+  }
+
 }

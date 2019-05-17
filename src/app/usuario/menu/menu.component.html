@@ -19,6 +19,7 @@
                                     <li><a [routerLink]= "['/usuario/menu', { outlets: { 'content': 'calificaciones' } }]">Calificaciones</a></li>
                                     <li><a [routerLink]= "['/usuario/menu', { outlets: { 'content': 'notificaciones' } }]">Notificaciones</a></li>
                                     <li><a [routerLink]= "['/usuario/menu', { outlets: { 'content': 'buscarUsuario' } }]"> Buscar usuario</a></li>
+                                    <li><a routerLink = '/home' (click) = 'logOut()' >Log Out</a></li>
                                  </ul>
                             </nav>
                         </div>
