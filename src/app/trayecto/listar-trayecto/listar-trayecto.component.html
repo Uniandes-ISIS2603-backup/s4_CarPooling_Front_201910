@@ -30,7 +30,7 @@
 						<div *ngIf="i.ciudad!=null">{{i.ciudad.nombre}}</div>
 					</td>
 					<td>
-						<button (click)="onClick(i)">Suscribirse</button>
+						<button (click)="onClick(i)" *ngIf="usernameActual!='vacio'">Reservar Cupo</button>
 					</td>
 	</tr>
 
