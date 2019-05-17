@@ -7,7 +7,7 @@ import { TrayectoService } from '../../trayecto/trayecto.service';
 import { HomeServiceService } from '../home-service.service';
 import { Trayecto } from '../../trayecto/trayecto';
 import { Ciudad } from '../../ciudad/ciudad';
-import { Peaje } from '../peaje';
+
 import { Vehiculo } from '../../vehiculo/vehiculo';
 import { PeajeServiceService } from '../../peaje/peaje-service.service';
 import { VehiculoService } from '../../vehiculo/vehiculo.service';
@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
   retorno = new Array<Trayecto>();
   ciudades: Ciudad[];
   usuarios:Usuario[];
-  peajes: Peaje[];
+ 
   vehiculos: Vehiculo[];
   ngOnInit() {
     this.getCurretUsuario();
