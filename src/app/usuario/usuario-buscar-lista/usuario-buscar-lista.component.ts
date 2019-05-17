@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../usuario.service';
 import { Usuario } from '../usuario';
-import { ConsoleReporter } from 'jasmine';
+
 
 
 @Component({

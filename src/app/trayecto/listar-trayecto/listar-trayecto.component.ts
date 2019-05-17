@@ -40,20 +40,24 @@ export class ListarTrayectoComponent implements OnInit {
     this.notificacion.emisor=this.usuario;
     this.notificacion.trayecto=trayecto;
     this.notificacion.mensaje="El usuario: "+this.usernameActual+" quiere suscribirse al trayecto con id: "+trayecto.id;
-    if(this.notificacion.emisor!=this.notificacion.receptor)
+    if(this.notificacion.emisor.username!=this.notificacion.receptor.username&&this.usernameActual!="vacio")
     {
       this.notificacionService.createNotificacion(this.notificacion).subscribe(a=> {
         this.toastrService.success("El conductor fue notificado", "Notificacion Enviada");
                 this.router.navigate(['home']);
       });
-      
     }
     else{
-      this.toastrService.success("El conductor no puede reservar un cupo como pasajero", "Notificacion No Enviada");
+      this.toastrService.success("El conductor no puede reservar", "Notificacion No Enviada");
     }
    console.log(this.notificacion);
 
 
+  }
+  volver()
+  {
+    this.home.updateActual(new Array());
+    this.router.navigate(['home']);
   }
   darUsuarioActual(): string {
     return this.usuarioService.darUsuarioActual();
