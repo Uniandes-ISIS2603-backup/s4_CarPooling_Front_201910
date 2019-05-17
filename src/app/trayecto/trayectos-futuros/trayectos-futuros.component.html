@@ -1,3 +1,42 @@
-<p>
-  trayectos-futuros works!
-</p>
+<table class="table">
+  <thead class="table-info">
+    <tr>
+      <th scope="col">FechaInicio</th>
+			<th scope="col">FechaFin</th>
+			<th scope="col">Estado</th>
+			<th scope="col">Conductor</th>
+			<th scope="col">Ciudad Origen</th>
+			<th scope="col">Ciudad Destino</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of trayectos">
+		<td >
+			{{i.fechaInicial}}
+		</td>
+		<td >
+			{{i.fechaFinal}}
+		</td>
+		<td>
+				{{i.estado}}
+		</td>
+		<td >
+				<div *ngIf="i.conductor!=null">{{i.conductor.nombre}}</div>	
+			</td>
+			<td >
+					<div *ngIf="i.ciudadOrigen!=null">{{i.ciudadOrigen.nombre}}</div>
+				</td>
+				<td >
+						<div *ngIf="i.ciudad!=null">{{i.ciudad.nombre}}</div>
+					</td>
+					<td>
+						<button (click)="onClick(i)">Suscribirse</button>
+					</td>
+	</tr>
+
+  </tbody>
+</table>
+<div class="text-right">
+  	<button type="button" class="btn btn-primary" routerLink="/home">Volver</button>
+</div>
+
