@@ -19,7 +19,7 @@ import { TrayectoFuturoComponent } from './trayecto-futuro/trayecto-futuro.compo
     AppRoutingModule,
     NgbModule
   ],
-  declarations: [ListarTrayectoComponent, TrayectoCrearComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent, MenuComponent, TrayectoFuturoComponent],
-  exports: [ListarTrayectoComponent, TrayectoCrearComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent]
+  declarations: [ListarTrayectoComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent, MenuComponent, TrayectoFuturoComponent],
+  exports: [ListarTrayectoComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent]
 })
 export class TrayectoModule { }
