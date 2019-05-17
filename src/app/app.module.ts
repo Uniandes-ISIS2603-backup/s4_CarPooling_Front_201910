@@ -23,6 +23,7 @@ import { SeguroModule } from './seguro/seguro.module';
 import { PeajeModule } from './peaje/peaje.module';
 import { VehiculoModule } from './vehiculo/vehiculo.module';
 import { InicioModule } from './inicio/inicio.module';
+import { TrayectoLayoutModule } from './trayecto-layout/trayecto-layout.module';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { InicioModule } from './inicio/inicio.module';
         PagoModule,
         UsuarioModule,
         AlquilerModule,
+        TrayectoLayoutModule,
         SeguroModule,
         PeajeModule,
         HomeModule,
