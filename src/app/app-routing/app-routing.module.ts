@@ -48,6 +48,7 @@ import { InicioComponent } from '../inicio/inicio/inicio.component';
 import { UsuarioCalificacionesComponent } from '../usuario/usuario-calificaciones/usuario-calificaciones.component';
 import { UsuarioNotificacionesComponent } from '../usuario/usuario-notificaciones/usuario-notificaciones.component';
 import { UsuarioBuscarComponent } from '../usuario/usuario-buscar/usuario-buscar.component';
+import { MainScreenComponent } from '../trayecto-layout/main-screen/main-screen.component';
 
 
 
@@ -84,6 +85,14 @@ const routes: Routes = [
             }
         ]
     },
+    //path de la pestaña de Trayectos
+    {
+        
+       path: 'pestaña-trayecto',
+       component: MainScreenComponent
+     },
+
+
     // Path de los otros modulos
         {
         path: 'pago',

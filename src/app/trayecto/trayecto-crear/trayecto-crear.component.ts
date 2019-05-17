@@ -36,9 +36,9 @@ export class TrayectoCrearComponent implements OnInit {
   createTrayecto(){
     
 
-//let dateB1: Date = new Date(this.trayecto.fechaInicial.year, this.trayecto.fechaInicial.month - 1, this.trayecto.fechaInicial.day);
-//this.trayecto.fechaInicial = this.dp.transform(dateB1, 'yyyy-MM-dd');
-//console.log(this.trayecto.fechaInicial);
+let dateB1: Date = new Date(this.trayecto.fechaInicial.year, this.trayecto.fechaInicial.month - 1, this.trayecto.fechaInicial.day);
+this.trayecto.fechaInicial = this.dp.transform(dateB1, 'yyyy-MM-dd');
+console.log(this.trayecto.fechaInicial);
     this.trayectoService.createTrayecto(this.trayecto)
             .subscribe(trayecto => {
                 this.trayecto = trayecto;
