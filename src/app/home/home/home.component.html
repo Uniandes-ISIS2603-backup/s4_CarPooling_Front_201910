@@ -1,5 +1,7 @@
 
-<div class="row">
+
+
+  <!-- 
   <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
       <a routerLink="/home">Trayectos</a>
@@ -8,10 +10,56 @@
     <div id="main" class="col-sm-2">
         <span style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776; Menu </span>
       </div>
+-->
 
+<div class="row">
+  
+  <div class="col-sm-11">
+    <div class="row justify-content-center">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+            <a class="navbar-brand" href="#">
+                <img src="https://st2.depositphotos.com/5266903/8772/v/950/depositphotos_87725254-stock-illustration-avion-flat-icon.jpg" width="50" height="50" alt="">
+                CarPooling
+              </a>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link" routerLink="/home">Trayectos</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Seguros</a>
+                    </li>
+                  
+                  </ul>
+                </div>
 
-      
- 
+        </nav>
+    </div>     
+  </div>
+  <div class="col-sm-1" >
+    
+      <div class="" *ngIf="usernameActual!='vacio'">
+        <button routerLink="/usuario/menu" class="btn btn-light" type="button">
+          <img class="img-profile img-circle img-responsive center-block" src="http://chittagongit.com//images/generic-user-icon/generic-user-icon-13.jpg" alt="50" width="50">
+         
+          <ul class="meta list list-unstyled">
+             
+              <li class="name" *ngIf="usuario">{{usuario.nombre}} <span class="badge badge-danger">4</span> 
+              </li>
+          </ul>
+         
+        </button>
+        
+      </div>
+        <div class=""   *ngIf="usernameActual ==='vacio'">
+           <button type="button" class=".btn-default." routerLink="/usuario/login">Iniciar sesión</button>
+      <button type="button" class="btn-default" routerLink="/usuario/create">Registrarse</button>
+        </div>
+    
+     </div>
+</div>
+<div class="row justify-content-center">
+    
 <div class="col-sm-9">
     <br>
     <h2 class="text-center">Buscar Trayecto</h2>
@@ -34,41 +82,49 @@
       
         <div class="form-group" *ngIf="ciudades!=null">
           <label for="origen"><b>Origen</b></label>
-          <select class="form-control" name="origen" form="search"   [(ngModel)]="buscar.origen" >
+          <select class="form-control" name="origen" form="search"   ng-Model="buscar.origen" >
+              <option value="" selected disabled hidden>-----Seleccione Aqui------</option>
             <option *ngFor = "let ciudad of ciudades" value = {{ciudad.nombre}} >{{ciudad.nombre}}</option>
           </select>
         </div>
 
         <div class="form-group" *ngIf="ciudades!=null">
           <label for="destino"><b>Destino</b></label>
-          <select class="form-control" name="destino" form="search"   [(ngModel)]="buscar.destino" >
+          <select class="form-control" name="destino" form="search"   ng-Model="buscar.destino" >
+              <option value="" selected disabled hidden>-----Seleccione Aqui------</option>
               <option *ngFor = "let ciudad of ciudades" value = {{ciudad.nombre}} >{{ciudad.nombre}}</option>
           </select>
         </div>
             
        
-  <details>     
-      <div class="form-group">
+        <a class="badge badge-pill badge-primary" data-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapseExample" toggle="false">
+            Mas Opciones
+          </a>
+        <div id="collapse" class="collapse">
+          <div class="form-group" id="form1">
           <label for="costo"><b>Costo</b></label>
-          <input type="search" name="costo" class="form-control" id="costo" [(ngModel)]="buscar.costo">
+          <input type="search" name="costo" class="form-control" id="costo" [(ngModel)]="buscar.costo" placeholder="Ej: 1000$">
         </div>
       <div class="form-group" *ngIf="usuarios!=null">
           <label for="conductor"><b>Conductor</b></label>
-          <select class="form-control" name="conductor" form="search"   [(ngModel)]="buscar.conductor" >
+          <select class="form-control" name="conductor" form="search"   ng-Model="buscar.conductor" >
+              <option value="" disabled hidden>-----Seleccione Aqui------</option>
               <option *ngFor = "let user of usuarios" value = {{user.username}} >{{user.username}}</option>
           </select>
       </div>
 
       <div class="form-group" *ngIf="usuarios!=null">
         <label for="pasajero"><b>Pasajero</b></label>
-        <select class="form-control" name="pasajero" form="search"   [(ngModel)]="buscar.pasajero" >
+        <select class="form-control" name="pasajero" form="search"   ng-Model="buscar.pasajero" >
+            <option value="" disabled hidden>-----Seleccione Aqui------</option>
             <option type="checkbox" *ngFor = "let user of usuarios" value = {{user.id}} >{{user.username}}</option>
         </select>
        </div>
       
        <div class="form-group">
         <label for="estado"><b>Estado</b></label>
-        <select class="form-control" name="estado" form="search"  [(ngModel)]="buscar.estado" [(ngModel)]="buscar.estado">
+        <select class="form-control" name="estado" form="search"  ng-Model="buscar.estado">
+            <option value="" selected disabled hidden>-----Seleccione Aqui------</option>
           <option value = "0">Futuro</option>
           <option value = "1">Actual</option>
           <option value = "2">Pasado</option>
@@ -79,31 +135,34 @@
 
       <div class="form-group">
         <label for="duracion"><b>Duracion</b></label>
-        <input type="search" name="duracion" class="form-control" id="duracion" [(ngModel)]="buscar.duracion">
+        <input type="search" name="duracion" class="form-control" id="duracion" [(ngModel)]="buscar.duracion" placeholder="Ej: 2">
      </div>
 
       
       <div class="form-group" *ngIf="ciudades!=null">
         <label for="paradas"><b>Paradas</b></label>
-          <select class="form-control" name="paradas" id="paradas" [(ngModel)]="buscar.paradas" form="search"   [(ngModel)]="buscar.paradas" >
+          <select class="form-control" name="paradas" id="paradas" [(ngModel)]="buscar.paradas" form="search"   ng-Model="buscar.paradas" >
+              <option value="" selected disabled hidden>-----Seleccione Aqui------</option>
               <option *ngFor = "let ciudad of ciudades" value = {{ciudad.nombre}} >{{ciudad.nombre}}</option>
           </select>
       </div>
 
     <div class="form-group"  *ngIf="peajes!=null">
       <label for="peajes"><b>Peajes</b></label>
-      <select class="form-control" name="peajes" form="search"  [(ngModel)]="buscar.peajes">
+      <select class="form-control" name="peajes" form="search"  ng-Model="buscar.peajes">
+          <option value="" selected disabled hidden>-----Seleccione Aqui------</option>
           <option  *ngFor = "let peaje of peajes" value = {{peaje.id}} >{{peaje.nombre}}</option>
       </select>
      </div>
 
     <div class="form-group" *ngIf="vehiculos!=null">
       <label for="vehiculo"><b>Vehiculo</b></label>
-      <select class="form-control" name="vehiculo" form="search"  [(ngModel)]="buscar.vehiculo" >
+      <select class="form-control" name="vehiculo" form="search"  ng-Model="buscar.vehiculo" >
+          <option value="" selected disabled hidden>-----Seleccione Aqui------</option>
           <option  *ngFor = "let vehiculo of vehiculos" value = {{vehiculo.id}} >{{vehiculo.placa}}</option>
       </select>
     </div>
-  </details> 
+  </div>
     
         <div class="d-flex justify-content-center">
             <button type="submit" class="btn btn-primary" routerLink="/home">Buscar</button>
@@ -111,24 +170,8 @@
       
       </form>
  </div>
-
- <div class="col-sm-1" >
-    
-  <div class="" *ngIf="usernameActual!='vacio'">
-    <button routerLink="/usuario/menu" class="btn btn-light" type="button">
-      <img class="img-profile img-circle img-responsive center-block" src="http://chittagongit.com//images/generic-user-icon/generic-user-icon-13.jpg" alt="50" width="50">
-      <ul class="meta list list-unstyled">
-          <li class="name" *ngIf="usuario">{{usuario.nombre}} {{usuario.apellido}}  
-          </li>
-      </ul>
-    </button>
-  </div>
-    <div class=""   *ngIf="usernameActual ==='vacio'">
-       <button type="button" class=".btn-default." routerLink="/usuario/login">Iniciar sesión</button>
-  <button type="button" class="btn-default" routerLink="/usuario/create">Registrarse</button>
-    </div>
-
- </div>
+<div class="col-sm-1"></div>
+ 
 
 
 </div>

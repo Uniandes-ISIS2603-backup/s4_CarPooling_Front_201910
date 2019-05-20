@@ -44,7 +44,7 @@ export class ListarTrayectoComponent implements OnInit {
     {
       this.notificacionService.createNotificacion(this.notificacion).subscribe(a=> {
         this.toastrService.success("El conductor fue notificado", "Notificacion Enviada");
-                this.router.navigate(['home']);
+        this.router.navigate(['/usuario/menu', { outlets: { 'content': 'notificaciones' } }]);
       });
     }
     else{
