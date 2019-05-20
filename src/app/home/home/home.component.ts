@@ -12,12 +12,14 @@ import { Vehiculo } from '../../vehiculo/vehiculo';
 import { PeajeServiceService } from '../../peaje/peaje-service.service';
 import { VehiculoService } from '../../vehiculo/vehiculo.service';
 import { Usuario } from '../../usuario/usuario';
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [NgbCarouselConfig]
 })
 export class HomeComponent implements OnInit {
 
@@ -28,26 +30,30 @@ export class HomeComponent implements OnInit {
     private homeService: HomeServiceService,
     //private ciudadService: CiudadService,
     private peajeService:PeajeServiceService,
-    private vehiculoservice:VehiculoService
-  ) {}
+    private vehiculoservice:VehiculoService,
+    config: NgbCarouselConfig
+  ) {
+    
+  }
 
-  usuario : UsuarioDetail;
-  usernameActual: string;
+  
   buscar= new Busqueda();
   retorno = new Array<Trayecto>();
   ciudades: Ciudad[];
   usuarios:Usuario[];
  
   vehiculos: Vehiculo[];
+  images = [1, 2, 3, 4].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
   ngOnInit() {
-    this.getCurretUsuario();
+   
     //ciudades =
     this.usuarioService.getUsuarios().subscribe(user=>{this.usuarios=user});
     //this.peajeService.getPeaje().subscribe(peaje =>{this.peajes=peaje});
     this.vehiculoservice.getVehiculo().subscribe(v=>{this.vehiculos=v});
-    
+  
 
   }
+  
   submit(){
     this.trayectoService.getTrayectos().subscribe(actual => {
       actual.forEach(trayecto => {
@@ -110,22 +116,6 @@ export class HomeComponent implements OnInit {
     document.getElementById("main").style.marginLeft= "0";
   }
 
-  darUsuarioActual(): string {
-    return this.usuarioService.darUsuarioActual();
-  }
-
-  getCurretUsuario(){
   
-    this.usernameActual = this.usuarioService.darUsuarioActual();
-    console.log(this.usernameActual);
-    if(this.usernameActual != "vacio"){
-    this.usuarioService.getUsuarioDetail(this.usernameActual)
-            .subscribe(usuario => {
-                this.usuario = usuario;
-                console.log("inut");
-                
-            });
-    }
-  } 
 
 }

@@ -3,6 +3,8 @@ import { AuthService } from './auth/auth.service';
 import { HomeServiceService } from './home/home-service.service';
 
 import { Router } from '@angular/router';
+import { UsuarioDetail } from './usuario/usuario-detail';
+import { UsuarioService } from './usuario/usuario.service';
 
 
 
@@ -27,13 +29,20 @@ export class AppComponent implements OnInit {
     ngOnInit(): void {
         this.title = "s4_carpooling-Front";
         this.authService.start();
+        this.getCurretUsuario();
         
     }
+    ngAfterContentChecked(){
+      this.getCurretUsuario();
+    }
+
+    usuario : UsuarioDetail;
+  usernameActual: string;
 
        /**
      * @ignore
      */
-    constructor(private authService: AuthService, private home:HomeServiceService,private router: Router) { }
+    constructor(private authService: AuthService, private home:HomeServiceService,private router: Router,private usuarioService: UsuarioService,) { }
 
     logout(): void {
     this.authService.logout()
@@ -43,6 +52,22 @@ export class AppComponent implements OnInit {
         this.home.updateActual(new Array());
         this.router.navigate(['home']);
     }
+    darUsuarioActual(): string {
+        return this.usuarioService.darUsuarioActual();
+      }
+    
+      getCurretUsuario(){
+      
+        this.usernameActual = this.usuarioService.darUsuarioActual();
+        if(this.usernameActual != "vacio" && this.usernameActual != "no existe"){
+        this.usuarioService.getUsuarioDetail(this.usernameActual)
+                .subscribe(usuario => {
+                    this.usuario = usuario;
+                    
+                    
+                });
+        }
+      } 
 }
 
 
