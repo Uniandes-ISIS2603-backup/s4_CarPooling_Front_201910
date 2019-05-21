@@ -5,6 +5,12 @@ import { Trayecto } from '../trayecto/trayecto';
   providedIn: 'root'
 })
 export class HomeServiceService {
+    darUsuarioActual(): string {
+        throw new Error("Method not implemented.");
+    }
+    getUsuarioDetail(usernameActual: string) {
+        throw new Error("Method not implemented.");
+    }
 
   constructor() { }
   trayecto:Trayecto[];
