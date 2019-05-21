@@ -46,7 +46,7 @@ export class MenuComponent implements OnInit {
     this.notificacionService.getNotifficaciones()
             .subscribe(notificaciones =>{
                 notificaciones.forEach(notificacion=>{
-                    if(notificacion.receptor.username == this.usernameActual && !notificacion.leido)
+                    if(!true)//notificacion.receptor.username == this.usernameActual && !notificacion.leido)
                     {
                       this.notificacionesPendientes++;
                     }
