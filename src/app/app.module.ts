@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ToastrModule} from 'ngx-toastr';
@@ -24,6 +24,9 @@ import { PeajeModule } from './peaje/peaje.module';
 import { VehiculoModule } from './vehiculo/vehiculo.module';
 import { InicioModule } from './inicio/inicio.module';
 import { TrayectoLayoutModule } from './trayecto-layout/trayecto-layout.module';
+import {MatNativeDateModule, MatCard} from '@angular/material';
+import { DemoMaterialModule } from './material-module';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 
 @NgModule({
@@ -46,6 +49,18 @@ import { TrayectoLayoutModule } from './trayecto-layout/trayecto-layout.module';
         NgxPaginationModule,
         NgxPermissionsModule.forRoot(),
         NgbModule,
+
+        /**
+         * card
+         */
+        BrowserModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        HttpClientModule,
+        DemoMaterialModule,
+        MatNativeDateModule,
+        ReactiveFormsModule,
+
         /**
         * A partir de ahora, los imports de la clase
         */
@@ -72,3 +87,8 @@ import { TrayectoLayoutModule } from './trayecto-layout/trayecto-layout.module';
     ]
 })
 export class AppModule {}
+
+/**
+ * nueva caos
+ */
+platformBrowserDynamic().bootstrapModule(AppModule);

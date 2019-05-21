@@ -39,6 +39,9 @@ export class ListarTrayectoComponent implements OnInit {
     if(trayecto.conductor!=null){this.notificacion.receptor= trayecto.conductor;}
     this.notificacion.emisor=this.usuario;
     this.notificacion.trayecto=trayecto;
+    this.notificacion.leido=false;
+    this.notificacion.tipo=1;
+    this.notificacion.fecha= new Date();
     this.notificacion.mensaje="El usuario: "+this.usernameActual+" quiere suscribirse al trayecto con id: "+trayecto.id;
     if(this.notificacion.emisor.username!=this.notificacion.receptor.username&&this.usernameActual!="vacio")
     {

@@ -1,4 +1,24 @@
-<div class="container-fluid">   
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+<!--    <mat-card-title>Shiba Inu</mat-card-title> -->
+    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+      bred for hunting.
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>
+
+<!--<div class="container-fluid">   
   <div class="row">
     <div class="col" >
       <h2>Notifiaciones recibidas</h2>
@@ -10,6 +30,7 @@
             <th scope="col">Emisor</th>
             <th scope="col">Receptor</th>
             <th scope="col">Trayecto</th>
+            <th scope="col">leida</th>
            </tr>
         </thead>
         <tbody>
@@ -19,6 +40,7 @@
                   <td>{{notificacion.emisor}}</td>
                   <td>{{notificacion.receptor}}</td>
                   <td>{{notificacion.trayecto}}</td>
+                  <td>{{notificacion.leida}}</td>
               </tr>
         </tbody>
       </table>
@@ -31,6 +53,8 @@
               <th scope="col">Emisor</th>
               <th scope="col">Receptor</th>
               <th scope="col">Trayecto</th>
+              <th scope="col">leida</th>
+
              </tr>
           </thead>
           <tbody>
@@ -40,10 +64,11 @@
                     <td>{{notificacion.emisor.nombre}}</td>
                     <td>{{notificacion.receptor.nombre}}</td>
                     <td> Trayecto #{{notificacion.trayecto.id}}</td>
+                    <td>{{notificacion.leida}}</td>
                 </tr>
           </tbody>
         </table>
     </div>
   </div>
-</div>
+</div>-->
 

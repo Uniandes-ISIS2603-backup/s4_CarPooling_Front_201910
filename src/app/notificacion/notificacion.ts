@@ -12,6 +12,12 @@ export class Notificacion {
 
     trayecto: Trayecto;
 
+    leido: boolean;
+
+    fecha: any;
+
+    tipo: number;
+
 
 
 }

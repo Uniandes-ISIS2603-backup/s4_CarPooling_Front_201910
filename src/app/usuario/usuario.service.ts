@@ -92,6 +92,8 @@ export class UsuarioService {
     getUsuariosBuscados(): Usuario[]{
         return this.usuariosBuscados;
     }
+
+ 
     
     /**
     * Deletes a user

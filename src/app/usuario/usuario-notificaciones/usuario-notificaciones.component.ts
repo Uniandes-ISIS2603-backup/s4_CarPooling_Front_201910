@@ -4,6 +4,7 @@ import { Notificacion } from '../../notificacion/notificacion';
 import { Router } from '@angular/router';
 import { UsuarioDetail } from '../usuario-detail';
 
+
 @Component({
   selector: 'app-usuario-notificaciones',
   templateUrl: './usuario-notificaciones.component.html',

@@ -14,12 +14,14 @@ import { UsuarioCalificacionesComponent } from './usuario-calificaciones/usuario
 import { UsuarioNotificacionesComponent } from './usuario-notificaciones/usuario-notificaciones.component';
 import { UsuarioBuscarComponent } from './usuario-buscar/usuario-buscar.component';
 import { UsuarioBuscarListaComponent } from './usuario-buscar-lista/usuario-buscar-lista.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatCardModule
   ],
   declarations: [UsuarioDetailComponent, UsuarioCreateComponent, UsuarioListaComponent, UsuarioEditComponent, MenuComponent, UsuarioInfoComponent, UsuarioLoginComponent, UsuarioVehiculosComponent, UsuarioCalificacionesComponent, UsuarioNotificacionesComponent, UsuarioBuscarComponent, UsuarioBuscarListaComponent],
   exports: [UsuarioDetailComponent, UsuarioCreateComponent,UsuarioListaComponent, UsuarioEditComponent, MenuComponent,UsuarioInfoComponent,UsuarioLoginComponent, UsuarioVehiculosComponent,  UsuarioCalificacionesComponent, UsuarioNotificacionesComponent, UsuarioBuscarComponent, UsuarioBuscarListaComponent ]

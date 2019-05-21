@@ -17,7 +17,7 @@
                                     <li class="active"><a [routerLink]= "['/usuario/menu', { outlets: { 'content': 'info' } }]"><span class="fa fa-user"></span> Información Principal</a></li>
                                     <li><a [routerLink]= "['/usuario/menu', { outlets: { 'content': 'vehiculos' } }]">Vehiculos</a></li>
                                     <li><a [routerLink]= "['/usuario/menu', { outlets: { 'content': 'calificaciones' } }]">Calificaciones</a></li>
-                                    <li><a [routerLink]= "['/usuario/menu', { outlets: { 'content': 'notificaciones' } }]">Notificaciones</a></li>
+                                    <li><a [routerLink]= "['/usuario/menu', { outlets: { 'content': 'notificaciones' } }]">Notificaciones<span class="badge badge-danger" style="float:right;">{{notificacionesPendientes}}</span></a></li>
                                     <li><a [routerLink]= "['/usuario/menu', { outlets: { 'content': 'buscarUsuario' } }]"> Buscar usuario</a></li>
                                     <li><a routerLink = '/home' (click) = 'logOut()' >Log Out</a></li>
                                  </ul>
