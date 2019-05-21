@@ -6,6 +6,8 @@ import {ToastrService} from 'ngx-toastr';
 import {TrayectoService} from '../trayecto.service';
 import {Router} from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { UsuarioService } from '../../usuario/usuario.service';
+import { Usuario } from '../../usuario/usuario';
 
 @Component({
   selector: 'app-trayecto-crear',
@@ -16,15 +18,18 @@ import { DatePipe } from '@angular/common';
 export class TrayectoCrearComponent implements OnInit {
 
 
-	trayecto = new Trayecto;
+  trayecto = new Trayecto;
+  usuarioActual: Usuario;
 
   constructor(private dp: DatePipe,
     private toastrService: ToastrService,
     private trayectoService: TrayectoService,
+    private usuarioService: UsuarioService,
     private router: Router) { }
 
   ngOnInit() {
     this.trayecto = new Trayecto();
+    this.getCurretUsuario();
   }
 
   cancelCreation(): void {
@@ -38,6 +43,7 @@ export class TrayectoCrearComponent implements OnInit {
 
 let dateB1: Date = new Date(this.trayecto.fechaInicial.year, this.trayecto.fechaInicial.month - 1, this.trayecto.fechaInicial.day);
 this.trayecto.fechaInicial = this.dp.transform(dateB1, 'yyyy-MM-dd');
+this.trayecto.conductor = this.usuarioActual;
 console.log(this.trayecto.fechaInicial);
     this.trayectoService.createTrayecto(this.trayecto)
             .subscribe(trayecto => {
@@ -52,6 +58,10 @@ console.log(this.trayecto.fechaInicial);
     return this.trayecto;
   }
   
-  get currentUser() { return JSON.stringify(this.trayecto); }
-
+  getCurretUsuario(){
+    this.usuarioService.getUsuarioDetail( this.usuarioService.darUsuarioActual())
+            .subscribe(usuario => {
+                this.usuarioActual = usuario;
+            });
+  }
 }

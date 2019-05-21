@@ -18,6 +18,9 @@ export class Notificacion {
 
     tipo: number;
 
-
+    hasReceptor(): boolean{
+        return !(this.receptor!=null);
+    }
 
 }
+

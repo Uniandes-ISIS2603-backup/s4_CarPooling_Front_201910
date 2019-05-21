@@ -46,16 +46,19 @@ export class MenuComponent implements OnInit {
     this.notificacionService.getNotifficaciones()
             .subscribe(notificaciones =>{
                 notificaciones.forEach(notificacion=>{
-                    if(!true)//notificacion.receptor.username == this.usernameActual && !notificacion.leido)
-                    {
-                      this.notificacionesPendientes++;
-                    }
-                  })
+                    if(notificacion.hasReceptor){
+                      if(notificacion.receptor.username === this.usernameActual && !notificacion.leido)
+                      {
+                        this.notificacionesPendientes++;
+                      }
+                  }
+                })
             }
           );
   }
 
   logOut(){
+    this.usuarioService.logOut();
     this.toastrService.success("Su sesion se cerro exitosamente", "Sesion Cerrada");
   }
 

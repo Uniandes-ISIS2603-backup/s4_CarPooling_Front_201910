@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Notificacion } from './notificacion';
 import { Observable } from 'rxjs';
-const API_URL = "http://52a0903d.ngrok.io/s4_carpooling-api/api/";
+const API_URL = "http://52a0903d.ngrok.io/s4_carpooling-api/api";
 const notificaciones = 'notificaciones';
 
 @Injectable({
@@ -26,6 +26,6 @@ export class NotificacionService {
     * @returns The notifications
     */
  	getNotifficaciones() : Observable<Notificacion[]> {
-    return this.http.get<Notificacion[]>(API_URL + notificaciones);
+    return this.http.get<Notificacion[]>(API_URL+ '/'  + notificaciones);
 }
 }
