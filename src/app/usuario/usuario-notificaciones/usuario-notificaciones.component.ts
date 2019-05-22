@@ -73,6 +73,7 @@ export class UsuarioNotificacionesComponent implements OnInit {
     this.misNotificacionesRecibidas = this.usuarioActual.notificacionesRecibidas;
     this.noLeidasRecibidas = new Array<Notificacion>();
     this.leidasRecibidas = new Array<Notificacion>();
+    
     this.misNotificacionesRecibidas.forEach(notificacion => {
       if (notificacion.leido) {
         this.leidasRecibidas.push(notificacion);
@@ -80,6 +81,7 @@ export class UsuarioNotificacionesComponent implements OnInit {
         this.noLeidasRecibidas.push(notificacion);
       }
     });
+
     //console.log(this.noLeidasRecibidas);
     //console.log(this.leidasRecibidas);
     //console.log(this.misNotificacionesEnviadas);

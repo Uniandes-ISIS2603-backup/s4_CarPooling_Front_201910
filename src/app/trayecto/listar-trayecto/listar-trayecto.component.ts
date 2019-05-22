@@ -33,17 +33,18 @@ export class ListarTrayectoComponent implements OnInit {
     this.trayectos=this.home.getActual();
     this.getCurretUsuario();
   }
-  onClick(trayecto:Trayecto)
+  onClick(trayecto)
   {
     this.notificacion=new Notificacion();
     if(trayecto.conductor!=null){this.notificacion.receptor= trayecto.conductor;}
+    console.log(this.usuario)
     this.notificacion.emisor=this.usuario;
     this.notificacion.trayecto=trayecto;
     this.notificacion.leido=false;
     this.notificacion.tipo=1;
     this.notificacion.fecha= new Date();
     this.notificacion.mensaje="El usuario: "+this.usernameActual+" quiere suscribirse al trayecto con id: "+trayecto.id;
-    if(this.notificacion.emisor.username!=this.notificacion.receptor.username&&this.usernameActual!="vacio")
+    if(true)
     {
       this.notificacionService.createNotificacion(this.notificacion).subscribe(a=> {
         this.toastrService.success("El conductor fue notificado", "Notificacion Enviada");
@@ -77,7 +78,7 @@ export class ListarTrayectoComponent implements OnInit {
                 console.log(this.usuario);
             });
   } }
-  detail(id:number)
+  detail(id)
   {
     localStorage.setItem('trayecto',id);
     this.router.navigate(['trayecto/detail']);
