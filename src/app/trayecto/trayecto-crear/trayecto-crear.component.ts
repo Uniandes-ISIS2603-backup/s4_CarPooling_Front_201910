@@ -15,6 +15,7 @@ import { PeajeService } from "../../peaje/peaje.service";
 
 import { InfoTrayecto } from "../../info-trayecto/info-trayecto";
 
+
 @Component({
   selector: "app-trayecto-crear",
   templateUrl: "./trayecto-crear.component.html",
@@ -54,7 +55,8 @@ export class TrayectoCrearComponent implements OnInit {
     private peajeService: PeajeService,
     private usuarioService: UsuarioService,
     private router: Router
-  ) {}
+  ) 
+  {   }
 
   ngOnInit() {
     this.trayecto = new TrayectoDetail();
@@ -115,4 +117,9 @@ export class TrayectoCrearComponent implements OnInit {
         this.usuarioActual = usuario;
       });
   }
+
+  horaSalida = {hour: 13, minute: 30};
+  horaLlegada = {hour: 13, minute: 30};
+
 }
+

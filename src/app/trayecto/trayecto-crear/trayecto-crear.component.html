@@ -1,15 +1,25 @@
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://weareoutman.github.io/clockpicker/dist/bootstrap-clockpicker.min.css">
+  <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="http://weareoutman.github.io/clockpicker/dist/bootstrap-clockpicker.min.js"></script>
+</head>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
       <br />
       <h2 class="text-center">Bienvenido a Trayecto</h2>
       <br />
+      <div class="row justify-content-center">
       <form
         name="trayecto"
         (ngSubmit)="f.form.valid && createTrayecto()"
         #f="ngForm"
         novalidate
       >
+        <div class="col-sm-6">
         <div class="form-group">
           <label for="fechaInicial"><b>Fecha Inicial</b></label>
           <input
@@ -22,7 +32,7 @@
             (click)="d.toggle()"
             #fechaInicial="ngModel"
             [ngClass]="{
-              'is-invalid': fechaInicial.untouched || fechaInicial.invalid
+              'is-invalid': f.submitted &&n (fechaFinal.untouched || fechaFinal.invalid)
             }"
             required
           />
@@ -30,9 +40,11 @@
             <div>Falta la fecha inicial</div>
           </div>
         </div>
+      </div>
+      <div class="col-sm-6">
         <div class="form-group">
           <label for="fechaFinal"><b>Fecha Final</b></label>
-          <input
+          <input 
             class="form-control"
             id="fechaFinal"
             name="fechaFinal"
@@ -42,7 +54,7 @@
             (click)="d.toggle()"
             #fechaFinal="ngModel"
             [ngClass]="{
-              'is-invalid': fechaFinal.untouched || fechaFinal.invalid
+              'is-invalid': f.submitted &&n (fechaFinal.untouched || fechaFinal.invalid)
             }"
             required
           />
@@ -50,7 +62,7 @@
             <div>Falta la fecha final</div>
           </div>
         </div>
-
+      </div>
         <div class="form-group" *ngIf="ciudades != null">
           <label for="origen"><b>Origen</b></label>
           <select
@@ -64,7 +76,7 @@
             >
             <option
               *ngFor="let ciudad of ciudades"
-              value="{{ ciudad.nombre }}"
+              value="{{ trayecto.origen }}"
               >{{ ciudad.nombre }}</option
             >
           </select>
@@ -83,7 +95,7 @@
             >
             <option
               *ngFor="let ciudad of ciudades"
-              value="{{ ciudad.nombre }}"
+              value="{{ trayecto.destino }}"
               >{{ ciudad.nombre }}</option
             >
           </select>
@@ -119,39 +131,39 @@
           </div>
         </div>
 
-        <div class="form-group">
-          <label for="combustible"><b>Combustible</b></label>
-          <input
-            type="number"
-            name="combustible"
-            class="form-control"
-            id="combustible"
-            [(ngModel)]="infoTrayecto.combustible"
-          />
-        </div>
+        
 
         <div class="form-group">
           <label for="hsalida"><b>Hora de salida</b></label>
-          <input
-            type=""
-            name="hsalida"
-            class="form-control"
-            id="hsalida"
-            [(ngModel)]="infoTrayecto.horaInicial"
-          />
+          <div class="form-group">
+              <label for="hsalida"><b>Hora de salida</b></label>
+              <ngb-timepicker [ngModel]="horaSalida" [meridian]=true [ngModelOptions]="{standalone: true}"             required
+              ></ngb-timepicker>
+          </div>
         </div>
+
 
         <div class="form-group">
-          <label for="horaFinal"><b>Hora de llegada</b></label>
-          <input
-            type="number"
-            name="horaFinal"
-            class="form-control"
-            id="horaFinal"
-            [(ngModel)]="infoTrayecto.horaFinal"
-          />
+            <label for="hsalida"><b>Hora de salida</b></label>
+            <ngb-timepicker [ngModel]="horaSalida" [meridian]=true [ngModelOptions]="{standalone: true}"></ngb-timepicker>
         </div>
 
+        <br>
+        <a class="badge badge-pill badge-primary" data-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapseExample" toggle="false">
+            Mas Opciones
+          </a>
+          
+        <div id="collapse" class="collapse">
+        <div class="form-group">
+            <label for="combustible"><b>Combustible</b></label>
+            <input
+              type="number"
+              name="combustible"
+              class="form-control"
+              id="combustible"
+              [(ngModel)]="infoTrayecto.combustible"
+            />
+          </div>
         <div class="form-group" *ngIf="ciudades != null">
           <label for="parada"><b>Paradas adicionales</b></label>
           <select
@@ -187,7 +199,7 @@
             }}</option>
           </select>
         </div>
-
+      </div>
         <div class="row form-inline justify-content-center align-self-center">
           <button type="submit" class="btn btn-primary">Create</button>
           <div class="divider"></div>
@@ -200,6 +212,7 @@
           </button>
         </div>
       </form>
+    </div>
       <br />
     </div>
   </div>
