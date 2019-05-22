@@ -581,3 +581,6 @@ color: #a2a6af
     display: inline-block
 }
 }
+a:hover { 
+    background-color: yellow;
+  }
