@@ -272,12 +272,12 @@ const routes: Routes = [
                 component: VehiculoCreateComponent
             }            
         ]
-    }//,
-   // {
-    //    path: "**",
-     //   redirectTo: 'home'
+    },
+    {
+        path: "**",
+        redirectTo: 'home'
 
-    //}
+    }
 ];
 
 @NgModule({
