@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
   images = [1, 2, 3, 4].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
   ngOnInit() {
    
-    //ciudades =
+    this.homeService.getCiudades().subscribe(a=>{this.ciudades=a});
     this.usuarioService.getUsuarios().subscribe(user=>{this.usuarios=user});
     //this.peajeService.getPeaje().subscribe(peaje =>{this.peajes=peaje});
     this.vehiculoservice.getVehiculo().subscribe(v=>{this.vehiculos=v});
@@ -106,6 +106,21 @@ export class HomeComponent implements OnInit {
 
     })
   }
+  buscara(i:Ciudad){
+    this.trayectoService.getTrayectos().subscribe(actual => {
+      actual.forEach(trayecto => {
+        
+        if(trayecto.ciudadOrigen!=null && trayecto.ciudadOrigen.nombre==i.nombre)
+           {
+             this.retorno.push(trayecto);
+             this.homeService.updateActual(this.retorno);
+            console.log(this.retorno);
+
+            }
+        this.router.navigate(['trayecto/list']);
+      });
+
+    })  }
    openNav() {
     document.getElementById("mySidenav").style.width = "250px";
     document.getElementById("main").style.marginLeft = "250px";

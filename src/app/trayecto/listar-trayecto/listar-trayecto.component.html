@@ -1,41 +1,57 @@
-<table class="table">
-  <thead class="table-info">
-    <tr>
-      <th scope="col">FechaInicio</th>
-			<th scope="col">FechaFin</th>
-			<th scope="col">Estado</th>
-			<th scope="col">Conductor</th>
-			<th scope="col">Ciudad Origen</th>
-			<th scope="col">Ciudad Destino</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let i of trayectos">
-		<td >
-			{{i.fechaInicial}}
-		</td>
-		<td >
-			{{i.fechaFinal}}
-		</td>
-		<td>
-				{{i.estado}}
-		</td>
-		<td >
-				<div *ngIf="i.conductor!=null">{{i.conductor.nombre}}</div>	
-			</td>
-			<td >
-					<div *ngIf="i.ciudadOrigen!=null">{{i.ciudadOrigen.nombre}}</div>
-				</td>
-				<td >
-						<div *ngIf="i.ciudad!=null">{{i.ciudad.nombre}}</div>
-					</td>
-					<td>
-						<button (click)="onClick(i)" *ngIf="usernameActual!='vacio'">Reservar Cupo</button>
-					</td>
-	</tr>
-
-  </tbody>
-</table>
-<div class="text-right">
-  	<button type="button" class="btn btn-primary" (click)="volver()" >Volver</button>
+<div class="row justify-content-md-center">
+	<div class="col-sm-10 " *ngFor="let i of trayectos">
+<div class="card text-center">
+		<div class="card-header">
+			<h1> <a (click)="detail(i.id)">Trayecto #{{i.id}}</a></h1>
+		</div>
+		<div class="card-body">
+			<div class="row">
+				<div class="col-sm-5" *ngIf="i.fechaFinal!=null">
+						<h2>Fecha Inicial</h2>
+						<p>{{i.fechaInicial}}</p>
+				</div>
+				<div class="col-sm-5" *ngIf="i.fechaFinal!=null">
+						<h2>Fecha Final</h2>
+						<p>{{i.fechaFinal}}</p>
+				</div>
+			</div>
+				<div class="row">
+						<div class="col-sm-5" *ngIf="i.ciudadOrigen!=null">
+								<h3>Ciudad Origen</h3>
+								<p>{{i.ciudadOrigen}}</p>
+						</div>
+						<div class="col-sm-5" *ngIf="i.ciudadDestino!=null">
+								<h3>Ciudad Destino</h3>
+								<p>{{i.ciudadDestino}}</p>
+						</div>
+			</div>
+				<div class="row">
+						<div class="col-sm-5" *ngIf="i.conductor!=null">
+								<h4>Conductor</h4>
+								<p>{{i.conductor.nombre}}</p>
+						</div>
+						<div class="col-sm-5" *ngIf="i.info!=null&&i.info.vehiculo!=null">
+								<h4>vehiculo</h4>
+								<p>{{i.info.vehiculo.modelo}}</p>
+						</div>
+			</div>
+			<div class="row">
+					<div class="col-sm-5" *ngIf="i.info!=null">
+							<h5>Cupos</h5>
+							<p>{{i.info.cupos}}</p>
+					</div>
+					<div class="col-sm-5" *ngIf="i.info!=null">
+							<h5>Precio</h5>
+							<p>{{i.info.costo}}</p>
+					</div>
+		</div>
+		
+		
+			
+		
+		<div class="card-footer text-muted">
+				<a type="button" (click)="detail(i.id)">Detalles</a>
+		</div>
+	</div>
+</div>
 </div>

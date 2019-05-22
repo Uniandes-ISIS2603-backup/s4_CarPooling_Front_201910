@@ -1,0 +1,83 @@
+<div class="row justify-content-md-center">
+        <div class="col-sm-10 ">
+    <div class="card text-center">
+            <div class="card-header">
+                <h1>Trayecto #{{t.id}}</h1>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-5" *ngIf="t.fechaFinal!=null">
+                            <h2>Fecha Inicial</h2>
+                            <p>{{t.fechaInicial}}</p>
+                    </div>
+                    <div class="col-sm-5" *ngIf="t.fechaFinal!=null">
+                            <h2>Fecha Final</h2>
+                            <p>{{t.fechaFinal}}</p>
+                    </div>
+                </div>
+                    <div class="row">
+                            <div class="col-sm-5" *ngIf="t.ciudadOrigen!=null">
+                                    <h3>Ciudad Origen</h3>
+                                    <p>{{t.ciudadOrigen}}</p>
+                            </div>
+                            <div class="col-sm-5" *ngIf="t.ciudadDestino!=null">
+                                    <h3>Ciudad Destino</h3>
+                                    <p>{{t.ciudadDestino}}</p>
+                            </div>
+                </div>
+                    <div class="row">
+                            <div class="col-sm-5" *ngIf="t.conductor!=null">
+                                    <h4>Conductor</h4>
+                                    <p>{{t.conductor.nombre}}</p>
+                            </div>
+                            <div class="col-sm-5" *ngIf="t.info!=null&&t.info.vehiculo!=null">
+                                    <h4>vehiculo</h4>
+                                    <p>{{t.info.vehiculo.modelo}}</p>
+                            </div>
+                </div>
+                <div class="row">
+                        <div class="col-sm-5" *ngIf="t.info!=null&&t.info.vehiculo!=null">
+                                <h5>Cupos</h5>
+                                <p>{{t.info.cupos}}</p>
+                        </div>
+                        <div class="col-sm-5" *ngIf="t.info!=null">
+                                <h5>Precio</h5>
+                                <p>{{t.info.costo}}</p>
+                        </div>
+            </div>
+            <div class="row">
+                        <div class="col-sm-5" *ngIf="t.pasajeros!=null">
+                                        <h5>Pasajeros</h5>
+                                        <p *ngFor="let h of t.pasajeros">{{h.nombre}}<br></p>
+                        </div>
+                        <div class="col-sm-5" *ngIf="t.info!=null">
+                                        <h5>Estado Actual</h5>
+                                        <p *ngIf="t.estado==0">Futuro</p>
+                                        <p *ngIf="t.estado==1">Actual</p>
+                                        <p *ngIf="t.estado==2">Pasado</p>
+                                        <p *ngIf="t.estado==3">No Realizado</p>
+                        </div>
+        </div>
+        <div class="row">
+                        <div class="col-sm-5" *ngIf="t.duracion!=null">
+                                        <h5>duracion</h5>
+                                        <p>{{t.duracionMins}}</p>
+                        </div>
+                        <div class="col-sm-5" *ngIf="t.combustible!=null">
+                                        <h5>Precio</h5>
+                                        <p>{{t.combustible}}</p>
+                        </div>
+        </div>
+        <div class="row">
+                        <div class="col-sm-5" *ngIf="t.paradas!=null">
+                                        <h5>Paradas</h5>
+                                        <p *ngFor="let h of t.paradas">{{h.nombre}}<br></p>
+                        </div>
+                        <div class="col-sm-5" *ngIf="t.peajes!=null">
+                                        <h5>Precio</h5>
+                                        <p *ngFor="let h of t.peajes">{{h.nombre}}<br></p>
+                        </div>
+        </div>
+        </div>
+    </div>
+    </div>

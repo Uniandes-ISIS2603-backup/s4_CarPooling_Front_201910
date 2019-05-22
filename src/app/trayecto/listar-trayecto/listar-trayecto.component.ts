@@ -77,4 +77,9 @@ export class ListarTrayectoComponent implements OnInit {
                 console.log(this.usuario);
             });
   } }
+  detail(id:number)
+  {
+    localStorage.setItem('trayecto',id);
+    this.router.navigate(['trayecto/detail']);
+  }
 }

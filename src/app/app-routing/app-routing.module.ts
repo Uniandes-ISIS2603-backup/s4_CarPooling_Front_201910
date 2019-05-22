@@ -231,7 +231,10 @@ const routes: Routes = [
             component:  TrayectoEditComponent},
             {path: 'list',
                 component:  ListarTrayectoComponent            
-            }
+            },
+            {path: 'detail',
+            component:  TrayectoDetailComponent            
+        }
         
         ]
     },
