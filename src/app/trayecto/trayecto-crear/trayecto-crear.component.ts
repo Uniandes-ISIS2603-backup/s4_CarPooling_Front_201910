@@ -84,6 +84,14 @@ export class TrayectoCrearComponent implements OnInit {
       this.trayecto.fechaInicial.day
     );
     this.trayecto.fechaInicial = this.dp.transform(dateB1, "yyyy-MM-dd");
+
+    let dateB2: Date = new Date(
+      this.trayecto.fechaInicial.year,
+      this.trayecto.fechaInicial.month - 1,
+      this.trayecto.fechaInicial.day
+    );
+    this.trayecto.fechaInicial = this.dp.transform(dateB1, "yyyy-MM-dd");
+
     this.trayecto.conductor = this.usuarioActual;
     console.log(this.trayecto.fechaInicial);
     this.trayectoService.createTrayecto(this.trayecto).subscribe(trayecto => {
