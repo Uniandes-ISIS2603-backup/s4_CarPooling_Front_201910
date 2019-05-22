@@ -1,29 +1,12 @@
-<div class="container-fluid">   
-  <div class="row">
-    <div class="col" >
-
-<table class="table">
-<thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Modelo</th>
-    <th scope="col">Placa</th>
-    <th scope="col">Color</th>
-    <th scope="col">Alquiler</th>
-  </tr>
-</thead>
-<tbody>
-  <tr *ngFor = "let vehiculo of misVehiculos">
-                  <td>{{vehiculo.id}}</td>
-                  <td>{{vehiculo.modelo}}</td>
-                  <td>{{vehiculo.placa}}</td>
-                  <td>{{vehiculo.color}}</td>
-                  <td>{{vehiculo.alquiler}}</td>
-              </tr>
-</tbody>
-</table>
+<h4>Vehiculos:</h4>
+<div class="container" *ngFor="let vehiculos of misVehiculos">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-icon>more_vert</mat-icon>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>MR. X</mat-card-title>
+      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
 </div>
 
-</div>
-
-</div>

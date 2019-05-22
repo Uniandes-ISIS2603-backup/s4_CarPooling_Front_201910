@@ -54,6 +54,7 @@ export class UsuarioVehiculosComponent implements OnInit {
             .subscribe(usuario => {
                 this.usuario = usuario;
                 this.getMisVehiculos();
+                console.log(this.misVehiculos);
             });
   }
 
