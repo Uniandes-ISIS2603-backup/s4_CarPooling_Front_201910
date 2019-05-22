@@ -138,7 +138,7 @@ export class UsuarioNotificacionesComponent implements OnInit {
     this.noticacionService.createNotificacion(this.notificacionP).subscribe();
     notificacion.leido = true;
     console.log(notificacion);
-    //this.noticacionService.updateNotificacion(notificacion).subscribe();
+    this.noticacionService.updateNotificacion(notificacion).subscribe();
     this.toastrService.success(
       "El usuario " +
         this.nuevoPasajero.username +

@@ -16,6 +16,7 @@ import { UsuarioBuscarComponent } from './usuario-buscar/usuario-buscar.componen
 import { UsuarioBuscarListaComponent } from './usuario-buscar-lista/usuario-buscar-lista.component';
 import {MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from '@angular/material';
+import { UsuarioBuscarEspecificoComponent } from './usuario-buscar-especifico/usuario-buscar-especifico.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,7 @@ import { MatButtonModule } from '@angular/material';
     MatCardModule,
     MatButtonModule
   ],
-  declarations: [UsuarioDetailComponent, UsuarioCreateComponent, UsuarioListaComponent, UsuarioEditComponent, MenuComponent, UsuarioInfoComponent, UsuarioLoginComponent, UsuarioVehiculosComponent, UsuarioCalificacionesComponent, UsuarioNotificacionesComponent, UsuarioBuscarComponent, UsuarioBuscarListaComponent],
+  declarations: [UsuarioDetailComponent, UsuarioCreateComponent, UsuarioListaComponent, UsuarioEditComponent, MenuComponent, UsuarioInfoComponent, UsuarioLoginComponent, UsuarioVehiculosComponent, UsuarioCalificacionesComponent, UsuarioNotificacionesComponent, UsuarioBuscarComponent, UsuarioBuscarListaComponent, UsuarioBuscarEspecificoComponent],
   exports: [UsuarioDetailComponent, UsuarioCreateComponent,UsuarioListaComponent, UsuarioEditComponent, MenuComponent,UsuarioInfoComponent,UsuarioLoginComponent, UsuarioVehiculosComponent,  UsuarioCalificacionesComponent, UsuarioNotificacionesComponent, UsuarioBuscarComponent, UsuarioBuscarListaComponent ]
 })
 export class UsuarioModule { }

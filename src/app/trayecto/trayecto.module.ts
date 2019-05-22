@@ -12,6 +12,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { TrayectoFuturoComponent } from './trayecto-futuro/trayecto-futuro.component';
 import { TrayectosFuturosComponent } from './trayectos-futuros/trayectos-futuros.component';
 import { UsuarioService } from '../usuario/usuario.service';
+import { TrayectoBuscarEspecificoComponent } from './trayecto-buscar-especifico/trayecto-buscar-especifico.component';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { UsuarioService } from '../usuario/usuario.service';
     AppRoutingModule,
     NgbModule
   ],
-  declarations: [ListarTrayectoComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent, MenuComponent, TrayectoFuturoComponent],
+  declarations: [ListarTrayectoComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent, MenuComponent, TrayectoFuturoComponent, TrayectoBuscarEspecificoComponent],
   exports: [ListarTrayectoComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent]
 })
 export class TrayectoModule { }

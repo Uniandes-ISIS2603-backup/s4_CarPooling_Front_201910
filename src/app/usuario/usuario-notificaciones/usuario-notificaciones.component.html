@@ -20,7 +20,7 @@
                 'usuruario/buscarEspecifico/[notificacion.emisor.nombre]'
               ]"
             >
-              {{ notificacion.emisor.nombre }}
+             {{ notificacion.emisor.nombre }}
             </a>
           </div>
           <div class="row">
@@ -30,13 +30,11 @@
               ]"
               >{{ notificacion.emisor.nombre }}</a
             >
-            quiere suscribirse al
+              &nbsp; quiere suscribirse al
             <a
-              [routerLink]="[
-                'usuruario/buscarEspecifico/[notificacion.emisor.nombre]'
-              ]"
+              [routerLink] ="['/usuario/menu', { outlets: { 'content': 'buscarEspecifico'[notificacion.trayecto.id] } }]"
             >
-              trayecto con id {{ notificacion.trayecto.id }}</a
+              &nbsp; trayecto con id {{ notificacion.trayecto.id }}</a
             >
           </div>
           <div class="row">
@@ -45,7 +43,7 @@
         </div>
         <div class="" *ngIf="notificacion.tipo == 2">
           <div id="mensaje" class="row">
-            Enviada por:
+            Enviada por: &nbsp;
             <a
               [routerLink]="[
                 'usuruario/buscarEspecifico/[notificacion.emisor.nombre]'
@@ -61,13 +59,13 @@
               ]"
               >{{ notificacion.emisor.nombre }}</a
             >
-            {{ notificacion.mensaje }} su solicitud de cupo para el
+            {{ notificacion.mensaje }}&nbsp;su solicitud de cupo para el
             <a
               [routerLink]="[
                 'usuruario/buscarEspecifico/[notificacion.emisor.nombre]'
               ]"
             >
-              trayecto con id {{ notificacion.trayecto.id }}</a
+              trayecto con id&nbsp;{{ notificacion.trayecto.id }}</a
             >
           </div>
           <div class="row">
@@ -136,7 +134,7 @@
       <div class="col-8" text-align="center">
         <div class="" *ngIf="notificacion.tipo == 1">
           <div id="mensaje" class="row">
-            Enviada por:
+            Enviada por:&nbsp;
             <a
               [routerLink]="[
                 'usuruario/buscarEspecifico/[notificacion.emisor.nombre]'
@@ -152,13 +150,13 @@
               ]"
               >{{ notificacion.emisor.nombre }}</a
             >
-            quiere suscribirse al
+            &nbsp;quiere suscribirse al&nbsp;
             <a
               [routerLink]="[
                 'usuruario/buscarEspecifico/[notificacion.emisor.nombre]'
               ]"
             >
-              trayecto con id {{ notificacion.trayecto.id }}</a
+            &nbsp;trayecto con id&nbsp;{{ notificacion.trayecto.id }}</a
             >
           </div>
           <div class="row">
@@ -167,13 +165,13 @@
         </div>
         <div class="" *ngIf="notificacion.tipo == 2">
           <div id="mensaje" class="row">
-            Enviada por:
+            Enviada por:&nbsp;
             <a
               [routerLink]="[
                 'usuruario/buscarEspecifico/[notificacion.emisor.nombre]'
               ]"
             >
-              {{ notificacion.emisor.nombre }}
+            {{ notificacion.emisor.nombre }}
             </a>
           </div>
           <div class="row">
@@ -183,13 +181,13 @@
               ]"
               >{{ notificacion.emisor.nombre }}</a
             >
-            {{ notificacion.mensaje }} su solicitud de cupo para el
+            {{ notificacion.mensaje }}&nbsp;su solicitud de cupo para el
             <a
               [routerLink]="[
                 'usuruario/buscarEspecifico/[notificacion.emisor.nombre]'
               ]"
             >
-              trayecto con id {{ notificacion.trayecto.id }}</a
+            &nbsp;trayecto con id&nbsp;{{ notificacion.trayecto.id }}</a
             >
           </div>
         </div>
@@ -236,13 +234,13 @@
               ]"
               >{{ notificacion.emisor.nombre }}</a
             >
-            quiere suscribirse al
+            &nbsp;quiere suscribirse al&nbsp;
             <a
               [routerLink]="[
                 'usuruario/buscarEspecifico/[notificacion.emisor.nombre]'
               ]"
             >
-              trayecto con id {{ notificacion.trayecto.id }}</a
+            &nbsp;trayecto con id&nbsp;{{ notificacion.trayecto.id }}</a
             >
             <div class="row">
               {{ notificacion.fecha }}
@@ -251,13 +249,13 @@
         </div>
         <div class="" *ngIf="notificacion.tipo == 2">
           <div id="mensaje" class="row">
-            Enviada a:
+            Enviada a:&nbsp;
             <a
               [routerLink]="[
-                'usuruario/buscarEspecifico/[notificacion.emisor.nombre]'
+                'usuruario/buscarEspecifico/[notificacion.receptor.nombre]'
               ]"
             >
-              {{ notificacion.emisor.nombre }}
+            &nbsp;{{ notificacion.receptor.nombre }}
             </a>
           </div>
           <div class="row">
@@ -267,13 +265,13 @@
               ]"
               >{{ notificacion.emisor.nombre }}</a
             >
-            {{ notificacion.mensaje }} su solicitud de cupo para el
+            &nbsp;{{ notificacion.mensaje }}&nbsp;su solicitud de cupo para el
             <a
               [routerLink]="[
                 'usuruario/buscarEspecifico/[notificacion.emisor.nombre]'
               ]"
             >
-              trayecto con id {{ notificacion.trayecto.id }}</a
+              trayecto con id &nbsp;{{ notificacion.trayecto.id }}</a
             >
           </div>
         </div>

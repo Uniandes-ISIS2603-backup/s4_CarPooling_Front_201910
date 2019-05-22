@@ -162,9 +162,10 @@ const routes: Routes = [
                         outlet: 'content'
                     },
                     {
-                        path: '**',
-                        redirectTo: 'info'
-                    }
+                        path: 'buscarEspecifico',
+                        component:  UsuarioBuscarListaComponent,
+                        outlet: 'content'
+                    },
 
                 ]
             },
