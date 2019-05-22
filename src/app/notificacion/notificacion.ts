@@ -1,26 +1,26 @@
 import { Usuario } from "../usuario/usuario";
 import { Trayecto } from "../trayecto/trayecto";
+import { hasOwnProperty } from "assert";
+import { TrayectoDetail } from "../trayecto/trayecto-detail";
 
 export class Notificacion {
+  id: number;
 
-	id:number;
-    mensaje:string;
+  mensaje: string;
 
-    emisor:Usuario;
+  emisor: Usuario;
 
-    receptor:Usuario;
+  receptor: Usuario;
 
-    trayecto: Trayecto;
+  trayecto: TrayectoDetail;
 
-    leido: boolean;
+  leido: boolean;
 
-    fecha: any;
+  fecha: any;
 
-    tipo: number;
+  tipo: number;
 
-    hasReceptor(): boolean{
-        return !(this.receptor!=null);
-    }
-
+  hasReceptor(): Boolean {
+    return hasOwnProperty("receptor");
+  }
 }
-
