@@ -23,7 +23,8 @@ export class CrearCalificacionComponent implements OnInit {
     * @param toastrService The toastr to show messages to the user
     */
   constructor(
-  	private toastrService: ToastrService,
+    private toastrService: ToastrService,
+    private calificacionService: CalificacionService,
     private router: Router
     ) {}
 
@@ -43,5 +44,17 @@ export class CrearCalificacionComponent implements OnInit {
       this.toastrService.warning('La calificación no fue creada', 'Registro calificacion'); 
       this.router.navigate(['trayecto']);
 
-}
+  }
+
+  createCalificacion(){
+
+    this.calificacionService.createCalificacion(this.calificacion)
+          .subscribe(calificacion=>{
+            this.calificacion= calificacion;
+            this.toastrService.success("La calificación ha sido creada con éxito")
+           //this.router.navigate()
+
+          })
+  }
+  
 }
