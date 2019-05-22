@@ -29,8 +29,9 @@ export class HomeComponent implements OnInit {
     //private ciudadService: CiudadService,
     private peajeService: PeajeService,
     private vehiculoservice: VehiculoService,
-    config: NgbCarouselConfig
+   
   ) {}
+ 
 
   buscar = new Busqueda();
   retorno = new Array<Trayecto>();

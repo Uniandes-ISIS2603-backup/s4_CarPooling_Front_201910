@@ -23,12 +23,13 @@ export class MisTrayectosComponent implements OnInit {
   usuario : UsuarioDetail;
   usernameActual: string;
   usuarios:Usuario[];
-  trayectosC: Trayecto[];
+  trayectosP: Trayecto[];
 
 
 
   ngOnInit() {
-      this.getCurretUsuario();
+    this.getTrayectosP(); 
+    this.getCurretUsuario();
   }
 
 
@@ -40,19 +41,22 @@ export class MisTrayectosComponent implements OnInit {
                 this.usuario = usuario;
                 console.log(this.usuario);
             });     
-            this.getTrayectosC();
+            this.getTrayectosP();
   }
 
-  getTrayectosC(): void {
-    if(this.usuario != null){
-    this.trayectosC = this.usuario.trayectoActualConductor;
-    console.log(this.trayectosC);
-  }
+  getTrayectosP(): void {
+    
+    this.trayectoService.getTrayectos().subscribe(trayectos => this.trayectosP = trayectos);
+
+  
   }
 
-  volver()
+  detail(id)
   {
-
-    this.router.navigate(['home']);
+    localStorage.setItem('trayecto',id);
+    
+    this.router.navigate(['trayecto/trayecto-detail-calificar']);
   }
+
+ 
 }
