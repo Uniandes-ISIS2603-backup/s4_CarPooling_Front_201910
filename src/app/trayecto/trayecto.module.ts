@@ -12,6 +12,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { TrayectoFuturoComponent } from './trayecto-futuro/trayecto-futuro.component';
 import { TrayectosFuturosComponent } from './trayectos-futuros/trayectos-futuros.component';
 import { UsuarioService } from '../usuario/usuario.service';
+import { MisTrayectosComponent } from './mis-trayectos/mis-trayectos.component';
+import { MatCardModule, MatButtonModule } from '@angular/material';
 
 
 @NgModule({
@@ -19,9 +21,11 @@ import { UsuarioService } from '../usuario/usuario.service';
     CommonModule,
     FormsModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    MatCardModule,
+    MatButtonModule
   ],
-  declarations: [ListarTrayectoComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent, MenuComponent, TrayectoFuturoComponent],
+  declarations: [ListarTrayectoComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent, MenuComponent, TrayectoFuturoComponent, MisTrayectosComponent],
   exports: [ListarTrayectoComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent]
 })
 export class TrayectoModule { }

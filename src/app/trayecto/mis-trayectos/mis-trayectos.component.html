@@ -1,0 +1,139 @@
+<div class="col-12">
+	<br>
+	<h2 class="text-center" >Trayecto Actual</h2>
+	
+	<br>
+
+</div>
+
+
+
+<div class="row">
+	<div class="col-6">
+		<br>
+		<h2 class="text-center">Trayectos Pasados</h2>
+		<div class="container" *ngFor="let i of trayectosC">
+			<div class="col-12">
+					<table class="table">
+							<thead class="table-info">
+								<tr>
+									<th scope="col">FechaInicio</th>
+									<th scope="col">FechaFin</th>
+									<th scope="col">Estado</th>
+									<th scope="col">Conductor</th>
+									<th scope="col">Ciudad Origen</th>
+									<th scope="col"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr >
+								<td >
+									{{i.fechaInicial}}
+								</td>
+								<td >
+									{{i.fechaFinal}}
+								</td>
+								<td>
+										{{i.estado}}
+								</td>
+								<td >
+										<div *ngIf="i.conductor!=null">{{i.conductor.nombre}}</div>	
+								</td>
+								<td >
+										<div *ngIf="i.ciudadOrigen!=null">{{i.ciudadOrigen.nombre}}</div>
+								</td>
+								<td >
+										<div *ngIf="i.ciudad!=null">{{i.ciudad.nombre}}</div>
+								</td>
+								<td >
+										<div class="" *ngIf="i.estado == 2">
+												<mat-card-actions>
+												  <button mat-button (click)="volver()">
+													Calificar Usuarios
+												  </button>
+												</mat-card-actions>
+											  </div>
+								</td>
+							</tr>
+						
+							</tbody>
+						</table>
+			</div>
+
+
+
+
+		</div>
+
+	
+		<br>
+
+	</div>
+
+
+
+
+	<div class="col-6">
+			<br>
+			<h2 class="text-center">Trayectos Futuros</h2>
+			<div class="col-12">
+					<table class="table">
+							<thead class="table-info">
+								<tr>
+									<th scope="col">FechaInicio</th>
+									<th scope="col">FechaFin</th>
+									<th scope="col">Estado</th>
+									<th scope="col">Conductor</th>
+									<th scope="col">Ciudad Origen</th>
+									<th scope="col">Ciudad Destino</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let i of trayectos">
+								<td >
+									{{i.fechaInicial}}
+								</td>
+								<td >
+									{{i.fechaFinal}}
+								</td>
+								<td>
+										{{i.estado}}
+								</td>
+								<td >
+										<div *ngIf="i.conductor!=null">{{i.conductor.nombre}}</div>	
+									</td>
+									<td >
+											<div *ngIf="i.ciudadOrigen!=null">{{i.ciudadOrigen.nombre}}</div>
+										</td>
+										<td >
+												<div *ngIf="i.ciudad!=null">{{i.ciudad.nombre}}</div>
+											</td>
+											<td>
+												<button (click)="onClick(i)">Suscribirse</button>
+											</td>
+							</tr>
+						
+							</tbody>
+						</table>
+			</div>
+			<br>
+	
+		</div>
+	
+	
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
