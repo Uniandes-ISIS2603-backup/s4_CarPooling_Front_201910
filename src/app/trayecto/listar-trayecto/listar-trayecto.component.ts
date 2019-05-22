@@ -37,7 +37,6 @@ export class ListarTrayectoComponent implements OnInit {
   {
     this.notificacion=new Notificacion();
     if(trayecto.conductor!=null){this.notificacion.receptor= trayecto.conductor;}
-    console.log(this.usuario)
     this.notificacion.emisor=this.usuario;
     this.notificacion.trayecto=trayecto;
     this.notificacion.leido=false;

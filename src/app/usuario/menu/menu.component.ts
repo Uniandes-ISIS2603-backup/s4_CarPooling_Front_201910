@@ -5,6 +5,7 @@ import { UsuarioDetail } from '../usuario-detail';
 import { UsuarioService } from '../usuario.service';
 import { ToastrService } from 'ngx-toastr';
 import { NotificacionService } from '../../notificacion/notificacion.service';
+import { AppComponent } from '../../app.component';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class MenuComponent implements OnInit {
   constructor(
         private usuarioService: UsuarioService,
         private notificacionService: NotificacionService,
-        private toastrService: ToastrService
+        private toastrService: ToastrService,
+        private app:AppComponent
   	) { this.notificacionesPendientes = 5;}
 
   /**
@@ -58,6 +60,7 @@ export class MenuComponent implements OnInit {
   logOut(){
     this.usuarioService.logOut();
     this.toastrService.success("Su sesion se cerro exitosamente", "Sesion Cerrada");
+    this.app.getCurretUsuario();
   }
 
   /**

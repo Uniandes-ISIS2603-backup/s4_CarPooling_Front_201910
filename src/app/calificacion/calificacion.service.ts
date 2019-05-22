@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 const API_URL = "http://52a0903d.ngrok.io/s4_carpooling-api/api/";
-const calificacion = 'calificaciones';
+const calificaciones = 'calificaciones';
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +24,27 @@ export class CalificacionService {
     * @returns The editorial
     */
  	getCalificaciones() : Observable<Calificacion[]> {
-    return this.http.get<Calificacion[]>(API_URL + calificacion);
-}
+    return this.http.get<Calificacion[]>(API_URL + calificaciones);
+  }
+
+  createCalificacion(calificacion: Calificacion) {
+    var calificado = calificacion.calificado.username;
+    var calificador = calificacion.calificador.username;
+    var puntaje = calificacion.puntaje;
+    var trayecto = calificacion.trayecto.id;
+    return this.http.post<Calificacion>(
+      API_URL +
+        "/" +
+        calificaciones +
+        "/calificado/" +
+        calificado +
+        "/calificador/" +
+        calificador +
+        "/trayecto/" +
+        trayecto,
+        calificacion
+    );
+  }
 
 
 

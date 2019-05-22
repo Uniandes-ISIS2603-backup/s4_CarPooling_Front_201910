@@ -3,6 +3,7 @@ import { Usuario } from '../usuario';
 import { ToastrService } from 'ngx-toastr';
 import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-usuario-login',
@@ -25,7 +26,8 @@ export class UsuarioLoginComponent implements OnInit {
   constructor(
     private toastrService: ToastrService,
     private usuarioService: UsuarioService,
-    private router: Router
+    private router: Router,
+    private app:AppComponent
 
     ) { 
 }
@@ -60,6 +62,7 @@ export class UsuarioLoginComponent implements OnInit {
                       this.usuario2 = this.lista[i];
                       localStorage.setItem('usuarioActual', this.usuario2.username);
                       this.toastrService.success("El usuario ha iniciado la sesion", "Sesion Iniciada");
+                      this.app.getCurretUsuario();
                       this.router.navigate(['home']);
                       encontro = 1;
                    }

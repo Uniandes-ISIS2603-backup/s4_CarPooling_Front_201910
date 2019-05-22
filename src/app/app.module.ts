@@ -29,9 +29,10 @@ import { DemoMaterialModule } from './material-module';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 
+
 @NgModule({
     declarations: [
-        AppComponent,
+        AppComponent
     ],
     imports: [
         BrowserModule,

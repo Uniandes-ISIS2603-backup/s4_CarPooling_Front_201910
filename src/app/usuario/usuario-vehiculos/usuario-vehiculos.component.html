@@ -1,29 +1,38 @@
 <h4>Vehiculos:</h4>
-<mat-card >
+<div class="container" *ngFor="let vehiculo of misVehiculos">
+  <mat-card>
   <div class="box">
-    <div class="col">
-      <img src="../../../../carritoImagen.png" width=50% class="img-rounded" alt="Icono">
-    </div>
-    <div class="col">
-      <div class="row">
-        Enviada por:
-      </div>  
-      <div class="row">
-        "Hola"
-      </div>  
-    </div>
-    <div class="col">
-      <div class="" *ngIf="true">
-        <mat-card-actions>
+    <div class="row">
+      <div class="col-2">
+        <img
+          src="../../../../carritoImagen.png"
+          width="100%"
+          class="img-rounded"
+          vertical-align="middle"
+          alt="Icono"
+        />
+      </div>
+      <div class="col-8" text-align="center">
+          <div id="mensaje" class="row">
+            Enviada por:  
+          </div>
           <div class="row">
-            <button mat-button>Action 1</button>
+            id: {{vehiculo.id}}
           </div>  
           <div class="row">
-            <button mat-button>Action 2</button>
+            Alquilado: {{vehiculo.alquilado}}
+          </div>  
+          <div class="row">
+            Color: {{vehiculo.color}}
+          </div>  
+          <div class="row">
+            Modelo: {{vehiculo.modelo}}
           </div> 
-       </mat-card-actions>
-      </div> 
-    </div> 
-  </div> 
+          <div class="row">
+            Placa: {{vehiculo.placa}}
+          </div> 
+      </div>
+    </div>
+  </div>
 </mat-card>
-
+</div>

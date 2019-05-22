@@ -50,6 +50,7 @@ import { UsuarioNotificacionesComponent } from '../usuario/usuario-notificacione
 import { UsuarioBuscarComponent } from '../usuario/usuario-buscar/usuario-buscar.component';
 import { MainScreenComponent } from '../trayecto-layout/main-screen/main-screen.component';
 import { UsuarioBuscarListaComponent } from '../usuario/usuario-buscar-lista/usuario-buscar-lista.component';
+import { MisTrayectosComponent } from '../trayecto/mis-trayectos/mis-trayectos.component';
 
 
 
@@ -232,6 +233,9 @@ const routes: Routes = [
             component:  TrayectoEditComponent},
             {path: 'list',
                 component:  ListarTrayectoComponent            
+            },
+            {path: 'mis-trayectos',
+                component:  MisTrayectosComponent            
             },
             {path: 'detail',
             component:  TrayectoDetailComponent            
