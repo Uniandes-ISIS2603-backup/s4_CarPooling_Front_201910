@@ -15,26 +15,22 @@
         <div class="" *ngIf="notificacion.tipo == 1">
           <div id="mensaje" class="row">
             Enviada por:
-            <a
-              [routerLink]="[
-                'usuruario/buscarEspecifico/[notificacion.emisor.nombre]'
-              ]"
+            <a id="extra"
+              (click)="mostrarUsuario(notificacion.emisor)"
             >
              {{ notificacion.emisor.nombre }}
             </a>
           </div>
           <div class="row">
-            <a
-              [routerLink]="[
-                'usuruario/buscarEspecifico/[notificacion.trayecto.id]'
-              ]"
-              >{{ notificacion.emisor.nombre }}</a
+            <a id="extra"
+            (click)="mostrarUsuario(notificacion.emisor)"
+            >{{ notificacion.emisor.nombre }}</a
             >
-              &nbsp; quiere suscribirse al
-            <a
-              [routerLink] ="['/usuario/menu', { outlets: { 'content': 'buscarEspecifico'[notificacion.trayecto.id] } }]"
+              &nbsp;quiere suscribirse al&nbsp;
+            <a id="extra"
+              (click) = "mostrarTrayecto(notificacion.trayecto)"
             >
-              &nbsp; trayecto con id {{ notificacion.trayecto.id }}</a
+            trayecto con id {{ notificacion.trayecto.id }}</a
             >
           </div>
           <div class="row">
@@ -44,26 +40,22 @@
         <div class="" *ngIf="notificacion.tipo == 2">
           <div id="mensaje" class="row">
             Enviada por: &nbsp;
-            <a
-              [routerLink]="[
-                'usuruario/buscarEspecifico/[notificacion.emisor.nombre]'
-              ]"
+            <a id="extra"
+            (click)="mostrarUsuario(notificacion.emisor)"
+            
             >
               {{ notificacion.emisor.nombre }}
             </a>
           </div>
           <div class="row">
-            <a
-              [routerLink]="[
-                'usuruario/buscarEspecifico/[notificacion.trayecto.id]'
-              ]"
+            <a id="extra"
+            (click)="mostrarUsuario(notificacion.emisor)"
+
               >{{ notificacion.emisor.nombre }}</a
             >
             {{ notificacion.mensaje }}&nbsp;su solicitud de cupo para el
-            <a
-              [routerLink]="[
-                'usuruario/buscarEspecifico/[notificacion.emisor.nombre]'
-              ]"
+            <a id="extra"
+              (click) = "mostrarTrayecto(notificacion.trayecto)"
             >
               trayecto con id&nbsp;{{ notificacion.trayecto.id }}</a
             >
@@ -135,26 +127,22 @@
         <div class="" *ngIf="notificacion.tipo == 1">
           <div id="mensaje" class="row">
             Enviada por:&nbsp;
-            <a
-              [routerLink]="[
-                'usuruario/buscarEspecifico/[notificacion.emisor.nombre]'
-              ]"
+            <a id="extra"
+            (click)="mostrarUsuario(notificacion.emisor)"
+
             >
               {{ notificacion.emisor.nombre }}
             </a>
           </div>
           <div class="row">
-            <a
-              [routerLink]="[
-                'usuruario/buscarEspecifico/[notificacion.trayecto.id]'
-              ]"
+            <a id="extra"
+            (click)="mostrarUsuario(notificacion.emisor)"
+
               >{{ notificacion.emisor.nombre }}</a
             >
             &nbsp;quiere suscribirse al&nbsp;
-            <a
-              [routerLink]="[
-                'usuruario/buscarEspecifico/[notificacion.emisor.nombre]'
-              ]"
+            <a id="extra"
+            (click) = "mostrarTrayecto(notificacion.trayecto)"
             >
             &nbsp;trayecto con id&nbsp;{{ notificacion.trayecto.id }}</a
             >
@@ -166,26 +154,22 @@
         <div class="" *ngIf="notificacion.tipo == 2">
           <div id="mensaje" class="row">
             Enviada por:&nbsp;
-            <a
-              [routerLink]="[
-                'usuruario/buscarEspecifico/[notificacion.emisor.nombre]'
-              ]"
+            <a id="extra"
+            (click)="mostrarUsuario(notificacion.emisor)"
+
             >
             {{ notificacion.emisor.nombre }}
             </a>
           </div>
           <div class="row">
-            <a
-              [routerLink]="[
-                'usuruario/buscarEspecifico/[notificacion.trayecto.id]'
-              ]"
+            <a id="extra"
+            (click)="mostrarUsuario(notificacion.emisor)"
+
               >{{ notificacion.emisor.nombre }}</a
             >
             {{ notificacion.mensaje }}&nbsp;su solicitud de cupo para el
-            <a
-              [routerLink]="[
-                'usuruario/buscarEspecifico/[notificacion.emisor.nombre]'
-              ]"
+            <a id="extra"
+            (click) = "mostrarTrayecto(notificacion.trayecto)"
             >
             &nbsp;trayecto con id&nbsp;{{ notificacion.trayecto.id }}</a
             >
@@ -219,26 +203,22 @@
         <div class="" *ngIf="notificacion.tipo == 1">
           <div id="mensaje" class="row">
             Enviada a:
-            <a
-              [routerLink]="[
-                'usuruario/buscarEspecifico/[notificacion.emisor.nombre]'
-              ]"
+            <a id="extra"
+            (click)="mostrarUsuario(notificacion.receptor)"
+
             >
-              {{ notificacion.emisor.nombre }}
+              {{ notificacion.receptor.nombre }}
             </a>
           </div>
           <div class="row">
-            <a
-              [routerLink]="[
-                'usuruario/buscarEspecifico/[notificacion.trayecto.id]'
-              ]"
+            <a id="extra"
+            (click)="mostrarUsuario(notificacion.emisor)"
+
               >{{ notificacion.emisor.nombre }}</a
             >
             &nbsp;quiere suscribirse al&nbsp;
-            <a
-              [routerLink]="[
-                'usuruario/buscarEspecifico/[notificacion.emisor.nombre]'
-              ]"
+            <a id="extra"
+            (click) = "mostrarTrayecto(notificacion.trayecto)"
             >
             &nbsp;trayecto con id&nbsp;{{ notificacion.trayecto.id }}</a
             >
@@ -250,26 +230,23 @@
         <div class="" *ngIf="notificacion.tipo == 2">
           <div id="mensaje" class="row">
             Enviada a:&nbsp;
-            <a
-              [routerLink]="[
-                'usuruario/buscarEspecifico/[notificacion.receptor.nombre]'
-              ]"
+            <a id="extra"
+            (click)="mostrarUsuario(notificacion.receptor)"
+
+
             >
             &nbsp;{{ notificacion.receptor.nombre }}
             </a>
           </div>
           <div class="row">
-            <a
-              [routerLink]="[
-                'usuruario/buscarEspecifico/[notificacion.trayecto.id]'
-              ]"
+            <a id="extra"
+            (click)="mostrarUsuario(notificacion.emisor)"
+
               >{{ notificacion.emisor.nombre }}</a
             >
             &nbsp;{{ notificacion.mensaje }}&nbsp;su solicitud de cupo para el
-            <a
-              [routerLink]="[
-                'usuruario/buscarEspecifico/[notificacion.emisor.nombre]'
-              ]"
+            <a id="extra"
+            (click) = "mostrarTrayecto(notificacion.trayecto)"
             >
               trayecto con id &nbsp;{{ notificacion.trayecto.id }}</a
             >

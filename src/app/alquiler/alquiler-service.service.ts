@@ -14,14 +14,13 @@ const alquileres = 'alquileres';
 })
 
 export class AlquilerServiceService {
-
  
-   constructor(private http: HttpClient) { }
+   constructor(private http: HttpClient,
+   private service: UsuarioService ) { }
    busqueda:Observable<Alquiler[]>;
    alquiler:Alquiler[];
    retorno:Alquiler[];
    a:Alquiler;
-   service:UsuarioService = new UsuarioService(this.http);
    service2:SeguroServiceService = new SeguroServiceService(this.http);
    respuesta:Observable<Alquiler>;
    alquiler2=new Alquiler();

@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Trayecto } from '../trayecto';
 import { TrayectoService } from '../trayecto.service';
+import { UsuarioService } from '../../usuario/usuario.service';
 import { ActivatedRoute, Params } from '@angular/router';
+import { TrayectoDetail } from '../trayecto-detail';
 
 @Component({
   selector: 'app-trayecto-buscar-especifico',
@@ -11,34 +12,26 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class TrayectoBuscarEspecificoComponent implements OnInit {
 
   constructor(
-    private tratectoService:TrayectoService,
+    private trayectoService: TrayectoService,
+    private usuarioService: UsuarioService,
     private route: ActivatedRoute
   ) { }
 
   /**
   * The trayecto's id retrieved from the address
   */
- @Input() trayecto_id: number;
+ //@Input() trayecto_id: number;
 
   /**
   * El trayecto que se va a mostrar
   */
-  trayecto: Trayecto;
+  t: TrayectoDetail;
  
-  loader: any;
-
+  idTrayecto: number;
   ngOnInit() {
-    this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
-  }
-  onLoad(params) {
-    this.trayecto_id = parseInt(params['id']);
-    console.log(" en detail " + this.trayecto_id);
-    this.trayecto = new Trayecto();
-//  this.getEditorialDetail();
-  }
-
-  ngOnDestroy() {
-    this.loader.unsubscribe();
+    this.idTrayecto = this.usuarioService.getTrayectoMostrar();
+    console.log(this.idTrayecto);
+    this.trayectoService.getTrayectoDetail(this.idTrayecto).subscribe(trayecto => {this.t = trayecto});
   }
 
 }
