@@ -69,9 +69,7 @@ export class AppComponent implements OnInit {
         this.getCurretUsuario();
         
     }
-    ngAfterContentChecked(){
-      this.getCurretUsuario();
-    }
+    
 
     usuario : UsuarioDetail;
   usernameActual: string;
