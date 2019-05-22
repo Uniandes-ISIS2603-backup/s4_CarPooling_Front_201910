@@ -52,6 +52,8 @@ import { MainScreenComponent } from '../trayecto-layout/main-screen/main-screen.
 import { UsuarioBuscarListaComponent } from '../usuario/usuario-buscar-lista/usuario-buscar-lista.component';
 import { MisTrayectosComponent } from '../trayecto/mis-trayectos/mis-trayectos.component';
 import { TrayectoDetailCalificarComponent } from '../trayecto/trayecto-detail-calificar/trayecto-detail-calificar.component';
+import { UsuarioBuscarEspecificoComponent } from '../usuario/usuario-buscar-especifico/usuario-buscar-especifico.component';
+import { TrayectoBuscarEspecificoComponent } from '../trayecto/trayecto-buscar-especifico/trayecto-buscar-especifico.component';
 
 
 
@@ -164,8 +166,14 @@ const routes: Routes = [
                         outlet: 'content'
                     },
                     {
-                        path: '**',
-                        redirectTo: 'info'
+                        path: 'buscarUsuarioEspecifico',
+                        component:  UsuarioBuscarEspecificoComponent,
+                        outlet: 'content'
+                    },
+                    {
+                        path: 'buscarTrayectoEspecifico',
+                        component:  TrayectoBuscarEspecificoComponent,
+                        outlet: 'content'
                     }
 
                 ]
@@ -269,12 +277,12 @@ const routes: Routes = [
                 component: VehiculoCreateComponent
             }            
         ]
-    },
-    {
-        path: "**",
-        redirectTo: 'home'
+    }//,
+   // {
+    //    path: "**",
+     //   redirectTo: 'home'
 
-    }
+    //}
 ];
 
 @NgModule({

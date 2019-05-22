@@ -1,0 +1,44 @@
+
+<div class="row justify-content-md-center">
+    <div class="col-sm-10 ">
+<div class="card text-center">
+        <div class="card-header">
+            <h3>Usuario {{usuario.username}}</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-5" *ngIf="usuario!=null && usuario.nombre!=null">
+                        <h5>Nombre</h5>
+                        <p>{{usuario.nombre}}</p>
+                </div>
+                <div class="col-sm-5" *ngIf="usuario.apellido!=null">
+                        <h5>Apellido</h5>
+                        <p>{{usuario.apellido}}</p>
+                </div>
+            </div>
+                <div class="row">
+                        <div class="col-sm-5" *ngIf="usuario.correo!=null">
+                          <h5>Correo</h5>
+                          <p>{{usuario.correo}}</p>
+                        </div>
+                        <div class="col-sm-5" *ngIf="usuario.celular!=null">
+                                <h5>Celular</h5>
+                                <p>{{usuario.celular}}</p>
+                        </div>
+            </div>
+                <div class="row">
+                    <div class="col-sm-5" *ngIf="usuario.documento!=null">
+                        <h5>Documento</h5>
+                        <p>{{usuario.documento}}</p>
+                    </div>
+                    <div class="col-sm-5" *ngIf="usuario.correo!=null">
+                        <h5>Calificacion promedio</h5>
+                        <p>{{darPromedio()}}</p>
+                </div>
+                        
+              </div>
+        </div>
+  </div>
+</div>
+</div>
+

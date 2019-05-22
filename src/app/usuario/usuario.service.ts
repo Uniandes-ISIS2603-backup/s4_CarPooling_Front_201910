@@ -5,6 +5,7 @@ import { UsuarioDetail } from "./usuario-detail";
 
 import { Usuario } from "./usuario";
 import { TrayectoDetail } from "../trayecto/trayecto-detail";
+import { TrayectoService } from "../trayecto/trayecto.service";
 
 const API_URL = "http://52a0903d.ngrok.io/s4_carpooling-api/api/";
 const usuarios = "usuarios";
@@ -13,6 +14,7 @@ const usuarios = "usuarios";
   providedIn: "root"
 })
 export class UsuarioService {
+ 
   /**
    * Variable para almacenar los usuarios encontrados segun la busqueda del usuario
    */
@@ -22,7 +24,8 @@ export class UsuarioService {
    * Constructor of the service
    * @param http The HttpClient - This is necessary in order to perform requests
    */
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+    private trayectoService: TrayectoService ) {}
 
   /**
    * Returns the Observable object containing the list of users retrieved from the API
@@ -93,6 +96,27 @@ export class UsuarioService {
   getUsuariosBuscados(): Usuario[] {
     return this.usuariosBuscados;
   }
+
+  trayectoMostrar: number;
+
+  mostrarTrayecto(trayecto) {
+    this.trayectoMostrar = trayecto; 
+  }
+
+  getTrayectoMostrar(): number {
+    return this.trayectoMostrar;
+  }
+
+  usernameMostrar: string;
+
+  mostrarUsuario(usuario: string) {
+    this.usernameMostrar = usuario;
+  }
+
+  getUsuarioMostrar(): string {
+    return this.usernameMostrar;
+  }
+
 
   /**
    * Agregar un pasajer a un trayecto específico con el usuario pasado por parametro

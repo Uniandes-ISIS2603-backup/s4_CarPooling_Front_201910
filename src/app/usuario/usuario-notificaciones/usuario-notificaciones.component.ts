@@ -8,6 +8,7 @@ import { Usuario } from "../usuario";
 import { TrayectoDetail } from "../../trayecto/trayecto-detail";
 import { NotificacionService } from "../../notificacion/notificacion.service";
 import { ToastrService } from "ngx-toastr";
+import { Trayecto } from "../../trayecto/trayecto";
 
 @Component({
   selector: "app-usuario-notificaciones",
@@ -138,7 +139,7 @@ export class UsuarioNotificacionesComponent implements OnInit {
     this.noticacionService.createNotificacion(this.notificacionP).subscribe();
     notificacion.leido = true;
     console.log(notificacion);
-    //this.noticacionService.updateNotificacion(notificacion).subscribe();
+    this.noticacionService.updateNotificacion(notificacion).subscribe();
     this.toastrService.success(
       "El usuario " +
         this.nuevoPasajero.username +
@@ -161,6 +162,24 @@ export class UsuarioNotificacionesComponent implements OnInit {
       .subscribe(notificacion => {
         this.noticacionService.deleteNotifacion(notificacion.id).subscribe();
       });
+  }
+
+  /**
+   * Pasar a mostrar un trayecto
+   */
+  mostrarTrayecto(trayecto: TrayectoDetail)
+  {
+    this.usuarioService.mostrarTrayecto(trayecto.id);
+    this.router.navigate(['/usuario/menu', { outlets: { 'content': 'buscarTrayectoEspecifico' } }]);
+  }
+
+  /**
+   * 
+   */
+  mostrarUsuario(usuario : Usuario){
+    this.usuarioService.mostrarUsuario(usuario.username);
+    this.router.navigate(['/usuario/menu', { outlets: { 'content': 'buscarUsuarioEspecifico' } }]);
+
   }
 
   /**

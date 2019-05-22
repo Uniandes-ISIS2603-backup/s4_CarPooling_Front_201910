@@ -1,0 +1,15 @@
+body {
+    background-color: lightblue;
+  }
+  ::ng-deep .mat-card-header{
+    background-color:red !important;
+    padding:5px !important;
+  }
+  
+  ::ng-deep .mat-card{
+    padding:0 !important;
+  }
+  
+  ::ng-deep .mat-card-content{
+    padding:5px !important;
+  }
