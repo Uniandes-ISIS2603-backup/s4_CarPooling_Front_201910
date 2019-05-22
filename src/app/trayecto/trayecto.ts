@@ -3,22 +3,19 @@ import { Usuario } from "../usuario/usuario";
 import { Ciudad } from "../ciudad/ciudad";
 
 export class Trayecto {
+  id: number;
 
-	id: number;
+  estado: number;
 
-	estado: number;
+  fechaInicial: any;
 
-	fechaInicial: any;
-	
+  fechaFinal: any;
 
-	fechaFinal: any;
-    
-    conductor: Usuario;
+  conductor: Usuario;
 
-    info: InfoTrayecto;
-    
-    ciudadOrigen: Ciudad;
-    
-    ciudad: Ciudad;
+  info: InfoTrayecto;
 
+  destino: Ciudad;
+
+  origen: Ciudad;
 }

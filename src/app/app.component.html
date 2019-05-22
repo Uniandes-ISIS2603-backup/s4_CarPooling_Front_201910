@@ -28,41 +28,65 @@
                   </li>
           </ul>
         </div>
-        <div class="col-sm-2" >
-    
-                <div class="" *ngIf="usernameActual!='vacio'">
-                        <a routerLink="/usuario/menu" >
-                        <div class="row row-eq-height">
-                                <div class="col-sm-3 my-auto" *ngIf="usuario">{{usuario.nombre}}</div>  
-                                <div class="col-sm-1  my-auto">
-                                <span class="badge badge-danger">4</span>
-                            </div>
-                  <div class="col-sm-2">
-                   <img class="" src="http://chittagongit.com//images/generic-user-icon/generic-user-icon-13.jpg" alt="50" width="50">
-                </div>
-                
-                       
-                    </div>
-                    </a>
-                </div> 
-               
-                
-                  <div class=""   *ngIf="usernameActual ==='vacio'">
-                      <a>
-                        <div class="row row-eq-heigh">
-                                <div class="col-sm-6 my-auto" > <a class="badge badge-light" routerLink="/usuario/login">Iniciar sesión</a></div>  
-                                
-                  <div class="col-sm-2 my-auto">
-                      <a class="badge badge-light" routerLink="/usuario/create">Registrarse</a>
-                </div>
-                
-                       
-                    </div>
-                    </a>
-                  </div>
-              
-               
-          
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdownMenuLink"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Alquiler
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Crear Alquiler</a>
+          <a class="dropdown-item" href="#">Buscar Alquiler</a>
+          <a class="dropdown-item" href="#">Mis Alquiler</a>
         </div>
-      </nav>
-      <router-outlet></router-outlet>
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-2">
+    <div class="" *ngIf="usernameActual != 'vacio'">
+      <a routerLink="/usuario/menu">
+        <div class="row row-eq-height">
+          <div class="col-sm-3 my-auto" *ngIf="usuario">
+            {{ usuario.nombre }}
+          </div>
+          <div class="col-sm-1  my-auto">
+            <span class="badge badge-danger">4</span>
+          </div>
+          <div class="col-sm-2">
+            <img
+              class=""
+              src="http://chittagongit.com//images/generic-user-icon/generic-user-icon-13.jpg"
+              alt="50"
+              width="50"
+            />
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="" *ngIf="usernameActual === 'vacio'">
+      <a>
+        <div class="row row-eq-heigh">
+          <div class="col-sm-6 my-auto">
+            <a class="badge badge-light" routerLink="/usuario/login"
+              >Iniciar sesión</a
+            >
+          </div>
+
+          <div class="col-sm-2 my-auto">
+            <a class="badge badge-light" routerLink="/usuario/create"
+              >Registrarse</a
+            >
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

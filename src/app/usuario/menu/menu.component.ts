@@ -20,15 +20,49 @@ export class MenuComponent implements OnInit {
         private toastrService: ToastrService
   	) { this.notificacionesPendientes = 5;}
 
+  /**
+   * Usuario actual
+   */
   usuario : UsuarioDetail;
 
+  /**
+   * Nombre de usuario actual
+   */
   usernameActual: string;
 
   //Var para las notificaciones pendeintes
   notificacionesPendientes: number;
 
-  
+  /**
+   * Se calculan las notificaciones pendientes por leer del usuario. Actualización de la alerta
+   */
+  calcularNotificacionesPendientes(){
+    this.notificacionService.getNotifficaciones()
+            .subscribe(notificaciones =>{
+                notificaciones.forEach(notificacion=>{
+                  //Si ha notifiaciones sin recpetor y no s ehace esta verificacion, el porgrama no funciona
+                    if(notificacion.hasOwnProperty('receptor')){
+                      if(notificacion.receptor.username === this.usernameActual && !notificacion.leido)
+                      {
+                        this.notificacionesPendientes++;
+                      }
+                  }
+                })
+            }
+          );
+  }
 
+  /**
+   * Salirse de la sesión
+   */
+  logOut(){
+    this.usuarioService.logOut();
+    this.toastrService.success("Su sesion se cerro exitosamente", "Sesion Cerrada");
+  }
+
+  /**
+   * Usuario actual
+   */
   getCurretUsuario(){
     this.usernameActual = this.usuarioService.darUsuarioActual();
     this.usuarioService.getUsuarioDetail(this.usernameActual)
@@ -41,22 +75,6 @@ export class MenuComponent implements OnInit {
     this.getCurretUsuario();
     this.notificacionesPendientes = 0;
     this.calcularNotificacionesPendientes();
-  }
-  calcularNotificacionesPendientes(){
-    this.notificacionService.getNotifficaciones()
-            .subscribe(notificaciones =>{
-                notificaciones.forEach(notificacion=>{
-                    if(notificacion.receptor.username == this.usernameActual && !notificacion.leido)
-                    {
-                      this.notificacionesPendientes++;
-                    }
-                  })
-            }
-          );
-  }
-
-  logOut(){
-    this.toastrService.success("Su sesion se cerro exitosamente", "Sesion Cerrada");
   }
 
 }
