@@ -6,7 +6,7 @@ export class TrayectoDetail extends Trayecto {
   /**
    * Los pasajeros del trayecto
    */
-  pasajeros: Array<Usuario>;
+  pasajeros: Usuario[];
 
   /**
    * Los pagos del trayecto

@@ -2,36 +2,36 @@
 	<div class="col-sm-10 " *ngFor="let i of trayectos">
 <div class="card text-center">
 		<div class="card-header">
-			<h1> <a (click)="detail(i.id)">Trayecto #{{i.id}}</a></h1>
+			<h5> <a (click)="detail(i.id)">Trayecto #{{i.id}}</a></h5>
 		</div>
 		<div class="card-body">
 			<div class="row">
 				<div class="col-sm-5" *ngIf="i.fechaFinal!=null">
-						<h2>Fecha Inicial</h2>
+						<h5>Fecha Inicial</h5>
 						<p>{{i.fechaInicial}}</p>
 				</div>
 				<div class="col-sm-5" *ngIf="i.fechaFinal!=null">
-						<h2>Fecha Final</h2>
+						<h5>Fecha Final</h5>
 						<p>{{i.fechaFinal}}</p>
 				</div>
 			</div>
 				<div class="row">
 						<div class="col-sm-5" *ngIf="i.ciudadOrigen!=null">
-								<h3>Ciudad Origen</h3>
+								<h5>Ciudad Origen</h5>
 								<p>{{i.ciudadOrigen}}</p>
 						</div>
 						<div class="col-sm-5" *ngIf="i.ciudadDestino!=null">
-								<h3>Ciudad Destino</h3>
+								<h5>Ciudad Destino</h5>
 								<p>{{i.ciudadDestino}}</p>
 						</div>
 			</div>
 				<div class="row">
 						<div class="col-sm-5" *ngIf="i.conductor!=null">
-								<h4>Conductor</h4>
+								<h5>Conductor</h5>
 								<p>{{i.conductor.nombre}}</p>
 						</div>
 						<div class="col-sm-5" *ngIf="i.info!=null&&i.info.vehiculo!=null">
-								<h4>vehiculo</h4>
+								<h5>vehiculo</h5>
 								<p>{{i.info.vehiculo.modelo}}</p>
 						</div>
 			</div>
@@ -50,7 +50,8 @@
 			
 		
 		<div class="card-footer text-muted">
-				<a type="button" (click)="detail(i.id)">Detalles</a>
+				<!--<a type="button" (click)="detail(i.id)">Detalles</a>-->
+				<button (click)="onClick(i)">Reservar Cupo</button>
 		</div>
 	</div>
 </div>

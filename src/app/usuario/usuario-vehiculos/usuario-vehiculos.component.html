@@ -1,29 +1,29 @@
-<div class="container-fluid">   
-  <div class="row">
-    <div class="col" >
+<h4>Vehiculos:</h4>
+<mat-card >
+  <div class="box">
+    <div class="col">
+      <img src="../../../../carritoImagen.png" width=50% class="img-rounded" alt="Icono">
+    </div>
+    <div class="col">
+      <div class="row">
+        Enviada por:
+      </div>  
+      <div class="row">
+        "Hola"
+      </div>  
+    </div>
+    <div class="col">
+      <div class="" *ngIf="true">
+        <mat-card-actions>
+          <div class="row">
+            <button mat-button>Action 1</button>
+          </div>  
+          <div class="row">
+            <button mat-button>Action 2</button>
+          </div> 
+       </mat-card-actions>
+      </div> 
+    </div> 
+  </div> 
+</mat-card>
 
-<table class="table">
-<thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Modelo</th>
-    <th scope="col">Placa</th>
-    <th scope="col">Color</th>
-    <th scope="col">Alquiler</th>
-  </tr>
-</thead>
-<tbody>
-  <tr *ngFor = "let vehiculo of misVehiculos">
-                  <td>{{vehiculo.id}}</td>
-                  <td>{{vehiculo.modelo}}</td>
-                  <td>{{vehiculo.placa}}</td>
-                  <td>{{vehiculo.color}}</td>
-                  <td>{{vehiculo.alquiler}}</td>
-              </tr>
-</tbody>
-</table>
-</div>
-
-</div>
-
-</div>

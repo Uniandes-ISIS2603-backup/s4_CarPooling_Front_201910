@@ -44,23 +44,34 @@ export class TrayectosFuturosComponent implements OnInit {
 
   asignarTrayecto(): void {
     if(this.usuario != null){
-    this.trayectos = this.usuario.trayectoActualConductor;
+      this.trayectos = this.usuario.trayectoActualConductor;
+      console.log("!");
+      console.log(this.trayectos);
+      this.trayectos.forEach(element => {
+        console.log(element);
+          if(element.estado != 0){
+            this.trayectos.pop();
+          }
+        }
+      );
+      }
+
     console.log(this.trayectos);
-  }
+  
   }
 
   getCurretUsuario(){
     this.usernameActual = this.usuarioService.darUsuarioActual();
+    if(this.usernameActual != "vacio"){
     this.usuarioService.getUsuarioDetail(this.usernameActual)
             .subscribe(usuario => {
                 this.usuario = usuario;
                 console.log(this.usuario);
             });     
             this.asignarTrayecto();
+    }
   } 
 
-  while(){
-    this.asignarTrayecto();
-  }
+
 
 }
