@@ -1,67 +1,110 @@
-import { Component, OnInit } from '@angular/core';
-import {Trayecto} from '../trayecto';
-import {TrayectoDetail} from '../trayecto-detail';
+import { Component, OnInit } from "@angular/core";
+import { Trayecto } from "../trayecto";
+import { TrayectoDetail } from "../trayecto-detail";
 
-import {ToastrService} from 'ngx-toastr';
-import {TrayectoService} from '../trayecto.service';
-import {Router} from '@angular/router';
-import { DatePipe } from '@angular/common';
-import { UsuarioService } from '../../usuario/usuario.service';
-import { Usuario } from '../../usuario/usuario';
+import { ToastrService } from "ngx-toastr";
+import { TrayectoService } from "../trayecto.service";
+import { Router } from "@angular/router";
+import { DatePipe } from "@angular/common";
+import { UsuarioService } from "../../usuario/usuario.service";
+import { Usuario } from "../../usuario/usuario";
+import { Ciudad } from "../../ciudad/ciudad";
+import { CiudadService } from "../../ciudad/ciudad.service";
+import { Peaje } from "../../peaje/peaje";
+import { PeajeService } from "../../peaje/peaje.service";
+
+import { InfoTrayecto } from "../../info-trayecto/info-trayecto";
 
 @Component({
-  selector: 'app-trayecto-crear',
-  templateUrl: './trayecto-crear.component.html',
-  styleUrls: ['./trayecto-crear.component.css'],
+  selector: "app-trayecto-crear",
+  templateUrl: "./trayecto-crear.component.html",
+  styleUrls: ["./trayecto-crear.component.css"],
   providers: [DatePipe]
 })
 export class TrayectoCrearComponent implements OnInit {
+  /**
+   * Trauecto nuevo
+   */
+  trayecto = new TrayectoDetail();
 
+  /**
+   * info trayecto nuevo
+   */
+  infoTrayecto = new InfoTrayecto();
 
-  trayecto = new Trayecto;
+  /*
+   *Usuario actualmente loggeado
+   */
   usuarioActual: Usuario;
+  /**
+   * lista completa de ciudades
+   */
+  ciudades: Ciudad[];
 
-  constructor(private dp: DatePipe,
+  /**
+   * Lista completa de peajes
+   */
+  peajes: Peaje[];
+
+  constructor(
+    private dp: DatePipe,
     private toastrService: ToastrService,
     private trayectoService: TrayectoService,
+    private ciudadService: CiudadService,
+    private peajeService: PeajeService,
     private usuarioService: UsuarioService,
-    private router: Router) { }
+    private router: Router
+  ) {}
 
   ngOnInit() {
-    this.trayecto = new Trayecto();
+    this.trayecto = new TrayectoDetail();
+    this.infoTrayecto = new InfoTrayecto();
+    this.trayecto.info = this.infoTrayecto;
+    this.ciudadService.getCiudades().subscribe(ciudades => {
+      this.ciudades = ciudades;
+    });
+    this.peajeService.getPeaje().subscribe(peajes => {
+      this.peajes = peajes;
+    });
     this.getCurretUsuario();
   }
 
   cancelCreation(): void {
-      this.toastrService.warning('El Trayecto no fue creado', 'Registro Trayecto'); 
-      this.router.navigate(['home']);
-
+    this.toastrService.warning(
+      "El Trayecto no fue creado",
+      "Registro Trayecto"
+    );
+    this.router.navigate(["home"]);
   }
 
-  createTrayecto(){
-    
-
-let dateB1: Date = new Date(this.trayecto.fechaInicial.year, this.trayecto.fechaInicial.month - 1, this.trayecto.fechaInicial.day);
-this.trayecto.fechaInicial = this.dp.transform(dateB1, 'yyyy-MM-dd');
-this.trayecto.conductor = this.usuarioActual;
-console.log(this.trayecto.fechaInicial);
-    this.trayectoService.createTrayecto(this.trayecto)
-            .subscribe(trayecto => {
-                this.trayecto = trayecto;
-                this.toastrService.success("El trayecto fue con éxito", "Trayecto Creado");
-
-            });
-        return this.trayecto;
+  createTrayecto() {
+    let dateB1: Date = new Date(
+      this.trayecto.fechaInicial.year,
+      this.trayecto.fechaInicial.month - 1,
+      this.trayecto.fechaInicial.day
+    );
+    this.trayecto.fechaInicial = this.dp.transform(dateB1, "yyyy-MM-dd");
+    this.trayecto.conductor = this.usuarioActual;
+    console.log(this.trayecto.fechaInicial);
+    this.trayectoService.createTrayecto(this.trayecto).subscribe(trayecto => {
+      this.trayecto = trayecto;
+      this.toastrService.success(
+        "El trayecto fue con éxito",
+        "Trayecto Creado"
+      );
+    });
+    return this.trayecto;
   }
 
   darTrayectoActual(): TrayectoDetail {
     return this.trayecto;
   }
-  
-  getCurretUsuario(){
-    this.usuarioService.getUsuarioDetail( this.usuarioService.darUsuarioActual())
-            .subscribe(usuario => {
-                this.usuarioActual = usuario;
-            });
+
+  getCurretUsuario() {
+    this.usuarioService
+      .getUsuarioDetail(this.usuarioService.darUsuarioActual())
+      .subscribe(usuario => {
+        this.usuarioActual = usuario;
+      });
   }
 }

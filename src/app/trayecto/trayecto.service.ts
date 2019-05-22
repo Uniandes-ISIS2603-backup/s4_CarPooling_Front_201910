@@ -31,7 +31,7 @@ export class TrayectoService {
    * @param user The new user
    * @returns The user with its new id if it was created, false if it wasn't
    */
-  createTrayecto(trayecto): Observable<Trayecto> {
+  createTrayecto(trayecto): Observable<TrayectoDetail> {
     return this.http.post<TrayectoDetail>(API_URL + "/" + trayectos, trayecto);
   }
 

@@ -1,15 +1,20 @@
+import { Peaje } from "../peaje/peaje";
+import { Ciudad } from "../ciudad/ciudad";
+
 export class InfoTrayecto {
+  idDetalle: number;
 
-	idDetalle: number;
+  costo: number;
 
-	costo: number;
+  duracion: number;
 
-	duracion: number;
+  cupos: number;
 
-	cupos: number;
+  horaInicial: number;
 
-	horaInicial: number;
+  horaFinal: number;
 
-	horaFinal: number;
+  paradas: Array<Ciudad>;
 
+  peajes: Array<Peaje>;
 }
