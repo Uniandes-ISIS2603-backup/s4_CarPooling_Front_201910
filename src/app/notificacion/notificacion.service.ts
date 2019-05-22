@@ -54,7 +54,6 @@ export class NotificacionService {
    */
   deleteNotifacion(notificacion) {
     return this.http.delete<Notificacion>(
-      API_URL + "/" + notificaciones + "/" + notificacion.id
-    );
+      API_URL + "/" + notificaciones + "/" + notificacion);
   }
 }
