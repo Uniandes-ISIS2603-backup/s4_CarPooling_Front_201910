@@ -28,7 +28,9 @@ export class AppComponent implements OnInit {
       private router: Router,
       private usuarioService: UsuarioService,
       private notifiacionService: NotificacionService
-      ) { }
+      ) { 
+        this.notificacionesPendientes=0;
+      }
 
    
     /**
@@ -42,8 +44,10 @@ export class AppComponent implements OnInit {
    * Se calculan las notificaciones pendientes por leer del usuario. Actualización de la alerta
    */
   calcularNotificacionesPendientes(){
+    
     this.notifiacionService.getNotifficaciones()
             .subscribe(notificaciones =>{
+              this.notificacionesPendientes =0;
                 notificaciones.forEach(notificacion=>{
                   //Si ha notifiaciones sin recpetor y no s ehace esta verificacion, el porgrama no funciona
                     if(notificacion.hasOwnProperty('receptor')){
@@ -90,7 +94,6 @@ export class AppComponent implements OnInit {
         this.usuarioService.getUsuarioDetail(this.usernameActual)
                 .subscribe(usuario => {
                     this.usuario = usuario;
-                    this.notificacionesPendientes = 0;
                     this.calcularNotificacionesPendientes();
                     
                 });

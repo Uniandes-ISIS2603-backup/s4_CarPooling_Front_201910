@@ -87,7 +87,7 @@ export class UsuarioService {
   }
 
   updateUsuariosBuscados(actual) {
-    this.usuariosBuscados = actual;
+    this.usuariosBuscados = actual; 
   }
 
   getUsuariosBuscados(): Usuario[] {
@@ -97,10 +97,8 @@ export class UsuarioService {
   /**
    * Agregar un pasajer a un trayecto específico con el usuario pasado por parametro
    */
-  addPasajero(pasajero, idtrayecto): Observable<TrayectoDetail> {
-    return this.http.put<TrayectoDetail>(
-      API_URL + usuarios + "/" + pasajero + "/trayectosPasajero/" + idtrayecto
-    );
+  addPasajero(pasajero: string, idtrayecto:number): Observable<TrayectoDetail> {
+    return this.http.put<TrayectoDetail>(API_URL + usuarios + "/" + pasajero + "/trayectosPasajero/" + idtrayecto, null);
   }
 
   /**

@@ -98,8 +98,8 @@ export class UsuarioNotificacionesComponent implements OnInit {
      * PENDIENTEEEEEEE
      */
     this.usuarioService
-      .addPasajero(this.nuevoPasajero.username, this.trayectoMeterPasajero.id)
-      .subscribe();
+      .addPasajero(this.nuevoPasajero.username,this.trayectoMeterPasajero.id)
+      .subscribe(trayecto=>{  console.log(trayecto)});
     this.notificacionP = new Notificacion();
     this.notificacionP.emisor = this.usuarioActual;
     this.notificacionP.fecha = new Date();
