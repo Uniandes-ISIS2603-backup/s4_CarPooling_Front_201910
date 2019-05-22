@@ -14,6 +14,7 @@ import { TrayectosFuturosComponent } from './trayectos-futuros/trayectos-futuros
 import { UsuarioService } from '../usuario/usuario.service';
 import { MisTrayectosComponent } from './mis-trayectos/mis-trayectos.component';
 import { MatCardModule, MatButtonModule } from '@angular/material';
+import { TrayectoDetailCalificarComponent } from './trayecto-detail-calificar/trayecto-detail-calificar.component';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { MatCardModule, MatButtonModule } from '@angular/material';
     MatCardModule,
     MatButtonModule
   ],
-  declarations: [ListarTrayectoComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent, MenuComponent, TrayectoFuturoComponent, MisTrayectosComponent],
+  declarations: [ListarTrayectoComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent, MenuComponent, TrayectoFuturoComponent, MisTrayectosComponent, TrayectoDetailCalificarComponent],
   exports: [ListarTrayectoComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent]
 })
 export class TrayectoModule { }
