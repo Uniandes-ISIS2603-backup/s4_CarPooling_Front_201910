@@ -1,12 +1,29 @@
 <h4>Vehiculos:</h4>
-<div class="container" *ngFor="let vehiculos of misVehiculos">
-  <mat-card class="example-card">
-    <mat-card-header>
-      <mat-icon>more_vert</mat-icon>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>MR. X</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-  </mat-card>
-</div>
+<mat-card >
+  <div class="box">
+    <div class="col">
+      <img src="../../../../carritoImagen.png" width=50% class="img-rounded" alt="Icono">
+    </div>
+    <div class="col">
+      <div class="row">
+        Enviada por:
+      </div>  
+      <div class="row">
+        "Hola"
+      </div>  
+    </div>
+    <div class="col">
+      <div class="" *ngIf="true">
+        <mat-card-actions>
+          <div class="row">
+            <button mat-button>Action 1</button>
+          </div>  
+          <div class="row">
+            <button mat-button>Action 2</button>
+          </div> 
+       </mat-card-actions>
+      </div> 
+    </div> 
+  </div> 
+</mat-card>
 
