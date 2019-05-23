@@ -56,7 +56,7 @@ export class VehiculoService {
     /**
      * Retorna el usuario que hizo loggin actualmente
      */
-    darUsuarioActual(): String {
+    darUsuarioActual(): string {
         return this.usuarioService.darUsuarioActual();
     }
  

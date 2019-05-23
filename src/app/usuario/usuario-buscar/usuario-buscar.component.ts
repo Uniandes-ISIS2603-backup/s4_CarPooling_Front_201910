@@ -19,17 +19,17 @@ export class UsuarioBuscarComponent implements OnInit {
   /*
    * Nombre buscado por el usuario 
    */
-  nombre : String;
+  nombre : string;
   
   /*
    * Apellido buscado por el usuario 
    */
-  apellido : String;
+  apellido : string;
 
   /*
    * username buscado por el usuario 
    */
-  username : String;
+  username : string;
 
   /*
   * Lista completa de usuarios
