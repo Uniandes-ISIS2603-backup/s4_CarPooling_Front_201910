@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { ListarTrayectoComponent} from './listar-trayecto/listar-trayecto.component';
@@ -16,18 +16,25 @@ import { MisTrayectosComponent } from './mis-trayectos/mis-trayectos.component';
 import { MatCardModule, MatButtonModule } from '@angular/material';
 import { TrayectoBuscarEspecificoComponent } from './trayecto-buscar-especifico/trayecto-buscar-especifico.component';
 import { TrayectoDetailCalificarComponent } from './trayecto-detail-calificar/trayecto-detail-calificar.component';
-
+import {MapModule, MapAPILoader, MarkerTypeId, IMapOptions, IBox, IMarkerIconInfo, WindowRef,   
+  DocumentRef, MapServiceFactory, 
+  BingMapAPILoaderConfig, BingMapAPILoader, 
+  GoogleMapAPILoader,  GoogleMapAPILoaderConfig
+} from 'angular-maps';
+import { TrayectoCreateComponent } from './trayecto-create/trayecto-create.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    MapModule.forRootBing(),
     FormsModule,
     AppRoutingModule,
     NgbModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule
   ],
-  declarations: [ListarTrayectoComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent, MenuComponent, TrayectoFuturoComponent, MisTrayectosComponent, TrayectoDetailCalificarComponent, TrayectoBuscarEspecificoComponent],
+  declarations: [ListarTrayectoComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent, MenuComponent, TrayectoFuturoComponent, MisTrayectosComponent, TrayectoDetailCalificarComponent, TrayectoBuscarEspecificoComponent, TrayectoCreateComponent],
   exports: [ListarTrayectoComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent, MenuComponent, TrayectoFuturoComponent, MisTrayectosComponent, TrayectoBuscarEspecificoComponent]
 
 })

@@ -28,14 +28,22 @@ import {MatNativeDateModule, MatCard} from '@angular/material';
 import { DemoMaterialModule } from './material-module';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
+import {MapModule, MapAPILoader, MarkerTypeId, IMapOptions, IBox, IMarkerIconInfo, WindowRef,   
+    DocumentRef, MapServiceFactory, 
+    BingMapAPILoaderConfig, BingMapAPILoader, 
+    GoogleMapAPILoader,  GoogleMapAPILoaderConfig
+} from 'angular-maps';
+
 
 
 @NgModule({
     declarations: [
         AppComponent
+        
     ],
     imports: [
         BrowserModule,
+        MapModule.forRootBing(),
         AppRoutingModule,
         HttpClientModule,
         BrowserAnimationsModule,
@@ -83,11 +91,27 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
         {
             provide: HTTP_INTERCEPTORS,
             useClass: HttpErrorInterceptor,
-            multi: true
+            multi: true,
+            
+        },
+        {
+            provide: MapAPILoader, deps: [], useFactory: BingMapServiceProviderFactory 
         }
     ]
 })
 export class AppModule {}
+
+export function BingMapServiceProviderFactory(){
+    let bc: BingMapAPILoaderConfig = new BingMapAPILoaderConfig();
+    bc.apiKey ="KuKrc8vnerY9djmybqop~cgxJsU2fCPqgUjsgRtuK5Q~AnGmgEdOYbVJ7xo7vhu-UDonYVVC2bAZ6VGAy787HPcVlQOl-cpbJTBjiJfgaEyT"; 
+      
+    bc.branch = "experimental"; 
+      // to use the experimental bing brach. There are some bug fixes for
+      // clustering in that branch you will need if you want to use 
+      // clustering.
+    return new BingMapAPILoader(bc, new WindowRef(), new DocumentRef());
+}
+
 
 /**
  * nueva caos

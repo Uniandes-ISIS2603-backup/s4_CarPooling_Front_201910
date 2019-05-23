@@ -14,6 +14,8 @@ import { Peaje } from "../../peaje/peaje";
 import { PeajeService } from "../../peaje/peaje.service";
 
 import { InfoTrayecto } from "../../info-trayecto/info-trayecto";
+import { ReactiveFormsModule } from "@angular/forms";
+import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 
 @Component({
   selector: "app-trayecto-crear",
@@ -22,6 +24,18 @@ import { InfoTrayecto } from "../../info-trayecto/info-trayecto";
   providers: [DatePipe]
 })
 export class TrayectoCrearComponent implements OnInit {
+  constructor(
+    private fb: FormBuilder,
+    private dp: DatePipe,
+    private toastrService: ToastrService,
+    private trayectoService: TrayectoService,
+    private ciudadService: CiudadService,
+    private peajeService: PeajeService,
+    private usuarioService: UsuarioService,
+    private router: Router,
+  ) 
+  {   }
+  
   /**
    * Trauecto nuevo
    */
@@ -46,15 +60,10 @@ export class TrayectoCrearComponent implements OnInit {
    */
   peajes: Peaje[];
 
-  constructor(
-    private dp: DatePipe,
-    private toastrService: ToastrService,
-    private trayectoService: TrayectoService,
-    private ciudadService: CiudadService,
-    private peajeService: PeajeService,
-    private usuarioService: UsuarioService,
-    private router: Router
-  ) {}
+  
+
+  productForm: FormGroup;
+
 
   ngOnInit() {
     this.trayecto = new TrayectoDetail();
@@ -67,7 +76,31 @@ export class TrayectoCrearComponent implements OnInit {
       this.peajes = peajes;
     });
     this.getCurretUsuario();
+
+     /* Initiate the form structure */
+     /* Initiate the form structure */
+   /* this.productForm = this.fb.group({
+      title: [],
+      selling_points: this.fb.array([this.fb.group({point:''})])
+    })*/
   }
+
+ /* get sellingPoints() {
+    return this.productForm.get('selling_points') as FormArray;
+  }
+
+  /////// This is new /////////////////
+
+  addSellingPoint() {
+    this.sellingPoints.push(this.fb.group({point:''}));
+  }
+
+  deleteSellingPoint(index) {
+    this.sellingPoints.removeAt(index);
+  }
+*/
+  //////////// End ////////////////////
+  
 
   cancelCreation(): void {
     this.toastrService.warning(
@@ -115,4 +148,9 @@ export class TrayectoCrearComponent implements OnInit {
         this.usuarioActual = usuario;
       });
   }
+
+  horaSalida = {hour: 13, minute: 30};
+  horaLlegada = {hour: 13, minute: 30};
+
 }
+
