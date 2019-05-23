@@ -34,9 +34,10 @@ export class MisTrayectosComponent implements OnInit {
   }
 
 
-  pago(trayecto)
+  pago(trayecto:string)
   {
-    localStorage.setItem("trayectoPago",trayecto)
+    localStorage.setItem("trayectoPago",trayecto);
+    console.log(trayecto)
     this.router.navigate(["pago/create"]);
 
     

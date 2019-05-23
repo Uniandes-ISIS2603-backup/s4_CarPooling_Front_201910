@@ -16,11 +16,16 @@ import { MisTrayectosComponent } from './mis-trayectos/mis-trayectos.component';
 import { MatCardModule, MatButtonModule } from '@angular/material';
 import { TrayectoBuscarEspecificoComponent } from './trayecto-buscar-especifico/trayecto-buscar-especifico.component';
 import { TrayectoDetailCalificarComponent } from './trayecto-detail-calificar/trayecto-detail-calificar.component';
-
+import {MapModule, MapAPILoader, MarkerTypeId, IMapOptions, IBox, IMarkerIconInfo, WindowRef,   
+  DocumentRef, MapServiceFactory, 
+  BingMapAPILoaderConfig, BingMapAPILoader, 
+  GoogleMapAPILoader,  GoogleMapAPILoaderConfig
+} from 'angular-maps';
 
 @NgModule({
   imports: [
     CommonModule,
+    MapModule.forRootBing(),
     FormsModule,
     AppRoutingModule,
     NgbModule,

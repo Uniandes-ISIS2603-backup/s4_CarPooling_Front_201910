@@ -6,7 +6,8 @@ import {ToastrService} from 'ngx-toastr';
 import {PagoService} from '../pago.service';
 import {Router} from '@angular/router';
 import { TrayectoService } from '../../trayecto/trayecto.service';
-import { Trayecto } from 'src/app/trayecto/trayecto';
+import { Trayecto } from '../../trayecto/trayecto';
+
 
 @Component({
   selector: 'app-pago-create',
@@ -19,8 +20,9 @@ export class PagoCreateComponent implements OnInit {
   * Base payment for the creation of new payments
   */
   pago = new Pago();
+  info = new Info();
   
-  valor:any;
+  valor:number;
   trayecto:Trayecto;
     /**
     * Constructor for the component
@@ -35,22 +37,44 @@ export class PagoCreateComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    if(localStorage.getItem("trayectoPago")!=null){
-    this.trayectoService.getTrayectoDetail(localStorage.getItem("trayectoPago")).subscribe(a=>{
+    var id=localStorage.getItem("trayectoPago");
+    this.valor=0;
+    if(id!=null){
+    this.trayectoService.getTrayectoDetail(id).subscribe(a=>{
+  
       this.trayecto=a;
       if(a!=null&&a.info!=null){
       this.valor = a.info.costo;
       }
     });
+    console.log(this.valor.toString());
   }
+  
   }
   pagoEfectivo()
   {
-    console.log("Funciona")
+    this.pago.valor=this.valor;
+    this.pagoService.createPago(this.pago).subscribe(paga=>{
+      this.pagoService.createInfo(this.info).subscribe(inf=>{
+        this.pagoService.addRelacion(this.trayecto,paga,inf).subscribe(()=>{
+
+          this.router.navigate(["home"]);
+        });
+      })
+      
+    });
   }
   tarjeta()
   {
-    console.log("Funciona")
+    this.pago.valor=this.valor;
+    this.pagoService.createPago(this.pago).subscribe(paga=>{
+      this.pagoService.createInfo(this.info).subscribe(inf=>{
+        this.pagoService.addRelacion(this.trayecto,paga,inf).subscribe(()=>{
+          this.router.navigate(["home"]);
+        });
+      })
+      
+    });
   }
   /**
    * Cancels the creation of the new payment
@@ -63,15 +87,15 @@ export class PagoCreateComponent implements OnInit {
   createPago(){
     this.pagoService.createPago(this.pago)
             .subscribe(pago => {
-                this.pago = pago;
+                
                 this.toastrService.success("El pago fue creado con éxito", "Pago creado");
 
             });
         return this.pago;
   }
 
-  darInfo(): Info {
-    return this.pago;
+  darInfo() {
+   
   }
   
   get currentPayment() { return JSON.stringify(this.pago); }

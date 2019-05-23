@@ -4,10 +4,11 @@ import { Observable } from 'rxjs';
 import { Info } from './info';
 import { Usuario } from '../usuario/usuario'
 import { Pago } from './pago';
+import { Trayecto } from '../trayecto/trayecto';
 
 const API_URL = "http://1e4ae67f.ngrok.io/s4_carpooling-api/api/";
 const pagos = 'pagos';
-
+const info = 'info';
 @Injectable({
   providedIn: 'root'
 })
@@ -26,15 +27,17 @@ export class PagoService {
  	getPagos() : Observable<Pago[]> {
         return this.http.get<Pago[]>(API_URL + pagos);
     }
-
+    addRelacion(trayecto:Trayecto,pago:Pago,info:Info): Observable<Pago> {
+        return this.http.get<Pago>(API_URL + pagos);
+    }
 
     /**
     * Creates a new payment
     * @param payment The new payment
     * @returns The payment with its new id if it was created, false if it wasn't
     */
-    createPago(pago): Observable<Info> {
-        return this.http.post<Info>(API_URL + pagos, pago);
+    createPago(pago): Observable<Pago> {
+        return this.http.post<Pago>(API_URL + pagos, pago);
     }
 
     /**
@@ -42,9 +45,12 @@ export class PagoService {
     * @returns The payment details
     */
     getPagoInfo(id): Observable<Info> {
-        return this.http.get<Info>(API_URL + pagos + '/' + id);
+        return this.http.post<Info>(API_URL + info,id);
     }
-
+    createInfo(info) :Observable<Info>
+    {
+        return 
+    }
 
     usuario: Usuario;
     /**
