@@ -22,7 +22,9 @@ export class UsuarioNotificacionesComponent implements OnInit {
     private trayectoService: TrayectoService,
     private noticacionService: NotificacionService,
     private router: Router
-  ) {}
+  ) {
+    
+  }
 
   /**
    * Arreglo que representa las Notificaciones Enviadas por el usuario actual
@@ -93,6 +95,12 @@ export class UsuarioNotificacionesComponent implements OnInit {
    */
   agregarAUnPasajero(trayecto, pasajero, notificacion) {
     this.nuevoPasajero = pasajero;
+    this.toastrService.success(
+      "El usuario " +
+        this.nuevoPasajero.username +
+        " fue notificado sobre su decision de aceptarlo como pasejero y fue agregado con éxito",
+      "Notificacion enviada"
+    );
     this.trayectoMeterPasajero = trayecto;
     if (!this.trayectoMeterPasajero.hasOwnProperty("pasajeros")) {
       this.trayectoMeterPasajero.pasajeros = new Array<Usuario>();
@@ -113,20 +121,22 @@ export class UsuarioNotificacionesComponent implements OnInit {
     this.notificacionP.trayecto = this.trayectoMeterPasajero;
     this.noticacionService.createNotificacion(this.notificacionP).subscribe();
     notificacion.leido = true;
-    this.noticacionService.updateNotificacion(notificacion).subscribe();
-    this.toastrService.success(
-      "El usuario " +
-        this.nuevoPasajero.username +
-        " fue notificado sobre su decision de aceptarlo como pasejero y fue agregado con éxito",
-      "Notificacion enviada"
-    );
+    this.noticacionService.updateNotificacion(notificacion).subscribe(()=>{window.location.reload()});
+   
   }
 
   /**
    * Marca como leida una notificacion
    */
   rechazarAUnPasajero(trayecto, pasajero, notificacion) {
+    
     this.nuevoPasajero = pasajero;
+    this.toastrService.success(
+      "El usuario " +
+        this.nuevoPasajero.username +
+        " fue notificado sobre su decision de no aceptarlo como pasejero y no fue agregado con éxito",
+      "Notificacion enviada"
+    );
     this.trayectoMeterPasajero = trayecto;
     this.notificacionP = new Notificacion();
     this.notificacionP.emisor = this.usuarioActual;
@@ -135,32 +145,39 @@ export class UsuarioNotificacionesComponent implements OnInit {
     this.notificacionP.leido = false;
     this.notificacionP.mensaje = "no acepto";
     this.notificacionP.tipo = 2;
-    this.notificacionP.trayecto = this.trayectoMeterPasajero;
-    this.noticacionService.createNotificacion(this.notificacionP).subscribe();
     notificacion.leido = true;
-    console.log(notificacion);
-    this.noticacionService.updateNotificacion(notificacion).subscribe();
-    this.toastrService.success(
-      "El usuario " +
-        this.nuevoPasajero.username +
-        " fue notificado sobre su decision de no aceptarlo como pasejero y no fue agregado con éxito",
-      "Notificacion enviada"
-    );
+    this.notificacionP.trayecto = this.trayectoMeterPasajero;
+    this.noticacionService.createNotificacion(this.notificacionP).subscribe(()=>{
+      this.noticacionService.updateNotificacion(notificacion).subscribe(()=>{
+      
+        window.location.reload();
+      });
+    });
+    
+    
+   
+    
+    
   }
 
   marcarComoLeida(notificacion) {
     notificacion.leido = true;
     this.noticacionService.updateNotificacion(notificacion).subscribe();
+    window.location.reload();
   }
 
   eliminarNotificacion(notificacion: Notificacion) {
-    notificacion.emisor = null;
-    notificacion.receptor = null;
-    notificacion.trayecto = null;
+   
     this.noticacionService
       .updateNotificacion(notificacion)
       .subscribe(notificacion => {
+        notificacion.emisor = null;
+        notificacion.receptor = null;
+        notificacion.trayecto = null;
+        
         this.noticacionService.deleteNotifacion(notificacion.id).subscribe();
+        window.location.reload();
+        this.router.navigate(["home"]);
       });
   }
 

@@ -1,12 +1,12 @@
 <div class="row justify-content-md-center">
     <div class="col-sm-10 ">
-<div class="card text-center">
+<div class="card text-center" *ngIf="usuario!=null && usuario.nombre!=null">
         <div class="card-header">
             <h3>Usuario {{usuario.username}}</h3>
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="col-sm-5" *ngIf="usuario!=null && usuario.nombre!=null">
+                <div class="col-sm-5" >
                         <h5>Nombre</h5>
                         <p>{{usuario.nombre}}</p>
                 </div>
