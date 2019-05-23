@@ -1,277 +1,376 @@
-<div class = mx-0>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-12">
-      <br />
-      <h2 class="text-center">Bienvenido a Trayecto</h2>
-      <br />
-      <div class="row justify-content-center">
-      <div class="col-sm-8">
-        <form name="trayecto" (ngSubmit)="f.form.valid && createTrayecto()" #f="ngForm" novalidate>
-        <label class="text-center">Bienvenido a Trayecto</label>
-
-        <div class="row justify-content-center">
-        <div class="col-sm-6">
-        <div class="form-group">
-          <label for="fechaInicial"><b>Fecha Inicial</b></label>
-          <input
-            class="form-control"
-            id="fechaInicial"
-            name="fechaInicial"
-            [(ngModel)]="trayecto.fechaInicial"
-            ngbDatepicker
-            #d="ngbDatepicker"
-            (click)="d.toggle()"
-            #fechaInicial="ngModel"
-            [ngClass]="{
-              'is-invalid': f.submitted &&n (fechaInicial.untouched || fechaInicial.invalid)
-            }"
-            required
-          />
-          <div class="invalid-feedback">
-            <div>Falta la fecha inicial</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label for="fechaFinal"><b>Fecha Final</b></label>
-          <input 
-            class="form-control"
-            id="fechaFinal"
-            name="fechaFinal"
-            [(ngModel)]="trayecto.fechaFinal"
-            ngbDatepicker
-            #d="ngbDatepicker"
-            (click)="d.toggle()"
-            #fechaFinal="ngModel"
-            [ngClass]="{
-              'is-invalid': f.submitted &&n (fechaFinal.untouched || fechaFinal.invalid)
-            }"
-            required
-          />
-          <div class="invalid-feedback">
-            <div>Falta la fecha final</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-       <div class="col-sm-6">
-        <div class="form-group" *ngIf="ciudades != null">
-          <label for="origen"><b>Origen</b></label>
-          <select
-            class="form-control"
-            name="origen"
-            form="search"
-            ng-Model="trayecto.origen"
-          >
-            <option value="" selected disabled hidden
-              >-----Seleccione Aqui------</option
-            >
-            <option
-              *ngFor="let ciudad of ciudades"
-              value="{{ trayecto.origen }}"
-              >{{ ciudad.nombre }}</option
-            >
-          </select>
-        </div>
-      </div>
-
-      <div class="col-sm-6">
-
-        <div class="form-group" *ngIf="ciudades != null">
-          <label for="destino"><b>Destino</b></label>
-          <select
-            class="form-control"
-            name="destino"
-            form="search"
-            ng-Model="trayecto.destino"
-          >
-            <option value="" selected disabled hidden
-              >-----Seleccione Aqui------</option
-            >
-            <option
-              *ngFor="let ciudad of ciudades"
-              value="{{ trayecto.destino }}"
-              >{{ ciudad.nombre }}</option
-            >
-          </select>
-        </div>
-      </div>
-      </div>
-      
-      <div class="row justify-content-center">
-      <div class="col-sm-6">
-
-          <div class="form-group">
-            <label for="hsalida"><b>Hora de llegada</b></label>
-            <ngb-timepicker [ngModel]="horaSalida" [meridian]=true [ngModelOptions]="{standalone: true}" required></ngb-timepicker>
-          </div>
-        </div>
+<div class="mx-0">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <br />
+          <h2 class="text-center">Crear un Trayecto</h2>
+          <br />
+          <div class="row justify-content-center">
+            <div class="col-sm-8">
+              <form
+                name="submit"
+                (ngSubmit)="f.form.valid && createTrayecto()"
+                id="submit"
+                #f="ngForm"
+                novalidate
+              >
+                <div class="row justify-content-center">
+                  <ngb-datepicker
+                    #dp
+                    (select)="onDateSelection(event)"
+                    [displayMonths]="2"
+                    [dayTemplate]="t"
+                    outsideDays="hidden"
+                  >
+                  </ngb-datepicker>
   
-        <div class="col-sm-6">
+                  <ng-template #t let-date let-focused="focused">
+                    <span
+                      class="custom-day"
+                      [class.focused]="focused"
+                      [class.range]="isRange(date)"
+                      [class.faded]="isHovered(date) || isInside(date)"
+                      (mouseenter)="hoveredDate = date"
+                      (mouseleave)="hoveredDate = null"
+                    >
+                      {{ date.day }}
+                    </span>
+                  </ng-template>
+                </div>
   
-          <div class="form-group">
-              <label for="hsalida"><b>Hora de salida</b></label>
-              <ngb-timepicker [ngModel]="horaLlegada" [meridian]=true [ngModelOptions]="{standalone: true}" required></ngb-timepicker>
+                <br />
+  
+                <div class="row justify-content-center">
+                  <div class="col-sm-6 justify-content-center">
+                    <div class="form-group">
+                      <!--<label for="hsalida"><b>Hora de llegada</b></label>
+                      <ngb-timepicker
+                        [ngModel]="horaSalida"
+                        [meridian]="true"
+                        [ngModelOptions]="{ standalone: true }"
+                        required
+                      ></ngb-timepicker>-->
+                    </div>
+                  </div>
+  
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="hsalida"><b>Hora de salida</b></label>
+                      <!--<ngb-timepicker
+                        [ngModel]="horaLlegada"
+                        [meridian]="true"
+                        [ngModelOptions]="{ standalone: true }"
+                        required
+                      ></ngb-timepicker>-->
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="row justify-content-center" >
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="origen"><b>Origen</b></label>
+                      <select
+                        class="form-control"
+                        name="origen"
+                        form="submit"
+                        [(ngModel)]="trayecto.origen"
+                        
+                      >
+                        <option value="" selected disabled hidden
+                          >-----Seleccione Aqui------</option
+                        >
+                        <option
+                          *ngFor="let ciudad of ciudades"
+                          value="{{ ciudad }}"
+                          >{{ ciudad.nombre }}</option
+                        >
+                      </select>
+                    </div>
+                  </div>
+  
+                  <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="destino"><b>Destino</b></label>
+                        <select
+                          class="form-control"
+                          name="destino"
+                          form="submit"
+                          [(ngModel)]="trayecto.destino"
+                          
+                        >
+                          <option value="" selected disabled hidden
+                            >-----Seleccione Aqui------</option
+                          >
+                          <option
+                            *ngFor="let ciudad of ciudades"
+                            value="{{ ciudad }}"
+                            >{{ ciudad.nombre }}</option
+                          >
+                        </select>
+                      </div>
+                    </div>
+                </div>
+  
+                <div class="row justify-content-center">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label for="cupos"><b>Cupos disponibles</b></label>
+                      <input
+                        type="number"
+                        name="cupos"
+                        class="form-control"
+                        id="cupos"
+                        [(ngModel)]="infoTrayecto.cupos"
+                        required
+                        [ngClass]="{
+                          'is-invalid': f.submitted && n(cupos > 0)
+                        }"
+                      />
+                      <div class="invalid-feedback">
+                        <div>Faltan los cupos disponibles</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="row justify-content-center">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label for="costo"><b>Costo</b></label>
+                      <input
+                        type="number"
+                        name="costo"
+                        class="form-control"
+                        id="costo"
+                        [(ngModel)]="infoTrayecto.costo"
+                        required
+                        [ngClass]="{
+                          'is-invalid': f.submitted && n(costo > 0)
+                        }"
+                      />
+                      <div class="invalid-feedback">
+                        <div>Falta el costo</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="form-group">
+                  <label for="vehiculo"><b>Vehiculo</b></label>
+                  <div class="" *ngIf="numCarros == 0">
+                    <p>
+                      ¡Ups! Parace que aún no tienes vehiculos registrados, es
+                      necesario que registres un vehiculo antes de crear un
+                      trayecto
+                    </p>
+                    <label for="costo"><b>Modelo</b></label>
+                    <input
+                      type="text"
+                      name="modelo"
+                      class="form-control"
+                      id="modelo"
+                      [(ngModel)]="vehiculo.modelo"
+                      required
+                      [ngClass]="{
+                        'is-invalid': f.submitted
+                      }"
+                    />
+  
+                    <label for="costo"><b>Placa</b></label>
+                    <input
+                      type="text"
+                      name="placa"
+                      class="form-control"
+                      id="placa"
+                      [(ngModel)]="vehiculo.placa"
+                      required
+                      [ngClass]="{
+                        'is-invalid': f.submitted
+                      }"
+                    />
+  
+                    <label for="color"><b>Color</b></label>
+                    <input
+                      type="text"
+                      name="color"
+                      class="form-control"
+                      id="color"
+                      [(ngModel)]="vehiculo.color"
+                      required
+                      [ngClass]="{
+                        'is-invalid': f.submitted
+                      }"
+                    />
+                  </div>
+                </div>
+  
+                <br />
+                <a
+                  class="badge badge-pill badge-primary"
+                  data-toggle="collapse"
+                  href="#collapse"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="collapseExample"
+                  toggle="false"
+                >
+                  Mas Opciones
+                </a>
+                <br />
+  
+                <div id="collapse" class="collapse">
+                  <div class="form-group">
+                    <label for="combustible"><b>Combustible</b></label>
+                    <input
+                      type="number"
+                      name="combustible"
+                      class="form-control"
+                      id="combustible"
+                      [(ngModel)]="infoTrayecto.combustible"
+                    />
+                  </div>
+  
+                  <div class="form-group" *ngIf="ciudades != null">
+                    <label for="parada"
+                      ><b> Seleccione hasta 3 paradas adicionales</b></label
+                    >
+                    <select
+                      class="form-control"
+                      name="parada"
+                      form="trayecto"
+                      ng-Model="parada1"
+                    >
+                      <option value="" selected disabled hidden
+                        >-----Seleccione Aqui------</option
+                      >
+                      <option
+                        *ngFor="let ciudad of ciudades"
+                        value="{{ parada1 }}"
+                        >{{ ciudad.nombre }}</option
+                      >
+                    </select>
+  
+                    <select
+                      class="form-control"
+                      name="parada"
+                      form="trayecto"
+                      ng-Model="parada2"
+                    >
+                      <option value="" selected disabled hidden
+                        >-----Seleccione Aqui------</option
+                      >
+                      <option
+                        *ngFor="let ciudad of ciudades"
+                        value="{{ parada2 }}"
+                        >{{ ciudad.nombre }}</option
+                      >
+                    </select>
+  
+                    <select
+                      class="form-control"
+                      name="parada"
+                      form="trayecto"
+                      ng-Model="parada3"
+                    >
+                      <option value="" selected disabled hidden
+                        >-----Seleccione Aqui------</option
+                      >
+                      <option
+                        *ngFor="let ciudad of ciudades"
+                        value="{{ parada3 }}"
+                        >{{ ciudad.nombre }}</option
+                      >
+                    </select>
+                  </div>
+  
+                  <div class="form-group" *ngIf="peajes != null">
+                    <label for="destino"><b>Seleccione hasta 3 peajes</b></label>
+                    <select
+                      class="form-control"
+                      name="peajes"
+                      form="trayecto"
+                      ng-Model="peaje1"
+                    >
+                      <option value="" selected disabled hidden
+                        >-----Seleccione Aqui------</option
+                      >
+                      <option *ngFor="let peaje of peajes" value="{{ peaje1 }}">{{
+                        peaje.nombre
+                      }}</option>
+                    </select>
+  
+                    <select
+                      class="form-control"
+                      name="peajes"
+                      form="trayecto"
+                      ng-Model="peaje2"
+                    >
+                      <option value="" selected disabled hidden
+                        >-----Seleccione Aqui------</option
+                      >
+                      <option *ngFor="let peaje of peajes" value="{{ peaje2 }}">{{
+                        peaje.nombre
+                      }}</option>
+                    </select>
+  
+                    <select
+                      class="form-control"
+                      name="peajes"
+                      form="trayecto"
+                      ng-Model="peaje3"
+                    >
+                      <option value="" selected disabled hidden
+                        >-----Seleccione Aqui------</option
+                      >
+                      <option *ngFor="let peaje of peajes" value="{{ peaje3 }}">{{
+                        peaje.nombre
+                      }}</option>
+                    </select>
+                  </div>
+                </div>
+  
+                <div
+                  class="row form-inline justify-content-center align-self-center"
+                >
+                  <button type="submit" class="btn btn-primary">Create</button>
+                  <div class="divider"></div>
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    (click)="cancelCreation()"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
+          <br />
         </div>
       </div>
-
-      <
-
-      <div class="row justify-content-center">
-      <div class="col-sm-12">
-        <div class="form-group">
-          <label for="cupos"><b>Cupos disponibles</b></label>
-          <input
-            type="number"
-            name="cupos"
-            class="form-control"
-            id="cupos"
-            [(ngModel)]="infoTrayecto.cupos"
-            required
-            [ngClass]="{
-              'is-invalid': f.submitted &&n (cupos>0)
-            }"
-          />
-          <div class="invalid-feedback">
-            <div>Faltan los cupos disponibles</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row justify-content-center">
-      <div class="col-sm-12">
-
-        <div class="form-group">
-          <label for="costo"><b>Costo</b></label>
-          <input
-            type="number"
-            name="costo"
-            class="form-control"
-            id="costo"
-            [(ngModel)]="infoTrayecto.costo"
-            required
-            [ngClass]="{
-              'is-invalid': f.submitted &&n (costo>0)
-            }"
-          />
-          <div class="invalid-feedback">
-            <div>Falta el costo</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-        <br>
-        <a class="badge badge-pill badge-primary" data-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapseExample" toggle="false">
-            Mas Opciones
-        </a>
-        <br>
-
-
-        <div id="collapse" class="collapse">
-        <div class="form-group">
-            <label for="combustible"><b>Combustible</b></label>
-            <input
-              type="number"
-              name="combustible"
-              class="form-control"
-              id="combustible"
-              [(ngModel)]="infoTrayecto.combustible"
-            />
-        </div>
-
-        <div class="form-group">
-            <label for="numParadas"><b>numParadas</b></label>
-            <input
-              type="number"
-              name="combustible"
-              class="form-control"
-              id="combustible"
-              [(ngModel)]="infoTrayecto.combustible"
-            />
-        </div>
-
-        <div class="form-group" *ngIf="ciudades != null">
-          <label for="parada"><b>Paradas adicionales</b></label>
-          <select
-            class="form-control"
-            name="parada"
-            form="search"
-            ng-Model="infoTrayecto.parada"
-          >
-            <option value="" selected disabled hidden
-              >-----Seleccione Aqui------</option
-            >
-            <option
-              *ngFor="let ciudad of ciudades"
-              value="{{ ciudad.nombre }}"
-              >{{ ciudad.nombre }}</option
-            >
-          </select>
-        </div>
-
-        <div class="form-group" *ngIf="peajes != null">
-          <label for="destino"><b>Peajes</b></label>
-          <select
-            class="form-control"
-            name="peajes"
-            form="search"
-            ng-Model="infoTrayecto.peaje"
-          >
-            <option value="" selected disabled hidden
-              >-----Seleccione Aqui------</option
-            >
-            <option *ngFor="let peaje of peajes" value="{{ peaje.nombre }}">{{
-              peaje.nombre
-            }}</option>
-          </select>
-        </div>
-        </div>
-        <div class="row form-inline justify-content-center align-self-center">
-          <button type="submit" class="btn btn-primary">Create</button>
-          <div class="divider"></div>
-          <button
-            type="button"
-            class="btn btn-danger"
-            (click)="cancelCreation()"
-          >
-            Cancel
-          </button>
-        </div>
-      </form>
-    </div>
-    </div>
-      <br />
     </div>
   </div>
-</div>
-</div> 
-
-<!-- <h1>Edit Product</h1>
-
-<form [formGroup]="productForm">
-
-    <label>
-      Title: <input formControlName="title" />
-    </label>
-    <h2>Selling Points</h2>
   
-    <div formArrayName="selling_points">
-      <div *ngFor="let item of sellingPoints.controls; let pointIndex=index" [formGroupName]="pointIndex">
+  <!-- <h1>Edit Product</h1>
+  
+  <form [formGroup]="productForm">
+  
       <label>
-        Selling Point: <input formControlName="point" />
+        Title: <input formControlName="title" />
       </label>
-      <button type="button" (click)="deleteSellingPoint(pointIndex)">Delete Selling Point</button>
+      <h2>Selling Points</h2>
+    
+      <div formArrayName="selling_points">
+        <div *ngFor="let item of sellingPoints.controls; let pointIndex=index" [formGroupName]="pointIndex">
+        <label>
+          Selling Point: <input formControlName="point" />
+        </label>
+        <button type="button" (click)="deleteSellingPoint(pointIndex)">Delete Selling Point</button>
+        </div>
+        <button type="button" (click)="addSellingPoint()">Add Selling Point</button>
       </div>
-      <button type="button" (click)="addSellingPoint()">Add Selling Point</button>
-    </div>
-  
-  </form>
-  
-  {{ this.productForm.value | json }}--> 
+    
+    </form>
+    
+    {{ this.productForm.value | json }}-->
