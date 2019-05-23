@@ -165,9 +165,13 @@ export class TrayectoCrearComponent implements OnInit {
       this.fromDate.month - 1,
       this.fromDate.day
     );
-    this.trayecto.fechaInicial = this.dp.transform(dateB1, "yyyy-MM-dd");
-    
-    this.trayecto.fechaInicial = this.dp.transform(dateB1, "yyyy-MM-dd");
+    this.trayecto.fechaInicial = dateB1; //this.dp.transform(dateB1, "yyyy-MM-dd");
+
+    let dateB2: Date = new Date(
+      this.toDate.year,
+      this.toDate.month - 1,
+      this.toDate.day
+    );
 
     this.trayecto.fechaFinal = dateB2; //this.dp.transform(dateB2, "yyyy-MM-dd");
 
@@ -213,7 +217,7 @@ export class TrayectoCrearComponent implements OnInit {
       this.infoTrayecto.peajes.push(this.peaje3);
     }*/
 
-    //this.infoTrayecto.vehiculo = this.vehiculo;
+    this.infoTrayecto.vehiculo = this.vehiculo;
     /** if (this.numCarros == 0) {
       this.usuarioService
         .addVehiculo(this.usuarioActual.username, this.vehiculo)
@@ -226,28 +230,25 @@ export class TrayectoCrearComponent implements OnInit {
         });
     }*/
     //this.infotrayectoService.
-    this.trayectoService.createTrayecto(this.trayecto).subscribe(tray=>{
-      this.infotrayectoService.createInfoTrayecto(this.infoTrayecto).subscribe(info=>{
-                    this.usuarioService
-                    .addConductor(this.usuarioActual.username, tray)
-                    .subscribe(t => {
-                      this.trayecto = t;
-                      this.toastrService.success(
-                        "El trayecto fue con éxito",
-                        "Trayecto Creado"
-                      ); /**
-                      this.infotrayectoService
-                        .createInfoTrayecto(this.infoTrayecto)
-                        .subscribe(info => {
-                          this.infoTrayecto = info;
-                          this.trayectoService
-                            .addTrayectoInfo(this.trayecto.id, this.infoTrayecto.idDetalle)
-                            .subscribe();
-                        }); */
-                    });
-      })
-    });
-    
+
+    console.log(JSON.stringify(this.trayecto));
+     /**this.usuarioService
+      .addConductor(this.usuarioActual.username, this.trayecto)
+      .subscribe(trayecto => {
+        this.trayecto = trayecto;
+        this.toastrService.success(
+          "El trayecto fue con éxito",
+          "Trayecto Creado"
+        );
+        this.infotrayectoService
+          .createInfoTrayecto(this.infoTrayecto)
+          .subscribe(info => {
+            this.infoTrayecto = info;
+            this.trayectoService
+              .addTrayectoInfo(this.trayecto.id, this.infoTrayecto.idDetalle)
+              .subscribe();
+          }); 
+      });*/
     return this.trayecto;
   }
 

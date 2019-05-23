@@ -132,8 +132,6 @@ export class UsuarioService {
     );
   }
 
-  
-
   /**
    * Agregar un conductor a un trayecto específico con el usuario pasado por parametro
    */
