@@ -13,6 +13,7 @@ import { PeajeService } from "../../peaje/peaje.service";
 import { VehiculoService } from "../../vehiculo/vehiculo.service";
 import { Usuario } from "../../usuario/usuario";
 import { NgbCarouselConfig } from "@ng-bootstrap/ng-bootstrap";
+import { CiudadService } from "src/app/ciudad/ciudad.service";
 
 @Component({
   selector: "app-home",
@@ -37,6 +38,7 @@ export class HomeComponent implements OnInit {
   retorno = new Array<Trayecto>();
   ciudades: Ciudad[];
   usuarios: Usuario[];
+  ciudadesStrings: String[];
 
   vehiculos: Vehiculo[];
   images = [1, 2, 3, 4].map(
@@ -128,6 +130,11 @@ export class HomeComponent implements OnInit {
    openNav() {
     document.getElementById("mySidenav").style.width = "250px";
     document.getElementById("main").style.marginLeft = "250px";
+  }
+
+  stringCiudades(){
+    this.ciudades.forEach(ciudad => this.ciudadesStrings.push("../../../../"+ ciudad +".jpg"));
+
   }
 
   closeNav() {
