@@ -28,12 +28,9 @@
                   </li>
           </ul>
         </div>
-      
-      
-  
   <div class="col-sm-2">
     <div class="" *ngIf="usernameActual != 'vacio'">
-      <a routerLink="['/usuario/menu', { outlets: { 'content': 'info' } }]">
+      <a routerLink="/usuario/menu">
         <div class="row row-eq-height">
           <div class="col-sm-3 my-auto" *ngIf="usuario">
             {{ usuario.nombre }}

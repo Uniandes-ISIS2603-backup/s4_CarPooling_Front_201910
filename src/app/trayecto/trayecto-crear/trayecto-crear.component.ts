@@ -124,30 +124,7 @@ export class TrayectoCrearComponent implements OnInit {
       this.peajes = peajes;
     });
     this.getCurretUsuario();
-
-    /* Initiate the form structure */
-    /* Initiate the form structure */
-    /* this.productForm = this.fb.group({
-      title: [],
-      selling_points: this.fb.array([this.fb.group({point:''})])
-    })*/
   }
-
-  /* get sellingPoints() {
-    return this.productForm.get('selling_points') as FormArray;
-  }
-
-  /////// This is new /////////////////
-
-  addSellingPoint() {
-    this.sellingPoints.push(this.fb.group({point:''}));
-  }
-
-  deleteSellingPoint(index) {
-    this.sellingPoints.removeAt(index);
-  }
-*/
-  //////////// End ////////////////////
 
   cancelCreation(): void {
     this.toastrService.warning(
@@ -160,14 +137,14 @@ export class TrayectoCrearComponent implements OnInit {
   createTrayecto() {
     this.trayecto.id = 1;
     this.trayecto.estado = 0;
-    let dateB1: Date = new Date(
+    let dateB1: any = new Date(
       this.fromDate.year,
       this.fromDate.month - 1,
       this.fromDate.day
     );
     this.trayecto.fechaInicial = dateB1; //this.dp.transform(dateB1, "yyyy-MM-dd");
 
-    let dateB2: Date = new Date(
+    let dateB2: any = new Date(
       this.toDate.year,
       this.toDate.month - 1,
       this.toDate.day
@@ -265,14 +242,14 @@ export class TrayectoCrearComponent implements OnInit {
         this.numCarros = this.carros.length;
       });
   }
-
-  horaSalida = { hour: 13, minute: 30 };
-  horaLlegada = { hour: 13, minute: 30 };
-
+  
   hoveredDate: NgbDate;
 
   fromDate: NgbDate;
   toDate: NgbDate;
+
+  horaSalida = { hour: 13, minute: 30 };
+  horaLlegada = { hour: 13, minute: 30 };
 
   onDateSelection(date: NgbDate) {
     if (!this.fromDate && !this.toDate) {
@@ -286,13 +263,7 @@ export class TrayectoCrearComponent implements OnInit {
   }
 
   isHovered(date: NgbDate) {
-    return (
-      this.fromDate &&
-      !this.toDate &&
-      this.hoveredDate &&
-      date.after(this.fromDate) &&
-      date.before(this.hoveredDate)
-    );
+    return this.fromDate && !this.toDate && this.hoveredDate && date.after(this.fromDate) && date.before(this.hoveredDate);
   }
 
   isInside(date: NgbDate) {
@@ -300,11 +271,6 @@ export class TrayectoCrearComponent implements OnInit {
   }
 
   isRange(date: NgbDate) {
-    return (
-      date.equals(this.fromDate) ||
-      date.equals(this.toDate) ||
-      this.isInside(date) ||
-      this.isHovered(date)
-    );
+    return date.equals(this.fromDate) || date.equals(this.toDate) || this.isInside(date) || this.isHovered(date);
   }
 }
