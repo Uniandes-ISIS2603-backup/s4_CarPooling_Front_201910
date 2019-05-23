@@ -79,13 +79,13 @@ export class TrayectoCrearComponent implements OnInit {
 
      /* Initiate the form structure */
      /* Initiate the form structure */
-    this.productForm = this.fb.group({
+   /* this.productForm = this.fb.group({
       title: [],
       selling_points: this.fb.array([this.fb.group({point:''})])
-    })
+    })*/
   }
 
-  get sellingPoints() {
+ /* get sellingPoints() {
     return this.productForm.get('selling_points') as FormArray;
   }
 
@@ -98,7 +98,7 @@ export class TrayectoCrearComponent implements OnInit {
   deleteSellingPoint(index) {
     this.sellingPoints.removeAt(index);
   }
-
+*/
   //////////// End ////////////////////
   
 
