@@ -125,6 +125,8 @@ export class UsuarioService {
     return this.http.put<TrayectoDetail>(API_URL + usuarios + "/" + pasajero + "/trayectosPasajero/" + idtrayecto, null);
   }
 
+  
+
   /**
     * Deletes a user
     * @param username The users's username
