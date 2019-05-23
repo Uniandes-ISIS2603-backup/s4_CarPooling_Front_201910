@@ -51,6 +51,7 @@ export class UsuarioService {
    */
   logOut() {
     localStorage.setItem("usuarioActual", "vacio");
+    localStorage.setItem("modo", "visitante");
   }
   /**
    * Login a new user

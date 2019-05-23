@@ -50,8 +50,10 @@
 			
 		
 		<div class="card-footer text-muted">
+			<div class="" *ngIf="modo!='visitante'">
 				<!--<a type="button" (click)="detail(i.id)">Detalles</a>-->
 				<button (click)="onClick(i)">Reservar Cupo</button>
+			</div>
 		</div>
 	</div>
 </div>

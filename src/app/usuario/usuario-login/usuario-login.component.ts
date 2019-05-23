@@ -18,6 +18,8 @@ export class UsuarioLoginComponent implements OnInit {
   usuario2 = new Usuario();
   lista : Usuario[];
 
+  admins : Array<string>;
+
 
   /**
     * Constructor for the component
@@ -30,6 +32,8 @@ export class UsuarioLoginComponent implements OnInit {
     private app:AppComponent
 
     ) { 
+
+    this.admins = new Array<string>();      
 }
 
   ngOnInit() {
@@ -59,12 +63,20 @@ export class UsuarioLoginComponent implements OnInit {
                 {
                    if(this.lista[i].password === this.usuario2.password)
                    {
+                     
                       this.usuario2 = this.lista[i];
                       localStorage.setItem('usuarioActual', this.usuario2.username);
                       this.toastrService.success("El usuario ha iniciado la sesion", "Sesion Iniciada");
                       this.app.getCurretUsuario();
                       this.router.navigate(['home']);
                       encontro = 1;
+                      if(this.usuario2.username == "isamasar" || this.usuario2.username == "dan"){
+                        localStorage.setItem("modo", "admin");
+                      }
+                      else
+                      {
+                        localStorage.setItem("modo", "cliente");
+                      }
                    }
                    else
                    {

@@ -152,7 +152,7 @@ export class TrayectoCrearComponent implements OnInit {
 
     this.trayecto.fechaFinal = dateB2; //this.dp.transform(dateB2, "yyyy-MM-dd");
 
-    let dateB3: Date = new Date(
+    let dateB3: any = new Date(
       this.fromDate.year,
       this.fromDate.month - 1,
       this.fromDate.day,
@@ -163,7 +163,7 @@ export class TrayectoCrearComponent implements OnInit {
     );
     this.infoTrayecto.horaInicial = dateB3; //this.dp.transform(dateB2, "yyyy-MM-dd");
 
-    let dateB4: Date = new Date(
+    let dateB4: any = new Date(
       this.fromDate.year,
       this.fromDate.month - 1,
       this.fromDate.day,
@@ -242,7 +242,7 @@ export class TrayectoCrearComponent implements OnInit {
         this.numCarros = this.carros.length;
       });
   }
-  
+
   hoveredDate: NgbDate;
 
   fromDate: NgbDate;

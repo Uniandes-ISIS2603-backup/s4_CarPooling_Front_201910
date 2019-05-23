@@ -26,12 +26,14 @@ export class ListarTrayectoComponent implements OnInit {
         this.trayectoService.getTrayectos().subscribe(trayectos => this.trayectos = trayectos);
     }
 
-
+    modo: string;
 
   ngOnInit() {
     //this.getTrayectos();
     this.trayectos=this.home.getActual();
     this.getCurretUsuario();
+    this.modo = localStorage.getItem("modo");
+    console.log(this.modo);
   }
   onClick(trayecto)
   {

@@ -20,6 +20,7 @@ import { NotificacionService } from './notificacion/notificacion.service';
 export class AppComponent implements OnInit {
 
 
+  mode: string;
        /**
      * @ignore
      */
@@ -67,7 +68,8 @@ export class AppComponent implements OnInit {
         this.title = "s4_carpooling-Front";
         this.authService.start();
         this.getCurretUsuario();
-        
+        this.mode = localStorage.getItem("modo");   
+        console.log(this.mode) 
     }
     
 

@@ -14,18 +14,21 @@
                 <a class="dropdown-item" href="/trayecto/create">Crear Trayecto</a>
                 <a class="dropdown-item" routerLink="/home">Buscar Trayecto</a>
                 <a class="dropdown-item" href="trayecto/mis-trayectos/">Mis trayectos</a>
-              </div>
+            </div>
             </li>
             <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Alquiler
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Crear Alquiler</a>
+                            <a class="dropdown-item" href="">Crear Alquiler</a>
                             <a class="dropdown-item" href="#">Buscar Alquiler</a>
                             <a class="dropdown-item" href="#">Mis Alquiler</a>
                     </div>
                   </li>
+            <div clas= "" *ngIf="modo==='admin'" href="/admin" >Administrador</div>
+                      
+
           </ul>
         </div>
   <div class="col-sm-2">

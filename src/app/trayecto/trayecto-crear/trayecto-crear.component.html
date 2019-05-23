@@ -14,49 +14,33 @@
                 #f="ngForm"
                 novalidate
               >
-
-                <div class="row justify-content-center">
-                  <ngb-datepicker #dp (select)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t" outsideDays="hidden">
-                  </ngb-datepicker>
-
-                  <ng-template #t let-date let-focused="focused">
-                    <span class="custom-day"
-                        [class.focused]="focused"
-                        [class.range]="isRange(date)"
-                        [class.faded]="isHovered(date) || isInside(date)"
-                        (mouseenter)="hoveredDate = date"
-                        (mouseleave)="hoveredDate = null">
-                       {{ date.day }}
-                     </span>
-                    </ng-template>
-
-                </div>
-  
-                <br />
-  
                 <div class="row justify-content-center">
                   <div class="col-sm-6 justify-content-center">
                     <div class="form-group">
-                      <!--<label for="hsalida"><b>Hora de llegada</b></label>
-                      <ngb-timepicker
-                        [ngModel]="horaSalida"
-                        [meridian]="true"
-                        [ngModelOptions]="{ standalone: true }"
-                        required
-                      ></ngb-timepicker>-->
-                    </div>
+                      <label for="fechainicio"><b>Fecha Inicial</b></label>
+                      <div [ngClass]="{ 'is-invalid': f.submitted && fechainicio.invalid }">
+                          <input class="form-control" id="fechainicio" name="fechainicio" [(ngModel)]="fromDate"
+                              ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()"  [ngClass]="{'is-invalid': (fechainicio.untouched || fechainicio.invalid) }"
+                              required>
+                          <div class="invalid-feedback">
+                              <div>Falta la fecha inicial del Trayecto</div>
+                          </div>
+                      </div>
+                  </div>
                   </div>
   
                   <div class="col-sm-6">
                     <div class="form-group">
-                      <label for="hsalida"><b>Hora de salida</b></label>
-                      <!--<ngb-timepicker
-                        [ngModel]="horaLlegada"
-                        [meridian]="true"
-                        [ngModelOptions]="{ standalone: true }"
-                        required
-                      ></ngb-timepicker>-->
-                    </div>
+                      <label for="fechafinal"><b>Fecha Final</b></label>
+                      <div [ngClass]="{ 'is-invalid': f.submitted && fechafinal.invalid }">
+                          <input class="form-control" id="fechafinal" name="fechafinal" [(ngModel)]="fromDate"
+                              ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" [ngClass]="{'is-invalid': (fechafinal.untouched || fechafinal.invalid) }"
+                              required>
+                          <div class="invalid-feedback">
+                              <div>Falta la fecha final del Trayecto</div>
+                          </div>
+                      </div>
+                  </div>
                   </div>
                 </div>
   
