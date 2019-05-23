@@ -1,3 +1,7 @@
+body {
+    background-color: lightblue;
+    font-family: 'Rubik';font-size: 22px;
+}
 .custom-day {
     text-align: center;
     padding: 0.185rem 0.25rem;
