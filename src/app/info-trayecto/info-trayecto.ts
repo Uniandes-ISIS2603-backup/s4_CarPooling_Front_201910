@@ -1,5 +1,6 @@
 import { Peaje } from "../peaje/peaje";
 import { Ciudad } from "../ciudad/ciudad";
+import { Vehiculo } from "../vehiculo/vehiculo";
 
 export class InfoTrayecto {
   idDetalle: number;
@@ -10,11 +11,13 @@ export class InfoTrayecto {
 
   cupos: number;
 
-  horaInicial: number;
+  horaInicial: Date;
 
-  horaFinal: number;
+  horaFinal: Date;
 
   paradas: Array<Ciudad>;
 
   peajes: Array<Peaje>;
+
+  vehiculo: Vehiculo;
 }
