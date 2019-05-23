@@ -6,6 +6,7 @@ import { UsuarioDetail } from "./usuario-detail";
 import { Usuario } from "./usuario";
 import { TrayectoDetail } from "../trayecto/trayecto-detail";
 import { TrayectoService } from "../trayecto/trayecto.service";
+import { Vehiculo } from "../vehiculo/vehiculo";
 
 const API_URL = "http://1e4ae67f.ngrok.io/s4_carpooling-api/api/";
 const usuarios = "usuarios";
@@ -121,18 +122,38 @@ export class UsuarioService {
   /**
    * Agregar un pasajer a un trayecto específico con el usuario pasado por parametro
    */
-  addPasajero(pasajero: string, idtrayecto:number): Observable<TrayectoDetail> {
-    return this.http.put<TrayectoDetail>(API_URL + usuarios + "/" + pasajero + "/trayectosPasajero/" + idtrayecto, null);
+  addPasajero(
+    pasajero: string,
+    idtrayecto: number
+  ): Observable<TrayectoDetail> {
+    return this.http.put<TrayectoDetail>(
+      API_URL + usuarios + "/" + pasajero + "/trayectosPasajero/" + idtrayecto,
+      null
+    );
   }
 
   
 
   /**
-    * Deletes a user
-    * @param username The users's username
-    * @returns True if the user was deleted, false otherwise
-    *
-    deleteUsuario(username): Observable<UsuarioDetail> {
-        return this.http.delete<UsuarioDetail>(API_URL + usuarios + '/' + username);
-    }*/
+   * Agregar un conductor a un trayecto específico con el usuario pasado por parametro
+   */
+  addConductor(
+    conductor: string,
+    trayecto: TrayectoDetail
+  ): Observable<TrayectoDetail> {
+    return this.http.post<TrayectoDetail>(
+      API_URL + usuarios + "/" + conductor + "/trayectosConductor",
+      trayecto
+    );
+  }
+
+  /**
+   * Agregar un vechiulo a un trayecto específico con el vehiculo pasado por parametro
+   */
+  addVehiculo(username: String, vehiculo: Vehiculo): Observable<Vehiculo> {
+    return this.http.post<Vehiculo>(
+      API_URL + usuarios + "/" + username + "/vehiculos",
+      vehiculo
+    );
+  }
 }

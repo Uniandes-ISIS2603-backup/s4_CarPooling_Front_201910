@@ -18,11 +18,11 @@
                     <div class="row">
                             <div class="col-sm-5" *ngIf="t.ciudadOrigen!=null">
                                     <h3>Ciudad Origen</h3>
-                                    <p>{{t.ciudadOrigen}}</p>
+                                    <p>{{t.ciudadOrigen.nombre}}</p>
                             </div>
                             <div class="col-sm-5" *ngIf="t.ciudadDestino!=null">
                                     <h3>Ciudad Destino</h3>
-                                    <p>{{t.ciudadDestino}}</p>
+                                    <p>{{t.ciudadDestino.nombre}}</p>
                             </div>
                 </div>
                     <div class="row">
@@ -80,12 +80,36 @@
         </div>
        
         <i class="fa"></i>
-        <div style="height: 600px">
+        <div style="height: 600px" *ngIf="t.ciudadOrigen!=null">
           <x-map #xmap [Options]="_options" [Box]="_box">
+                        <x-map-marker 
+                        [Latitude]="30.714994" 
+                        [Longitude]="-95.46244"
+                        [Title]="'My Marker2'"
+                        [IconInfo]="_iconInfo">
+                          <x-info-box
+                            [DisableAutoPan]="true"
+                            [Title]="'My InfoBox'"
+                            [Description]="'Hi, this is the content of the <strong>info window</strong>. It is your responsibility to implement functionality such as close, etc...'">
+                              <x-info-box-action [Label]="'Click Me'" (ActionClicked)="_click()"></x-info-box-action>
+                          </x-info-box>
+                      </x-map-marker>   
             <x-map-marker 
-              [Latitude]="29.714994" 
-              [Longitude]="-95.46244"
-              [Title]="'My Marker'"
+              [Latitude]="t.ciudadDestino.lat" 
+              [Longitude]="t.ciudadDestino.lon"
+              [Title]="'Ciudad Destino'"
+              [IconInfo]="_iconInfo">
+                <x-info-box
+                  [DisableAutoPan]="true"
+                  [Title]="'My InfoBox'"
+                  [Description]="'Hi, this is the content of the <strong>info window</strong>. It is your responsibility to implement functionality such as close, etc...'">
+                    <x-info-box-action [Label]="'Click Me'" (ActionClicked)="_click()"></x-info-box-action>
+                </x-info-box>
+            </x-map-marker>
+            <x-map-marker 
+              [Latitude]="t.ciudadOrigen.lat" 
+              [Longitude]="t.ciudadOrigen.lon"
+              [Title]="'Ciudad Origen'"
               [IconInfo]="_iconInfo">
                 <x-info-box
                   [DisableAutoPan]="true"

@@ -15,7 +15,12 @@ import { PeajeService } from "../../peaje/peaje.service";
 
 import { InfoTrayecto } from "../../info-trayecto/info-trayecto";
 import { ReactiveFormsModule } from "@angular/forms";
-import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, FormControl } from "@angular/forms";
+import { NgbDate, NgbCalendar } from "@ng-bootstrap/ng-bootstrap";
+import { Vehiculo } from "../../vehiculo/vehiculo";
+import { UsuarioDetail } from "../../usuario/usuario-detail";
+import { InfoTrayectoService } from "../../info-trayecto/info-trayecto.service";
+import { jsonpCallbackContext } from "@angular/common/http/src/module";
 
 @Component({
   selector: "app-trayecto-crear",
@@ -29,13 +34,17 @@ export class TrayectoCrearComponent implements OnInit {
     private dp: DatePipe,
     private toastrService: ToastrService,
     private trayectoService: TrayectoService,
+    private infotrayectoService: InfoTrayectoService,
     private ciudadService: CiudadService,
     private peajeService: PeajeService,
     private usuarioService: UsuarioService,
     private router: Router,
-  ) 
-  {   }
-  
+    private calendar: NgbCalendar
+  ) {
+    this.fromDate = calendar.getToday();
+    this.toDate = calendar.getNext(calendar.getToday(), "d", 10);
+  }
+
   /**
    * Trauecto nuevo
    */
@@ -46,10 +55,15 @@ export class TrayectoCrearComponent implements OnInit {
    */
   infoTrayecto = new InfoTrayecto();
 
+  /**
+   * Vehiculo nuevo en caso de que se cree
+   */
+  vehiculo = new Vehiculo();
+
   /*
    *Usuario actualmente loggeado
    */
-  usuarioActual: Usuario;
+  usuarioActual: UsuarioDetail;
   /**
    * lista completa de ciudades
    */
@@ -60,15 +74,49 @@ export class TrayectoCrearComponent implements OnInit {
    */
   peajes: Peaje[];
 
-  
+  /**
+   * Mis carros
+   */
+  carros: Vehiculo[];
 
-  productForm: FormGroup;
+  /**
+   * cantidad de carros
+   */
+  numCarros: number;
 
+  /**
+   * parada 1
+   */
+  parada1: Ciudad;
+
+  /**
+   * parada 2
+   */
+  parada2: Ciudad;
+
+  /**
+   * parada 3
+   */
+  parada3: Ciudad;
+
+  /**
+   * Peaje 1
+   */
+  peaje1: Peaje;
+
+  /**
+   * Peaje 1
+   */
+  peaje2: Peaje;
+
+  /**
+   * Peaje 1
+   */
+  peaje3: Peaje;
 
   ngOnInit() {
     this.trayecto = new TrayectoDetail();
     this.infoTrayecto = new InfoTrayecto();
-    this.trayecto.info = this.infoTrayecto;
     this.ciudadService.getCiudades().subscribe(ciudades => {
       this.ciudades = ciudades;
     });
@@ -77,15 +125,15 @@ export class TrayectoCrearComponent implements OnInit {
     });
     this.getCurretUsuario();
 
-     /* Initiate the form structure */
-     /* Initiate the form structure */
-   /* this.productForm = this.fb.group({
+    /* Initiate the form structure */
+    /* Initiate the form structure */
+    /* this.productForm = this.fb.group({
       title: [],
       selling_points: this.fb.array([this.fb.group({point:''})])
     })*/
   }
 
- /* get sellingPoints() {
+  /* get sellingPoints() {
     return this.productForm.get('selling_points') as FormArray;
   }
 
@@ -100,7 +148,6 @@ export class TrayectoCrearComponent implements OnInit {
   }
 */
   //////////// End ////////////////////
-  
 
   cancelCreation(): void {
     this.toastrService.warning(
@@ -111,24 +158,96 @@ export class TrayectoCrearComponent implements OnInit {
   }
 
   createTrayecto() {
+    this.trayecto.id = 1;
+    this.trayecto.estado = 0;
     let dateB1: Date = new Date(
-      this.trayecto.fechaInicial.year,
-      this.trayecto.fechaInicial.month - 1,
-      this.trayecto.fechaInicial.day
+      this.fromDate.year,
+      this.fromDate.month - 1,
+      this.fromDate.day
     );
     this.trayecto.fechaInicial = this.dp.transform(dateB1, "yyyy-MM-dd");
     
     this.trayecto.fechaInicial = this.dp.transform(dateB1, "yyyy-MM-dd");
 
-    this.trayecto.conductor = this.usuarioActual;
-    console.log(this.trayecto.fechaInicial);
-    this.trayectoService.createTrayecto(this.trayecto).subscribe(trayecto => {
-      this.trayecto = trayecto;
-      this.toastrService.success(
-        "El trayecto fue con éxito",
-        "Trayecto Creado"
-      );
+    this.trayecto.fechaFinal = dateB2; //this.dp.transform(dateB2, "yyyy-MM-dd");
+
+    let dateB3: Date = new Date(
+      this.fromDate.year,
+      this.fromDate.month - 1,
+      this.fromDate.day,
+      this.horaSalida.hour,
+      this.horaSalida.minute,
+      0,
+      0
+    );
+    this.infoTrayecto.horaInicial = dateB3; //this.dp.transform(dateB2, "yyyy-MM-dd");
+
+    let dateB4: Date = new Date(
+      this.fromDate.year,
+      this.fromDate.month - 1,
+      this.fromDate.day,
+      this.horaSalida.hour,
+      this.horaSalida.minute,
+      0,
+      0
+    );
+    this.infoTrayecto.horaFinal = dateB3;
+    /** 
+    if (this.parada1 != null) {
+      this.infoTrayecto.paradas.push(this.parada1);
+    }
+    if (this.parada2 != null) {
+      this.infoTrayecto.paradas.push(this.parada2);
+    }
+    if (this.parada3 != null) {
+      this.infoTrayecto.paradas.push(this.parada3);
+    }
+
+    if (this.peaje1 != null) {
+      this.infoTrayecto.peajes.push(this.peaje1);
+    }
+    if (this.peaje1 != null) {
+      this.infoTrayecto.peajes.push(this.peaje2);
+    }
+    if (this.peaje1 != null) {
+      this.infoTrayecto.peajes.push(this.peaje3);
+    }*/
+
+    //this.infoTrayecto.vehiculo = this.vehiculo;
+    /** if (this.numCarros == 0) {
+      this.usuarioService
+        .addVehiculo(this.usuarioActual.username, this.vehiculo)
+        .subscribe(trayecto => {
+          this.vehiculo = trayecto;
+          this.toastrService.success(
+            "El vehiculo de placa " + this.vehiculo.placa + " fue con éxito",
+            "Trayecto Creado"
+          );
+        });
+    }*/
+    //this.infotrayectoService.
+    this.trayectoService.createTrayecto(this.trayecto).subscribe(tray=>{
+      this.infotrayectoService.createInfoTrayecto(this.infoTrayecto).subscribe(info=>{
+                    this.usuarioService
+                    .addConductor(this.usuarioActual.username, tray)
+                    .subscribe(t => {
+                      this.trayecto = t;
+                      this.toastrService.success(
+                        "El trayecto fue con éxito",
+                        "Trayecto Creado"
+                      ); /**
+                      this.infotrayectoService
+                        .createInfoTrayecto(this.infoTrayecto)
+                        .subscribe(info => {
+                          this.infoTrayecto = info;
+                          this.trayectoService
+                            .addTrayectoInfo(this.trayecto.id, this.infoTrayecto.idDetalle)
+                            .subscribe();
+                        }); */
+                    });
+      })
     });
+    
     return this.trayecto;
   }
 
@@ -141,11 +260,50 @@ export class TrayectoCrearComponent implements OnInit {
       .getUsuarioDetail(this.usuarioService.darUsuarioActual())
       .subscribe(usuario => {
         this.usuarioActual = usuario;
+        this.carros = this.usuarioActual.vehiculos;
+        this.numCarros = this.carros.length;
       });
   }
 
-  horaSalida = {hour: 13, minute: 30};
-  horaLlegada = {hour: 13, minute: 30};
+  horaSalida = { hour: 13, minute: 30 };
+  horaLlegada = { hour: 13, minute: 30 };
 
+  hoveredDate: NgbDate;
+
+  fromDate: NgbDate;
+  toDate: NgbDate;
+
+  onDateSelection(date: NgbDate) {
+    if (!this.fromDate && !this.toDate) {
+      this.fromDate = date;
+    } else if (this.fromDate && !this.toDate && date.after(this.fromDate)) {
+      this.toDate = date;
+    } else {
+      this.toDate = null;
+      this.fromDate = date;
+    }
+  }
+
+  isHovered(date: NgbDate) {
+    return (
+      this.fromDate &&
+      !this.toDate &&
+      this.hoveredDate &&
+      date.after(this.fromDate) &&
+      date.before(this.hoveredDate)
+    );
+  }
+
+  isInside(date: NgbDate) {
+    return date.after(this.fromDate) && date.before(this.toDate);
+  }
+
+  isRange(date: NgbDate) {
+    return (
+      date.equals(this.fromDate) ||
+      date.equals(this.toDate) ||
+      this.isInside(date) ||
+      this.isHovered(date)
+    );
+  }
 }
-
