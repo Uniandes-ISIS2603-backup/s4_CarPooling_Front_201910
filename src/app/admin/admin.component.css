@@ -1,1 +1,5 @@
 .button {background-color: #e7e7e7; color: black;} /* Gray */ 
+body {
+    background-color: lightblue;
+    font-family: 'Karla';font-size: 22px;
+  }
