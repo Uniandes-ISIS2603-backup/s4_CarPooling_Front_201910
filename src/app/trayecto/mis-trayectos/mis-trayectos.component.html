@@ -1,10 +1,10 @@
 
 	<h2 class="text-center" >Trayecto Actual</h2>
 	<div class="container" *ngFor="let trayecto of trayectosP">
+			<div class="" *ngIf="trayecto.estado == 1">
 		<mat-card>
 		  <div class="box">
 			<div class="col-8" text-align="center">
-			  <div class="" *ngIf="trayecto.estado == 1">
 				<div id="mensaje" class="row">
 				  <h3>Trayecto # {{ trayecto.id }}</h3>
 				  
@@ -41,9 +41,12 @@
 			  </div>
 			  
 			</div>
-		  </div>
 		</mat-card>
 	</div>
+	</div>
+	<br>
+	<br>
+	<br>
 
 
 <div class ="container-fluid">
