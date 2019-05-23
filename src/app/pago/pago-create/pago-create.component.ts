@@ -5,6 +5,8 @@ import { Info } from '../info';
 import {ToastrService} from 'ngx-toastr';
 import {PagoService} from '../pago.service';
 import {Router} from '@angular/router';
+import { TrayectoService } from '../../trayecto/trayecto.service';
+import { Trayecto } from 'src/app/trayecto/trayecto';
 
 @Component({
   selector: 'app-pago-create',
@@ -18,6 +20,8 @@ export class PagoCreateComponent implements OnInit {
   */
   pago = new Pago();
   
+  valor:any;
+  trayecto:Trayecto;
     /**
     * Constructor for the component
     * @param toastrService The toastr to show messages
@@ -25,13 +29,29 @@ export class PagoCreateComponent implements OnInit {
   constructor(
     private toastrService: ToastrService,
     private pagoService: PagoService,
-    private router: Router
+    private router: Router,
+    private trayectoService:TrayectoService,
 
     ) { }
 
   ngOnInit() {
+    if(localStorage.getItem("trayectoPago")!=null){
+    this.trayectoService.getTrayectoDetail(localStorage.getItem("trayectoPago")).subscribe(a=>{
+      this.trayecto=a;
+      if(a!=null&&a.info!=null){
+      this.valor = a.info.costo;
+      }
+    });
   }
-
+  }
+  pagoEfectivo()
+  {
+    console.log("Funciona")
+  }
+  tarjeta()
+  {
+    console.log("Funciona")
+  }
   /**
    * Cancels the creation of the new payment
   * Redirects to the payments list page  

@@ -4,30 +4,85 @@
             <br>
             <h2 class="text-center">Bienvenido a Cargo</h2>
             <br>
-            <form name="pago" (ngSubmit)="f.form.valid && createPago()" #f="ngForm" novalidate>
-                <div class="form-group">
-                    <label for="id"><b>Id</b></label>
-                    <input type="text" name="id" class="form-control" id="id" [(ngModel)]="pago.id"
-                        #id="ngModel" [ngClass]="{ 'is-invalid': f.submitted && id.invalid }" required>
-                    <div class="invalid-feedback">
-                        <div>Falta el id</div>
-                    </div>
-                </div> 
+
+        
+        <a class="btn btn-light" data-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapseExample" toggle="false">
+                Efectivo
+              </a>
+           
+              <a class="btn btn-light" data-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapseExample" toggle="false">
+                    Tarjeta De Credito
+                  </a>
+        
+            <div id="collapse" class="collapse">
+            <form name="pago" (ngSubmit)="f.form.valid && pagoEfectivo()" #f="ngForm" novalidate>
+                
                 <div class="form-group">
                     <label for="valor"><b>Valor</b></label>
-                    <input type="text" name="valor" class="form-control" id="valor" [(ngModel)]="pago.valor"
-                        #valor="ngModel" [ngClass]="{ 'is-invalid': f.submitted && valor.invalid }" required>
+                    <input disabled type="text" name="valor" class="form-control" id="valor" [(ngModel)]="pago.valor"
+                        #valor="ngModel" [ngClass]="{ 'is-invalid': f.submitted && valor.invalid }" value="{{valor}}"required>
                     <div class="invalid-feedback">
                         <div>Falta el valor</div>
                     </div>
                 </div>
                 <br>
                 <div class="row form-inline justify-content-center align-self-center">
-                    <button type="submit" class="btn btn-primary" routerLink="home" >Create</button>
+                    <button type="submit" class="btn btn-primary" routerLink="home" >Pagar</button>
                     <div class="divider"></div>
-                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
                 </div>
             </form>
+            </div>
+            <div id="collapse2" class="collapse">
+                    <form name="pago" (ngSubmit)="f.form.valid && tarjeta()" #f="ngForm" novalidate>
+                        
+                        <div class="form-group">
+                            <label for="valor"><b>Entidad Bancaria 1</b></label>
+                            <input type="text" name="valor" class="form-control" id="valor" [(ngModel)]="pago.valor"
+                                #valor="ngModel" [ngClass]="{ 'is-invalid': f.submitted && valor.invalid }" required>
+                            <div class="invalid-feedback">
+                                <div>Falta el valor</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                                <label for="valor"><b>Entidad Bancaria 2</b></label>
+                                <input type="text" name="valor" class="form-control" id="valor" [(ngModel)]="pago.valor"
+                                    #valor="ngModel" [ngClass]="{ 'is-invalid': f.submitted && valor.invalid }" required>
+                                <div class="invalid-feedback">
+                                    <div>Falta el valor</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                    <label for="valor"><b>Tarjeta De Credito 1</b></label>
+                                    <input type="text" name="valor" class="form-control" id="valor" [(ngModel)]="pago.valor"
+                                        #valor="ngModel" [ngClass]="{ 'is-invalid': f.submitted && valor.invalid }" required>
+                                    <div class="invalid-feedback">
+                                        <div>Falta el valor</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                        <label for="valor"><b>Tarjeta De Credito 2</b></label>
+                                        <input type="text" name="valor" class="form-control" id="valor" [(ngModel)]="pago.valor"
+                                            #valor="ngModel" [ngClass]="{ 'is-invalid': f.submitted && valor.invalid }" required>
+                                        <div class="invalid-feedback">
+                                            <div>Falta el valor</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="valor"><b>Valor</b></label>
+                                            <input type="text" name="valor" class="form-control" id="valor" [(ngModel)]="pago.valor"
+                                                #valor="ngModel" [ngClass]="{ 'is-invalid': f.submitted && valor.invalid }" required>
+                                            <div class="invalid-feedback">
+                                                <div>Falta el valor</div>
+                                            </div>
+                                        </div>
+                        <div class="row form-inline justify-content-center align-self-center">
+                            <button type="submit" class="btn btn-primary" routerLink="home" >Pagar</button>
+                            <div class="divider"></div>
+                            <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
+                        </div>
+                    </form>
+                    </div>
             <br>
         </div>
     </div>
