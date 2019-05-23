@@ -13,7 +13,7 @@ import { PeajeService } from "../../peaje/peaje.service";
 import { VehiculoService } from "../../vehiculo/vehiculo.service";
 import { Usuario } from "../../usuario/usuario";
 import { NgbCarouselConfig } from "@ng-bootstrap/ng-bootstrap";
-import { CiudadService } from "src/app/ciudad/ciudad.service";
+import { CiudadService } from "../../ciudad/ciudad.service";
 
 @Component({
   selector: "app-home",
