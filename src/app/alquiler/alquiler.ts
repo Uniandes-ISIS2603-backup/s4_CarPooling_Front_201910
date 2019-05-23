@@ -2,7 +2,7 @@
 
 export class Alquiler {
     id:number;
-    nombre:String;
+    nombre:string;
     duenio:number;
     seguro:number;
     arrendatario:number;

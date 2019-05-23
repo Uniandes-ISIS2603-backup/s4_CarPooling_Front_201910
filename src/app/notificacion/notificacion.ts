@@ -20,7 +20,7 @@ export class Notificacion {
 
   tipo: number;
 
-  hasReceptor(): Boolean {
+  hasReceptor(): boolean {
     return hasOwnProperty("receptor");
   }
 }
