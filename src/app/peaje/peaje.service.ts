@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Peaje } from "./peaje";
-const API_URL = " http://e04f10ed.ngrok.io/s4_carpooling-api/api/";
+const API_URL = " http://1e4ae67f.ngrok.io/s4_carpooling-api/api/";
 const Peajes = "peajes";
 @Injectable({
   providedIn: "root"
