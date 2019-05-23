@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { ListarTrayectoComponent} from './listar-trayecto/listar-trayecto.component';
@@ -25,7 +25,8 @@ import { TrayectoDetailCalificarComponent } from './trayecto-detail-calificar/tr
     AppRoutingModule,
     NgbModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule
   ],
   declarations: [ListarTrayectoComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent, MenuComponent, TrayectoFuturoComponent, MisTrayectosComponent, TrayectoDetailCalificarComponent, TrayectoBuscarEspecificoComponent],
   exports: [ListarTrayectoComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent, MenuComponent, TrayectoFuturoComponent, MisTrayectosComponent, TrayectoBuscarEspecificoComponent]
