@@ -21,6 +21,7 @@ import {MapModule, MapAPILoader, MarkerTypeId, IMapOptions, IBox, IMarkerIconInf
   BingMapAPILoaderConfig, BingMapAPILoader, 
   GoogleMapAPILoader,  GoogleMapAPILoaderConfig
 } from 'angular-maps';
+import { TrayectoCreateComponent } from './trayecto-create/trayecto-create.component';
 
 @NgModule({
   imports: [
