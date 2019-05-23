@@ -16,6 +16,7 @@ import { MisTrayectosComponent } from './mis-trayectos/mis-trayectos.component';
 import { MatCardModule, MatButtonModule } from '@angular/material';
 import { TrayectoBuscarEspecificoComponent } from './trayecto-buscar-especifico/trayecto-buscar-especifico.component';
 import { TrayectoDetailCalificarComponent } from './trayecto-detail-calificar/trayecto-detail-calificar.component';
+import { TrayectoCreateComponent } from './trayecto-create/trayecto-create.component';
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import { TrayectoDetailCalificarComponent } from './trayecto-detail-calificar/tr
     MatButtonModule,
     ReactiveFormsModule
   ],
-  declarations: [ListarTrayectoComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent, MenuComponent, TrayectoFuturoComponent, MisTrayectosComponent, TrayectoDetailCalificarComponent, TrayectoBuscarEspecificoComponent],
+  declarations: [ListarTrayectoComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent, MenuComponent, TrayectoFuturoComponent, MisTrayectosComponent, TrayectoDetailCalificarComponent, TrayectoBuscarEspecificoComponent, TrayectoCreateComponent],
   exports: [ListarTrayectoComponent, TrayectoDetailComponent, TrayectoEditComponent, TrayectosComponent, MenuComponent, TrayectoFuturoComponent, MisTrayectosComponent, TrayectoBuscarEspecificoComponent]
 
 })
