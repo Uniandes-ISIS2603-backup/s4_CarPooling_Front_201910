@@ -1,15 +1,17 @@
+<div class = mx-0>
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
       <br />
       <h2 class="text-center">Bienvenido a Trayecto</h2>
       <br />
-      <form
-        name="trayecto"
-        (ngSubmit)="f.form.valid && createTrayecto()"
-        #f="ngForm"
-        novalidate
-      >
+      <div class="row justify-content-center">
+      <div class="col-sm-8">
+        <form name="trayecto" (ngSubmit)="f.form.valid && createTrayecto()" #f="ngForm" novalidate>
+        <label class="text-center">Bienvenido a Trayecto</label>
+
+        <div class="row justify-content-center">
+        <div class="col-sm-6">
         <div class="form-group">
           <label for="fechaInicial"><b>Fecha Inicial</b></label>
           <input
@@ -22,7 +24,7 @@
             (click)="d.toggle()"
             #fechaInicial="ngModel"
             [ngClass]="{
-              'is-invalid': fechaInicial.untouched || fechaInicial.invalid
+              'is-invalid': f.submitted &&n (fechaInicial.untouched || fechaInicial.invalid)
             }"
             required
           />
@@ -30,9 +32,11 @@
             <div>Falta la fecha inicial</div>
           </div>
         </div>
+      </div>
+      <div class="col-sm-6">
         <div class="form-group">
           <label for="fechaFinal"><b>Fecha Final</b></label>
-          <input
+          <input 
             class="form-control"
             id="fechaFinal"
             name="fechaFinal"
@@ -42,7 +46,7 @@
             (click)="d.toggle()"
             #fechaFinal="ngModel"
             [ngClass]="{
-              'is-invalid': fechaFinal.untouched || fechaFinal.invalid
+              'is-invalid': f.submitted &&n (fechaFinal.untouched || fechaFinal.invalid)
             }"
             required
           />
@@ -50,7 +54,10 @@
             <div>Falta la fecha final</div>
           </div>
         </div>
-
+      </div>
+    </div>
+    <div class="row justify-content-center">
+       <div class="col-sm-6">
         <div class="form-group" *ngIf="ciudades != null">
           <label for="origen"><b>Origen</b></label>
           <select
@@ -64,11 +71,14 @@
             >
             <option
               *ngFor="let ciudad of ciudades"
-              value="{{ ciudad.nombre }}"
+              value="{{ trayecto.origen }}"
               >{{ ciudad.nombre }}</option
             >
           </select>
         </div>
+      </div>
+
+      <div class="col-sm-6">
 
         <div class="form-group" *ngIf="ciudades != null">
           <label for="destino"><b>Destino</b></label>
@@ -83,12 +93,36 @@
             >
             <option
               *ngFor="let ciudad of ciudades"
-              value="{{ ciudad.nombre }}"
+              value="{{ trayecto.destino }}"
               >{{ ciudad.nombre }}</option
             >
           </select>
         </div>
+      </div>
+      </div>
+      
+      <div class="row justify-content-center">
+      <div class="col-sm-6">
 
+          <div class="form-group">
+            <label for="hsalida"><b>Hora de llegada</b></label>
+            <ngb-timepicker [ngModel]="horaSalida" [meridian]=true [ngModelOptions]="{standalone: true}" required></ngb-timepicker>
+          </div>
+        </div>
+  
+        <div class="col-sm-6">
+  
+          <div class="form-group">
+              <label for="hsalida"><b>Hora de salida</b></label>
+              <ngb-timepicker [ngModel]="horaLlegada" [meridian]=true [ngModelOptions]="{standalone: true}" required></ngb-timepicker>
+          </div>
+        </div>
+      </div>
+
+      <
+
+      <div class="row justify-content-center">
+      <div class="col-sm-12">
         <div class="form-group">
           <label for="cupos"><b>Cupos disponibles</b></label>
           <input
@@ -98,11 +132,19 @@
             id="cupos"
             [(ngModel)]="infoTrayecto.cupos"
             required
+            [ngClass]="{
+              'is-invalid': f.submitted &&n (cupos>0)
+            }"
           />
           <div class="invalid-feedback">
             <div>Faltan los cupos disponibles</div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-sm-12">
 
         <div class="form-group">
           <label for="costo"><b>Costo</b></label>
@@ -113,43 +155,46 @@
             id="costo"
             [(ngModel)]="infoTrayecto.costo"
             required
+            [ngClass]="{
+              'is-invalid': f.submitted &&n (costo>0)
+            }"
           />
           <div class="invalid-feedback">
             <div>Falta el costo</div>
           </div>
         </div>
+      </div>
+    </div>
 
+
+        <br>
+        <a class="badge badge-pill badge-primary" data-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapseExample" toggle="false">
+            Mas Opciones
+        </a>
+        <br>
+
+
+        <div id="collapse" class="collapse">
         <div class="form-group">
-          <label for="combustible"><b>Combustible</b></label>
-          <input
-            type="number"
-            name="combustible"
-            class="form-control"
-            id="combustible"
-            [(ngModel)]="infoTrayecto.combustible"
-          />
+            <label for="combustible"><b>Combustible</b></label>
+            <input
+              type="number"
+              name="combustible"
+              class="form-control"
+              id="combustible"
+              [(ngModel)]="infoTrayecto.combustible"
+            />
         </div>
 
         <div class="form-group">
-          <label for="hsalida"><b>Hora de salida</b></label>
-          <input
-            type=""
-            name="hsalida"
-            class="form-control"
-            id="hsalida"
-            [(ngModel)]="infoTrayecto.horaInicial"
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="horaFinal"><b>Hora de llegada</b></label>
-          <input
-            type="number"
-            name="horaFinal"
-            class="form-control"
-            id="horaFinal"
-            [(ngModel)]="infoTrayecto.horaFinal"
-          />
+            <label for="numParadas"><b>numParadas</b></label>
+            <input
+              type="number"
+              name="combustible"
+              class="form-control"
+              id="combustible"
+              [(ngModel)]="infoTrayecto.combustible"
+            />
         </div>
 
         <div class="form-group" *ngIf="ciudades != null">
@@ -187,7 +232,7 @@
             }}</option>
           </select>
         </div>
-
+        </div>
         <div class="row form-inline justify-content-center align-self-center">
           <button type="submit" class="btn btn-primary">Create</button>
           <div class="divider"></div>
@@ -200,7 +245,33 @@
           </button>
         </div>
       </form>
+    </div>
+    </div>
       <br />
     </div>
   </div>
 </div>
+</div> 
+
+<!-- <h1>Edit Product</h1>
+
+<form [formGroup]="productForm">
+
+    <label>
+      Title: <input formControlName="title" />
+    </label>
+    <h2>Selling Points</h2>
+  
+    <div formArrayName="selling_points">
+      <div *ngFor="let item of sellingPoints.controls; let pointIndex=index" [formGroupName]="pointIndex">
+      <label>
+        Selling Point: <input formControlName="point" />
+      </label>
+      <button type="button" (click)="deleteSellingPoint(pointIndex)">Delete Selling Point</button>
+      </div>
+      <button type="button" (click)="addSellingPoint()">Add Selling Point</button>
+    </div>
+  
+  </form>
+  
+  {{ this.productForm.value | json }}--> 
