@@ -14,7 +14,6 @@ export class NotificacionService {
   createNotificacion(notificacion: Notificacion) {
     var emisor = notificacion.emisor.username;
     var receptor = notificacion.receptor.username;
-    var mensaje = notificacion.mensaje;
     var trayecto = notificacion.trayecto.id;
     return this.http.post<Notificacion>(
       API_URL +

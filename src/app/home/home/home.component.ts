@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
   retorno = new Array<Trayecto>();
   ciudades: Ciudad[];
   usuarios: Usuario[];
-  ciudadesStrings: String[];
+  ciudadesStrings: string[];
 
   vehiculos: Vehiculo[];
   images = [1, 2, 3, 4].map(

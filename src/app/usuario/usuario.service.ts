@@ -149,7 +149,7 @@ export class UsuarioService {
   /**
    * Agregar un vechiulo a un trayecto específico con el vehiculo pasado por parametro
    */
-  addVehiculo(username: String, vehiculo: Vehiculo): Observable<Vehiculo> {
+  addVehiculo(username: string, vehiculo: Vehiculo): Observable<Vehiculo> {
     return this.http.post<Vehiculo>(
       API_URL + usuarios + "/" + username + "/vehiculos",
       vehiculo
