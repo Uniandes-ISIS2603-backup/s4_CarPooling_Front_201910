@@ -1,10 +1,10 @@
 <div class="row justify-content-md-center">
         <div class="col-sm-10 ">
-    <div class="card text-center">
+    <div class="card text-center" *ngIf="t!=null">
             <div class="card-header">
                 <h1>Trayecto #{{t.id}}</h1>
             </div>
-            <div class="card-body">
+            <div class="card-body" >
                 <div class="row">
                     <div class="col-sm-5" *ngIf="t.fechaFinal!=null">
                             <h2>Fecha Inicial</h2>
@@ -78,6 +78,26 @@
                                         <p *ngFor="let h of t.peajes">{{h.nombre}}<br></p>
                         </div>
         </div>
+       
+        <i class="fa"></i>
+        <div style="height: 600px">
+          <x-map #xmap [Options]="_options" [Box]="_box">
+            <x-map-marker 
+              [Latitude]="29.714994" 
+              [Longitude]="-95.46244"
+              [Title]="'My Marker'"
+              [IconInfo]="_iconInfo">
+                <x-info-box
+                  [DisableAutoPan]="true"
+                  [Title]="'My InfoBox'"
+                  [Description]="'Hi, this is the content of the <strong>info window</strong>. It is your responsibility to implement functionality such as close, etc...'">
+                    <x-info-box-action [Label]="'Click Me'" (ActionClicked)="_click()"></x-info-box-action>
+                </x-info-box>
+            </x-map-marker>
+          </x-map>
+        </div>
+           
+      </div>  
         </div>
     </div>
     </div>
