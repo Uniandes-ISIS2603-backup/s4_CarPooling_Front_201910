@@ -5,6 +5,7 @@ import { UsuarioDetail } from '../../usuario/usuario-detail';
 import { Usuario } from '../../usuario/usuario';
 import { Trayecto } from '../trayecto';
 import { Router } from '@angular/router';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 @Component({
   selector: 'app-mis-trayectos',
@@ -33,8 +34,14 @@ export class MisTrayectosComponent implements OnInit {
   }
 
 
+  pago(trayecto)
+  {
+    localStorage.setItem("trayectoPago",trayecto)
+    this.router.navigate(["pago/create"]);
 
-  getCurretUsuario(){
+    
+  }  
+ getCurretUsuario(){
     this.usernameActual = this.usuarioService.darUsuarioActual();
     this.usuarioService.getUsuarioDetail(this.usernameActual)
             .subscribe(usuario => {
