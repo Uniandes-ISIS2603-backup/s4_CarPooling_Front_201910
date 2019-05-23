@@ -30,7 +30,6 @@ export class CalificacionService {
   createCalificacion(calificacion: Calificacion) {
     var calificado = calificacion.calificado.username;
     var calificador = calificacion.calificador.username;
-    var puntaje = calificacion.puntaje;
     var trayecto = calificacion.trayecto.id;
     return this.http.post<Calificacion>(
       API_URL +
